@@ -1,11 +1,11 @@
 import {
-  Button,
   HistoryOutlined,
   LoadingOutlined,
   Modal,
   Tooltip,
 } from '@ergolabs/ui-kit';
 import { t } from '@lingui/macro';
+import { Button as MatButton, Tooltip as MatTooltip } from '@mui/material';
 import React, { FC } from 'react';
 
 import { useObservable } from '../../../../common/hooks/useObservable';
@@ -34,28 +34,28 @@ export const OperationsHistory: FC = () => {
     isOperationsSyncing || !!pendingOperations?.length || pendingLoading;
 
   return (
-    <Tooltip
+    <MatTooltip
       title={
         showSyncingLabel
           ? t`Synchronizing transaction history. The first time it may take a little longer.`
           : t`Recent transactions`
       }
-      width="100%"
-      maxWidth={200}
       placement="bottom"
     >
-      <Button
-        size="large"
-        type="ghost"
-        icon={showLoader ? <LoadingOutlined /> : <HistoryOutlined />}
+      <MatButton
+        variant="outlined"
+        className="!text-white !px-0 !border !border-gray-300 !border-slate-600 hover:!bg-white/10 !rounded-md !min-w-[42px] !min-h-[42px]"
+        classes={{ startIcon: '!m-0' }}
+        sx={{ border: '1px solid' }}
         onClick={openOperationsHistoryModal}
-      >
-        {showSyncingLabel
-          ? t`Syncing...`
-          : !!pendingOperations?.length
-          ? `${pendingOperations?.length} ` + t`Pending`
-          : ''}
-      </Button>
-    </Tooltip>
+        startIcon={
+          showLoader ? (
+            <LoadingOutlined className="!w-5 h-5" />
+          ) : (
+            <HistoryOutlined className="!w-5 h-5" />
+          )
+        }
+      />
+    </MatTooltip>
   );
 };

@@ -10,6 +10,7 @@ import {
   Typography,
   useDevice,
 } from '@ergolabs/ui-kit';
+import { Card, Paper, useTheme } from '@mui/material';
 import React, { CSSProperties, FC, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
@@ -68,7 +69,6 @@ const Widget = styled(_Widget)`
     }
   }
 
-  background: var(--spectrum-page-footer-bg);
   border-radius: 16px 0 0 16px;
   margin: 16px 0;
   transition: width 0.6s;
@@ -107,94 +107,96 @@ const _Page: React.FC<PageProps> = ({
   className,
   titleChildren,
   onBackButtonClick,
-  padding,
   widgetBaseHeight,
 }) => {
   const navigate = useNavigate();
   const { valBySize, s, m } = useDevice();
-
+  const theme = useTheme();
   return (
-    <Flex
-      className="ergodex-form-page-wrapper"
-      justify="center"
-      align="flex-start"
-      width="100%"
-    >
-      <Flex col align="center" position="relative" width="100%">
-        {title && (
-          <Flex.Item
-            marginBottom={2}
-            flex={1}
-            style={{ width: maxWidth ? '100%' : width ?? 0, maxWidth }}
-          >
-            <Flex align="center" justify="space-between">
-              <Flex.Item>
-                <Flex align="center">
-                  {withBackButton && (
-                    <Flex.Item marginRight={1}>
-                      <Button
-                        type="text"
-                        icon={<ArrowLeftOutlined />}
-                        onClick={() => {
-                          history.length
-                            ? navigate(-1)
-                            : backTo && navigate(backTo);
-                          onBackButtonClick && onBackButtonClick();
-                        }}
-                      />
-                    </Flex.Item>
-                  )}
-                  <Typography.Title level={4}>{title}</Typography.Title>
+    <main className="z-10 flex justify-center w-full pt-10">
+      <Card
+        className="z-10 max-w-md p-6 space-y-4 shadow-lg !rounded-xl"
+        sx={{
+          background: theme.palette.background.default,
+        }}
+      >
+        <Flex
+          className="ergodex-form-page-wrapper"
+          justify="center"
+          align="flex-start"
+          width="100%"
+        >
+          <Flex col align="center" position="relative" width="100%">
+            {title && (
+              <Flex.Item
+                marginBottom={2}
+                flex={1}
+                style={{ width: maxWidth ? '100%' : width ?? 0, maxWidth }}
+              >
+                <Flex align="center" justify="space-between">
+                  <Flex.Item>
+                    <Flex align="center">
+                      {withBackButton && (
+                        <Flex.Item marginRight={1}>
+                          <Button
+                            type="text"
+                            icon={<ArrowLeftOutlined />}
+                            onClick={() => {
+                              history.length
+                                ? navigate(-1)
+                                : backTo && navigate(backTo);
+                              onBackButtonClick && onBackButtonClick();
+                            }}
+                          />
+                        </Flex.Item>
+                      )}
+                      <Typography.Title level={4}>{title}</Typography.Title>
+                    </Flex>
+                  </Flex.Item>
+                  <Flex justify="space-between">{titleChildren}</Flex>
                 </Flex>
               </Flex.Item>
-              <Flex justify="space-between">{titleChildren}</Flex>
+            )}
+            <Flex justify="center" align="flex-start" width="100%">
+              {(s || m) && (
+                <Portal root={document.body}>
+                  <Pane
+                    visible={widgetOpened}
+                    events={{
+                      onBackdropTap: () => onWidgetClose?.(),
+                      onDidDismiss: () => onWidgetClose?.(),
+                    }}
+                  >
+                    {leftWidget}
+                  </Pane>
+                </Portal>
+              )}
+              {!(s || m) && (
+                <Widget
+                  opened={widgetOpened}
+                  widgetBaseHeight={widgetBaseHeight}
+                  style={{
+                    maxWidth: valBySize(undefined, undefined, 624),
+                  }}
+                >
+                  {leftWidget}
+                </Widget>
+              )}
+              <Flex
+                col
+                style={{ width: maxWidth ? '100%' : width ?? 0, maxWidth }}
+              >
+                <Flex.Item style={{ zIndex: 2 }} width="100%">
+                  <div className={className}>{children}</div>
+                </Flex.Item>
+                <Flex.Item style={{ zIndex: 0 }}>{footer}</Flex.Item>
+              </Flex>
             </Flex>
-          </Flex.Item>
-        )}
-        <Flex justify="center" align="flex-start" width="100%">
-          {(s || m) && (
-            <Portal root={document.body}>
-              <Pane
-                visible={widgetOpened}
-                events={{
-                  onBackdropTap: () => onWidgetClose?.(),
-                  onDidDismiss: () => onWidgetClose?.(),
-                }}
-              >
-                {leftWidget}
-              </Pane>
-            </Portal>
-          )}
-          {!(s || m) && (
-            <Widget
-              opened={widgetOpened}
-              widgetBaseHeight={widgetBaseHeight}
-              style={{
-                maxWidth: valBySize(undefined, undefined, 624),
-              }}
-            >
-              {leftWidget}
-            </Widget>
-          )}
-          <Flex col style={{ width: maxWidth ? '100%' : width ?? 0, maxWidth }}>
-            <Flex.Item style={{ zIndex: 2 }} width="100%">
-              <Box
-                className={className}
-                padding={padding ? padding : valBySize([4, 4])}
-                borderRadius="xl"
-                width="100%"
-              >
-                {children}
-              </Box>
-            </Flex.Item>
-            <Flex.Item style={{ zIndex: 0 }}>{footer}</Flex.Item>
           </Flex>
         </Flex>
-      </Flex>
-    </Flex>
+      </Card>
+    </main>
   );
 };
 
-export const Page = styled(_Page)`
-  box-shadow: var(--spectrum-box-box-shadow-form-wrapper);
-`;
+export const Page = _Page;

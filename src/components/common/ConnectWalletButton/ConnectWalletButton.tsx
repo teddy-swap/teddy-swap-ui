@@ -1,18 +1,20 @@
 import {
-  Button,
   ButtonProps,
   ConnectWalletButton as SpectrumConnectWalletButton,
   Modal,
 } from '@ergolabs/ui-kit';
 import { Trans } from '@lingui/macro';
+import { Button } from '@mui/material';
 import cn from 'classnames';
 import React, { FC, ReactNode } from 'react';
 
 import { panalytics } from '../../../common/analytics';
 import { PAnalytics } from '../../../common/analytics/@types/types';
 import { useObservable } from '../../../common/hooks/useObservable';
-import { useAppLoadingState } from '../../../context';
-import { isWalletSetuped$ } from '../../../gateway/api/wallets';
+import {
+  isWalletSetuped$,
+  selectedWalletState$,
+} from '../../../gateway/api/wallets';
 import { ChooseWalletModal } from './ChooseWalletModal/ChooseWalletModal';
 
 export interface ConnectWalletButtonProps {
@@ -29,7 +31,6 @@ export const ConnectWalletButton: FC<ConnectWalletButtonProps> = ({
   analytics,
 }) => {
   const [isWalletConnected] = useObservable(isWalletSetuped$);
-
   const openChooseWalletModal = (): void => {
     Modal.open(({ close }) => <ChooseWalletModal close={close} />);
 
@@ -40,7 +41,17 @@ export const ConnectWalletButton: FC<ConnectWalletButtonProps> = ({
 
   return (
     <>
-      <SpectrumConnectWalletButton
+      {!isWalletConnected && (
+        <Button
+          variant="contained"
+          onClick={openChooseWalletModal}
+          className={cn(className, '!font-bold')}
+        >
+          <Trans>Connect wallet</Trans>
+        </Button>
+      )}
+      {isWalletConnected && <>{children}</>}
+      {/* <SpectrumConnectWalletButton
         size={size}
         onClick={openChooseWalletModal}
         className={cn(className, 'connect-wallet-btn')}
@@ -48,7 +59,7 @@ export const ConnectWalletButton: FC<ConnectWalletButtonProps> = ({
         caption={<Trans>Connect wallet</Trans>}
       >
         {children}
-      </SpectrumConnectWalletButton>
+      </SpectrumConnectWalletButton> */}
     </>
   );
 };

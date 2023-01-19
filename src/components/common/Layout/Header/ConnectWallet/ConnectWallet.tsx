@@ -5,8 +5,14 @@ import { WalletInfoButton } from './WalletInfoButton/WalletInfoButton';
 
 export const ConnectWallet: FC = () => {
   return (
-    <HeaderConnectWalletButton size="large" analytics={{ location: 'header' }}>
-      <WalletInfoButton />
-    </HeaderConnectWalletButton>
+    <div className="text-black dark:text-white border border-gray-300 dark:border-slate-600 rounded-md min-h-[2.5rem] flex items-center p-0.5 gap-2 MuiBox-root css-0">
+      <HeaderConnectWalletButton
+        className="!rounded-md !h-[36px] !normal-case !text-base !w-[208px]"
+        size="large"
+        analytics={{ location: 'header' }}
+      >
+        <WalletInfoButton />
+      </HeaderConnectWalletButton>
+    </div>
   );
 };

@@ -1,10 +1,5 @@
-import React, {
-  FC,
-  PropsWithChildren,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React from 'react';
+import { FC, PropsWithChildren, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import { applicationConfig } from '../../../applicationConfig';
@@ -16,10 +11,8 @@ import { useMetaThemeColor } from '../../../hooks/useMetaThemeColor';
 import { openCookiePolicy } from '../../../services/notifications/CookiePolicy/CookiePolicy';
 import { isDarkOsTheme } from '../../../utils/osTheme';
 import { NetworkHeight } from '../../NetworkHeight/NetworkHeight';
-import { SocialLinks } from '../../SocialLinks/SocialLinks';
 import { CardanoUpdate } from './CardanoUpdate/CardanoUpdate';
 import { FooterNavigation } from './FooterNavigation/FooterNavigation';
-import { Glow } from './Glow/Glow';
 import { Header } from './Header/Header';
 
 const MainContainer = styled.main`
@@ -83,11 +76,15 @@ const _Layout: FC<PropsWithChildren<{ className?: string }>> = ({
 
   return (
     <div ref={ref} className={className}>
-      <Glow />
       {applicationConfig.cardanoUpdate && network.name === 'cardano' ? (
         <CardanoUpdate />
       ) : (
         <>
+          <img
+            src={'/images/bear-with-balloons.png'}
+            alt="plane with bear"
+            className="fixed bottom-0 right-20 w-96"
+          />
           <Header scrolled={scrolled} scrolledTop={scrolledTop} />
           <MainContainer
             style={{ paddingBottom: footerHeight ? footerHeight + 8 : 80 }}
@@ -95,7 +92,7 @@ const _Layout: FC<PropsWithChildren<{ className?: string }>> = ({
             {children}
           </MainContainer>
           <footer>
-            <SocialLinks />
+            {/* <SocialLinks /> */}
             <NetworkHeight />
           </footer>
           <FooterNavigation ref={footerRef} />

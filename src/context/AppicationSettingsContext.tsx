@@ -15,7 +15,7 @@ export type Settings = {
 
 export const DefaultSettings: Readonly<Settings> = {
   explorerUrl: '',
-  theme: isDarkOsTheme() ? 'dark' : 'light',
+  theme: 'dark',
   lang: DEFAULT_LOCALE,
 };
 
