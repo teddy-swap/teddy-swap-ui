@@ -121,9 +121,9 @@ const BurgerMenu = (): JSX.Element => {
 
   const menuOthers = (
     <StyledMenu>
-      <ThemeSwitchContainer>
+      {/* <ThemeSwitchContainer>
         <ThemeSwitch />
-      </ThemeSwitchContainer>
+      </ThemeSwitchContainer> */}
       {menu.map(
         (item, index) =>
           item && (

@@ -59,7 +59,7 @@ export const _Header: React.FC<HeaderProps> = ({
     <>
       <AppBar
         className="fixed px-10 py-0 shadow-sm bg-slate-900/70 h-[64px]"
-        style={{ backgroundImage: 'none', zIndex: 1 }}
+        style={{ backgroundImage: 'none', zIndex: 11 }}
       >
         <Toolbar disableGutters>
           <TeddyLogo className="hidden mr-6 md:flex" />

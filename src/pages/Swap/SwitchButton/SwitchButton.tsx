@@ -6,7 +6,7 @@ export type SwitchButtonProps = ButtonProps;
 
 const _SwitchButton = ({ className, ...rest }: SwitchButtonProps) => (
   <div className={className}>
-    <Button {...rest} />
+    <Button className="!rounded-full" {...rest} />
   </div>
 );
 

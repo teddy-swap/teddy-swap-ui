@@ -756,6 +756,10 @@ video {
   border-radius: 0.375rem;
 }
 
+.\!rounded-full {
+  border-radius: 9999px !important;
+}
+
 .border {
   border-width: 1px;
 }
@@ -777,6 +781,11 @@ video {
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
+.border-slate-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(71 85 105 / var(--tw-border-opacity));
 }
 
 .bg-slate-900\/70 {

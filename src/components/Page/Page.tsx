@@ -114,8 +114,9 @@ const _Page: React.FC<PageProps> = ({
   const theme = useTheme();
   return (
     <main className="z-10 flex justify-center w-full pt-10">
-      <Card
-        className="z-10 max-w-md p-6 space-y-4 shadow-lg !rounded-xl"
+      <Paper
+        elevation={10}
+        className="z-10 max-w-md p-6 space-y-4 !rounded-xl"
         sx={{
           background: theme.palette.background.default,
         }}
@@ -194,7 +195,7 @@ const _Page: React.FC<PageProps> = ({
             </Flex>
           </Flex>
         </Flex>
-      </Card>
+      </Paper>
     </main>
   );
 };
