@@ -2,10 +2,10 @@ import {
   extractPaymentCred,
   mkHistory,
   ScriptCredsV1,
-} from '@ergolabs/cardano-dex-sdk';
-import { mkOrdersParser } from '@ergolabs/cardano-dex-sdk/build/main/amm/parsers/ordersParser';
-import { History } from '@ergolabs/cardano-dex-sdk/build/main/amm/services/history';
-import { RustModule } from '@ergolabs/cardano-dex-sdk/build/main/utils/rustLoader';
+} from '@teddyswap/cardano-dex-sdk';
+import { mkOrdersParser } from '@teddyswap/cardano-dex-sdk/build/main/amm/parsers/ordersParser';
+import { History } from '@teddyswap/cardano-dex-sdk/build/main/amm/services/history';
+import { RustModule } from '@teddyswap/cardano-dex-sdk/build/main/utils/rustLoader';
 import uniqBy from 'lodash/uniqBy';
 import {
   combineLatest,

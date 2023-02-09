@@ -5,6 +5,7 @@ import { WalletState, WalletSupportedFeatures } from '../../../common/Wallet';
 import { makeWalletManager } from '../../../common/WalletManager';
 import { CardanoWalletContract } from './common/CardanoWalletContract';
 import { Eternl } from './eternl/eternl';
+import { Flint } from './flint/flint';
 import { Gero } from './gero/gero';
 import { Nami } from './nami/nami';
 
@@ -12,7 +13,7 @@ const CARDANO_SELECTED_WALLET_TOKEN = 'cardano-selected-wallet';
 
 export const cardanoWalletManager = makeWalletManager<CardanoWalletContract>(
   CARDANO_SELECTED_WALLET_TOKEN,
-  [Nami, Eternl, Gero],
+  [Flint, Nami, Eternl, Gero],
   (w: CardanoWalletContract) => w.connectWallet(),
 );
 

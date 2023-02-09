@@ -2,8 +2,8 @@ namespace CardanoBridge {
   import {
     RawTx,
     RawUnsignedTx,
-  } from '@ergolabs/cardano-dex-sdk/build/main/cardano/entities/tx';
-  import { Paging } from '@ergolabs/cardano-dex-sdk';
+  } from '@teddyswap/cardano-dex-sdk/build/main/cardano/entities/tx';
+  import { Paging } from '@teddyswap/cardano-dex-sdk';
   import { HexString } from '@ergolabs/ergo-sdk';
 
   type EncodedTxOut = HexString;

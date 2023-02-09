@@ -1,13 +1,13 @@
 import {
   AmmDexOperation,
   AmmOrder,
-} from '@ergolabs/cardano-dex-sdk/build/main/amm/models/operations';
+} from '@teddyswap/cardano-dex-sdk/build/main/amm/models/operations';
 import {
   Deposit,
   Redeem,
   Swap,
-} from '@ergolabs/cardano-dex-sdk/build/main/amm/models/orderInfo';
-import { mkSubject } from '@ergolabs/cardano-dex-sdk/build/main/cardano/entities/assetClass';
+} from '@teddyswap/cardano-dex-sdk/build/main/amm/models/orderInfo';
+import { mkSubject } from '@teddyswap/cardano-dex-sdk/build/main/cardano/entities/assetClass';
 import { DateTime } from 'luxon';
 import {
   catchError,
