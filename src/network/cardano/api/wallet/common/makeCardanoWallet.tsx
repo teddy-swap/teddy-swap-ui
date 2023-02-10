@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import { notification } from '@ergolabs/ui-kit';
 import {
   decodeAddr,
   decodeWasmUtxo,
@@ -7,15 +8,14 @@ import {
   RawTxWitnessSet,
   toWasmValue,
   Value,
-} from '@ergolabs/cardano-dex-sdk';
+} from '@teddyswap/cardano-dex-sdk';
 import {
   RawTx,
   RawUnsignedTx,
-} from '@ergolabs/cardano-dex-sdk/build/main/cardano/entities/tx';
-import { TxOut } from '@ergolabs/cardano-dex-sdk/build/main/cardano/entities/txOut';
-import { encodeHex } from '@ergolabs/cardano-dex-sdk/build/main/utils/hex';
-import { RustModule } from '@ergolabs/cardano-dex-sdk/build/main/utils/rustLoader';
-import { notification } from '@ergolabs/ui-kit';
+} from '@teddyswap/cardano-dex-sdk/build/main/cardano/entities/tx';
+import { TxOut } from '@teddyswap/cardano-dex-sdk/build/main/cardano/entities/txOut';
+import { encodeHex } from '@teddyswap/cardano-dex-sdk/build/main/utils/hex';
+import { RustModule } from '@teddyswap/cardano-dex-sdk/build/main/utils/rustLoader';
 import uniq from 'lodash/uniq';
 import React, { ReactNode } from 'react';
 import {

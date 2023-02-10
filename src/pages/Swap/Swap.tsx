@@ -1,17 +1,11 @@
-import {
-  Button,
-  Flex,
-  Form,
-  LineChartOutlined,
-  SwapOutlined,
-  Typography,
-  useForm,
-} from '@ergolabs/ui-kit';
+import { Flex, Form, SwapOutlined, useForm } from '@ergolabs/ui-kit';
 import { Trans } from '@lingui/macro';
+import { CardHeader } from '@mui/material';
 import findLast from 'lodash/findLast';
 import maxBy from 'lodash/maxBy';
 import { DateTime } from 'luxon';
-import React, { useMemo, useState } from 'react';
+import React from 'react';
+import { useMemo, useState } from 'react';
 import {
   BehaviorSubject,
   combineLatest,
@@ -42,6 +36,7 @@ import {
 import { ActionForm } from '../../components/common/ActionForm/ActionForm';
 import { AssetControlFormItem } from '../../components/common/TokenControl/AssetControl';
 import { Page } from '../../components/Page/Page';
+import SwapIcon from '../../components/SwapIcon/SwapIcon';
 import { ammPools$, getAmmPoolsByAssetPair } from '../../gateway/api/ammPools';
 import { useAssetsBalance } from '../../gateway/api/assetBalance';
 import {
@@ -418,23 +413,13 @@ export const Swap = (): JSX.Element => {
         widgetOpened={leftWidgetOpened}
         onWidgetClose={() => setLeftWidgetOpened(false)}
       >
+        <CardHeader
+          action={OperationSettings && <OperationSettings />}
+          title="Swap"
+          classes={{ title: '!font-bold !text-xl' }}
+          className="!p-0 !text-white"
+        />
         <Flex col>
-          <Flex row align="center">
-            <Flex.Item flex={1}>
-              <Typography.Title level={4}>
-                <Trans>Swap</Trans>
-              </Typography.Title>
-            </Flex.Item>
-            {selectedNetwork.name === 'ergo' && (
-              <Button
-                type="text"
-                size="large"
-                icon={<LineChartOutlined />}
-                onClick={() => setLeftWidgetOpened(!leftWidgetOpened)}
-              />
-            )}
-            {OperationSettings && <OperationSettings />}
-          </Flex>
           <Flex.Item marginBottom={1} marginTop={2}>
             <AssetControlFormItem
               loading={allAmmPoolsLoading}
@@ -455,7 +440,7 @@ export const Swap = (): JSX.Element => {
           </Flex.Item>
           <SwitchButton
             onClick={switchAssets}
-            icon={<SwapOutlined />}
+            icon={<SwapIcon className="rotate-90 w-5 h-5 ml-[5px]" />}
             size="middle"
           />
           <Flex.Item>
@@ -481,6 +466,11 @@ export const Swap = (): JSX.Element => {
               </Flex.Item>
             )}
           </Form.Item>
+          <Flex.Item marginTop={4}>
+            <ActionForm.Button analytics={{ location: 'swap' }}>
+              <Trans>Swap</Trans>
+            </ActionForm.Button>
+          </Flex.Item>
           <Form.Listener>
             {({ value }) => (
               <Flex.Item marginTop={!!value.pool ? 4 : 0}>
@@ -492,11 +482,6 @@ export const Swap = (): JSX.Element => {
               </Flex.Item>
             )}
           </Form.Listener>
-          <Flex.Item marginTop={4}>
-            <ActionForm.Button analytics={{ location: 'swap' }}>
-              <Trans>Swap</Trans>
-            </ActionForm.Button>
-          </Flex.Item>
         </Flex>
       </Page>
     </ActionForm>

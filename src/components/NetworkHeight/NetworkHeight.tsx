@@ -25,7 +25,7 @@ const NetworkHeight = (): JSX.Element => {
     <>
       {networkContext ? (
         <Typography.Link
-          onClick={() => exploreLastBlock(networkContext?.lastBlockId)}
+          onClick={() => exploreLastBlock(networkContext?.height)}
           strong
           className="network-height"
           type="success"

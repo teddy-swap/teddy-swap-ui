@@ -34,7 +34,10 @@ const _WalletInfoButton: FC<WalletInfoButtonProps> = ({ className }) => {
         {!s && networkAssetBalance !== undefined && (
           <>
             <Flex.Item marginLeft={1} marginRight={2}>
-              <BalanceView balance={networkAssetBalance} />
+              <BalanceView
+                balance={networkAssetBalance}
+                className="!font-bold"
+              />
             </Flex.Item>
           </>
         )}
@@ -48,26 +51,23 @@ const _WalletInfoButton: FC<WalletInfoButtonProps> = ({ className }) => {
 };
 
 export const WalletInfoButton = styled(_WalletInfoButton)`
-  height: 40px;
+  height: 36px;
   padding: 4px;
-  border: 1px solid var(--spectrum-box-border-color);
-  background: var(--spectrum-connect-wallet-address-btn-bg);
-  color: var(--spectrum-connect-wallet-address-btn-color);
+  border: none;
+  background: transparent;
 
   &:hover {
-    border: 1px solid var(--spectrum-box-border-color);
-    background: var(--spectrum-connect-wallet-address-btn-bg);
-    color: var(--spectrum-connect-wallet-address-btn-color);
+    border: none;
+    background: transparent;
   }
 
   &:active,
   &:focus {
-    border: 1px solid var(--spectrum-box-border-color);
-    background: var(--spectrum-connect-wallet-address-btn-bg);
-    color: var(--spectrum-connect-wallet-address-btn-color);
+    border: none;
+    background: transparent;
   }
 
   &.ant-btn-loading {
-    border: 1px solid var(--spectrum-box-border-color);
+    border: none;
   }
 `;

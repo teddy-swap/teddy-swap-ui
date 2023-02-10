@@ -5,11 +5,11 @@ import {
   mkTxMath,
   stakeKeyHashFromAddr,
   TxCandidate,
-} from '@ergolabs/cardano-dex-sdk';
-import { OrderKind } from '@ergolabs/cardano-dex-sdk/build/main/amm/models/opRequests';
-import { OrderAddrsV1Testnet } from '@ergolabs/cardano-dex-sdk/build/main/amm/scripts';
-import { NetworkParams } from '@ergolabs/cardano-dex-sdk/build/main/cardano/entities/env';
-import { RustModule } from '@ergolabs/cardano-dex-sdk/build/main/utils/rustLoader';
+} from '@teddyswap/cardano-dex-sdk';
+import { OrderKind } from '@teddyswap/cardano-dex-sdk/build/main/amm/models/opRequests';
+import { OrderAddrsV1Testnet } from '@teddyswap/cardano-dex-sdk/build/main/amm/scripts';
+import { NetworkParams } from '@teddyswap/cardano-dex-sdk/build/main/cardano/entities/env';
+import { RustModule } from '@teddyswap/cardano-dex-sdk/build/main/utils/rustLoader';
 import React from 'react';
 import { first, map, Observable, Subject, switchMap, tap, zip } from 'rxjs';
 

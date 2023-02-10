@@ -22,7 +22,7 @@ export const routesConfig: RouteConfigExtended[] = [
       {
         path: `:network`,
         element: (
-          <Layout>
+          <Layout className="bg-gradient-to-t min-h-screen p-4 from-sky-900/50 to-cyan-800">
             <Outlet />
           </Layout>
         ),
@@ -114,7 +114,7 @@ export const ApplicationRoutes: FC = () => {
     <>
       <RouterTitle
         divider="·"
-        pageTitle={networkTitle ? `Spectrum · ${networkTitle}` : 'Spectrum'}
+        pageTitle={networkTitle ? `TeddySwap · ${networkTitle}` : 'TeddySwap'}
         routesConfig={routesConfig}
       />
       {routes}

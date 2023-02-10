@@ -1,5 +1,5 @@
-import { AmmPool as CardanoBaseAmmPool } from '@ergolabs/cardano-dex-sdk';
 import { AmmPool as ErgoBaseAmmPool } from '@ergolabs/ergo-dex-sdk';
+import { AmmPool as CardanoBaseAmmPool } from '@teddyswap/cardano-dex-sdk';
 import { cache } from 'decorator-cache-getter';
 import { evaluate } from 'mathjs';
 

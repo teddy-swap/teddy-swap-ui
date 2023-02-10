@@ -11,6 +11,7 @@ import {
   useForm,
 } from '@ergolabs/ui-kit';
 import { t, Trans } from '@lingui/macro';
+import { IconButton } from '@mui/material';
 import React, { FC, useState } from 'react';
 import { filter, skip } from 'rxjs';
 
@@ -18,6 +19,7 @@ import { MIN_NITRO } from '../../common/constants/erg';
 import { defaultSlippage, MIN_SLIPPAGE } from '../../common/constants/settings';
 import { useSubscription } from '../../common/hooks/useObservable';
 import { Currency } from '../../common/models/Currency';
+import TuneIcon from '../../components/TuneIcon/TuneIcon';
 import { InfoTooltip } from '../InfoTooltip/InfoTooltip';
 import { NitroInput } from './NitroInput/NitroInput';
 import { SlippageInput } from './SlippageInput/SlippageInput';
@@ -195,7 +197,9 @@ export const OperationSettings: FC<OperationSettingsProps> = ({
       visible={isPopoverShown}
       onVisibleChange={handlePopoverShown}
     >
-      <Button type="text" size="large" icon={<SettingOutlined />} />
+      <IconButton aria-label="tune">
+        <TuneIcon className="w-6 h-6 dark:text-white" />
+      </IconButton>
     </Popover>
   );
 };

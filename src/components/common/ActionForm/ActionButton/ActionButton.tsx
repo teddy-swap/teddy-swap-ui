@@ -171,7 +171,7 @@ export const ActionButton: FC<ActionButtonProps> = (props) => {
 
   return (
     <ConnectWalletButton
-      className="action-form__connect-btn"
+      className="action-form__connect-btn !py-3 !rounded-xl !text-[20px] !normal-case"
       size="extra-large"
       analytics={props.analytics}
     >

@@ -1,5 +1,5 @@
-import { minBudgetForSwap, mkTxMath } from '@ergolabs/cardano-dex-sdk';
-import { RustModule } from '@ergolabs/cardano-dex-sdk/build/main/utils/rustLoader';
+import { minBudgetForSwap, mkTxMath } from '@teddyswap/cardano-dex-sdk';
+import { RustModule } from '@teddyswap/cardano-dex-sdk/build/main/utils/rustLoader';
 import { map, Observable } from 'rxjs';
 
 import { UI_FEE_BIGINT } from '../../../common/constants/erg';

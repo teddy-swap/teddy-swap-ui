@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Temporary style
+ */
+.dark {
+    --spectrum-box-bg-secondary: rgb(39 39 42 / 0.5) !important;
+    --spectrum-disabled-color:  rgb(39 39 42 / 0.5) !important;
+    --spectrum-primary-text: #fff !important;
+    --spectrum-primary-color: rgb(3 105 161 / 1) !important;
+    --spectrum-primary-color-hover: rgb(3 105 161 / 1) !important;
+}
+
+.ant-btn,
+.ant-typography,
+.ant-input,
+.ant-tooltip-open,
+.ant-dropdown-menu-item,
+.ant-tabs {
+    font-family: "Montserrat", sans-serif !important;
+}
