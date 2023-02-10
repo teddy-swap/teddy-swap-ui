@@ -62,8 +62,8 @@ const theme = createTheme({
 });
 
 const initializers: Observable<boolean>[] = [
-  sentryInitializer(),
-  panalytics.init(),
+  // sentryInitializer(),
+  // panalytics.init(),
   networkDomInitializer(routesConfig),
   gaInitializer(),
 ];

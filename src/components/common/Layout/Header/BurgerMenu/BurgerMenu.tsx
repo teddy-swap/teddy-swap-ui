@@ -70,45 +70,26 @@ const BurgerMenu = (): JSX.Element => {
     {
       title: t`About`,
       icon: <InfoCircleOutlined />,
-      link: 'https://docs.spectrum.fi/docs/about-spectrumdex/intro',
+      link: 'https://docs.teddyswap.org/',
       onClick: () => panalytics.clickBurgerMenu('About'),
     },
     {
       title: t`How to use`,
       icon: <QuestionCircleOutlined />,
-      link: 'https://docs.spectrum.fi/docs/user-guides/quick-start',
+      link: 'https://docs.teddyswap.org/',
       onClick: () => panalytics.clickBurgerMenu('How to use'),
     },
     {
       title: t`Docs`,
       icon: <FileTextOutlined />,
-      link: 'https://docs.spectrum.fi',
+      link: 'https://docs.teddyswap.org/',
       onClick: () => panalytics.clickBurgerMenu('Docs'),
     },
     {
       title: 'GitHub',
       icon: <GithubOutlined />,
-      link: 'https://github.com/spectrum-finance',
+      link: 'https://github.com/teddy-swap/',
       onClick: () => panalytics.clickBurgerMenu('GitHub'),
-    },
-    selectedNetwork.name === 'ergo'
-      ? {
-          title: t`Manual Refund`,
-          icon: <ReloadOutlined />,
-          onClick: () => {
-            setMenuVisible(false);
-            panalytics.clickBurgerMenu('Manual Refund');
-            Modal.open(({ close }) => <ManualRefundModal close={close} />);
-          },
-        }
-      : undefined,
-    {
-      title: t`Language`,
-      icon: <GlobalOutlined />,
-      additional: <RightOutlined style={{ marginLeft: 36 }} />,
-      onClick: () => {
-        setIsMainMenu(false);
-      },
     },
   ];
 
