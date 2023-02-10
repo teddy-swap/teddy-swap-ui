@@ -62,12 +62,12 @@ export const applicationConfig: ApplicationConfig = {
   //   title: 'Under Maintenance',
   //   content: 'We are migrating the protocol to Vasil Hard Fork testnet.',
   // },
-  reCaptchaKey: '6LfCKZIiAAAAACypYW5pGlgZNTcwse1njmQMIUUL',
+  reCaptchaKey: '',
   requestRetryCount: 3,
   networksSettings: {
     cardano: {
       metadataUrl: 'https://meta.spectrum.fi/cardano/metadata',
-      networkUrl: 'https://explorer.spectrum.fi/cardano/v1/',
+      networkUrl: 'https://8081-parallel-guidance-uagipf.us1.demeter.run/v1/',
       explorerUrl: 'https://preview.cexplorer.io',
       faucet: 'https://faucet.spectrum.fi/cardano/v1/',
       lowBalanceGuide: '',

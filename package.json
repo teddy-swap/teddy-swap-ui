@@ -1,10 +1,10 @@
 {
-  "name": "ergo-dex-frontend",
-  "version": "3.2.1",
+  "name": "teddyswap-frontend",
+  "version": "4.0.0",
   "private": false,
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
+    "build": "npx tailwindcss -i ./src/assets/tailwind/app.css -o ./public/dist/app.css -m && react-app-rewired build",
     "test": "react-app-rewired test",
     "prei18n:extract": "touch src/i18n/locales/en-US.po",
     "i18n:extract": "lingui extract --locale en-US",

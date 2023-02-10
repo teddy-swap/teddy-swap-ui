@@ -24,15 +24,11 @@ const Application = () => {
         <CssBaseline />
         <AppLoadingProvider>
           <SettingsProvider>
-            <GoogleReCaptchaProvider
-              reCaptchaKey={applicationConfig.reCaptchaKey}
-            >
-              <LanguageProvider>
-                <ContextModalProvider>
-                  <ApplicationRoutes />
-                </ContextModalProvider>
-              </LanguageProvider>
-            </GoogleReCaptchaProvider>
+            <LanguageProvider>
+              <ContextModalProvider>
+                <ApplicationRoutes />
+              </ContextModalProvider>
+            </LanguageProvider>
           </SettingsProvider>
         </AppLoadingProvider>
       </ThemeProvider>
