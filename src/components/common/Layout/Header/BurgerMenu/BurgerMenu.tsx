@@ -13,6 +13,7 @@ import {
   RightOutlined,
 } from '@ergolabs/ui-kit';
 import { t, Trans } from '@lingui/macro';
+import { Button as MatButton } from '@mui/material';
 import { stringify } from 'qs';
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
@@ -26,8 +27,8 @@ import {
 import { useApplicationSettings } from '../../../../../context';
 import { useSelectedNetwork } from '../../../../../gateway/common/network';
 import { useQuery } from '../../../../../hooks/useQuery';
+import SettingsIcon from '../../../../SettingsIcon/SettingsIcon';
 import { ThemeSwitch } from '../../../../ThemeSwitch/ThemeSwitch';
-import { DotsIcon } from '../../../Icons/DotsIcon';
 import { ManualRefundModal } from './ManualRefundModal/ManualRefundModal';
 
 const StyledMenu = styled(Menu)`
@@ -120,9 +121,9 @@ const BurgerMenu = (): JSX.Element => {
 
   const menuOthers = (
     <StyledMenu>
-      <ThemeSwitchContainer>
+      {/* <ThemeSwitchContainer>
         <ThemeSwitch />
-      </ThemeSwitchContainer>
+      </ThemeSwitchContainer> */}
       {menu.map(
         (item, index) =>
           item && (
@@ -192,7 +193,13 @@ const BurgerMenu = (): JSX.Element => {
       visible={isMenuVisible}
       onVisibleChange={onMenuVisibleChange}
     >
-      <Button className="header__btn" size="large" icon={<DotsIcon />} />
+      <MatButton
+        variant="outlined"
+        className="!text-white !px-0 !border !border-gray-300 !border-slate-600 hover:!bg-white/10 !rounded-md !min-w-[42px] !min-h-[42px]"
+        classes={{ startIcon: '!m-0' }}
+        sx={{ border: '1px solid' }}
+        startIcon={<SettingsIcon className="!w-5 h-5" />}
+      />
     </Dropdown>
   );
 };

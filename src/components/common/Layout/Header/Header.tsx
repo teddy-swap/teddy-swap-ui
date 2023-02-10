@@ -1,6 +1,8 @@
 import { Flex, useDevice } from '@ergolabs/ui-kit';
+import { AppBar, Box, Toolbar } from '@mui/material';
 import cn from 'classnames';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { device } from '../../../../common/constants/size';
@@ -10,6 +12,7 @@ import { WalletState } from '../../../../network/common/Wallet';
 import { IsCardano } from '../../../IsCardano/IsCardano';
 import { IsErgo } from '../../../IsErgo/IsErgo';
 import { AppLogo } from '../../AppLogo/AppLogo';
+import TeddyLogo from '../../AppLogo/TeddyLogo';
 import { CardanoMaintenance } from '../CardanoMaintenance/CardanoMaintenance';
 import { OperationsHistory } from '../OperationsHistory/OperationsHistory';
 import { Analytics } from './Analytics/Analytics';
@@ -42,48 +45,85 @@ const HeaderWrapper = styled.div`
   }
 `;
 
+const pages = ['swap', 'liquidity', 'farm', 'orders'];
+
 export const _Header: React.FC<HeaderProps> = ({
   className,
   scrolled,
   scrolledTop,
 }) => {
-  const { s, moreThan } = useDevice();
+  const { s } = useDevice();
   const [walletState] = useObservable(selectedWalletState$);
 
   return (
-    <header
-      className={cn(
-        {
-          scrolled,
-          scrolledFromTop: moreThan('s') && !scrolledTop,
-        },
-        className,
-      )}
-    >
-      <CardanoMaintenance />
-      <HeaderWrapper>
-        <Flex align="center" style={{ gap: '8px' }}>
-          <Flex.Item marginRight={2} align="center">
-            <AppLogo isNoWording />
-          </Flex.Item>
-          {moreThan('l') && <Navigation />}
-          <IsErgo>
-            <Analytics />
-          </IsErgo>
-          {!s && (
-            <IsCardano>
-              <GetTestTokensButton />
-            </IsCardano>
-          )}
-        </Flex>
-        <Flex align="center" style={{ gap: '8px', marginLeft: 'auto' }}>
-          <NetworkDropdown />
-          <ConnectWallet />
-          {!s && walletState === WalletState.CONNECTED && <OperationsHistory />}
-          <BurgerMenu />
-        </Flex>
-      </HeaderWrapper>
-    </header>
+    <>
+      <AppBar
+        className="fixed px-10 py-0 shadow-sm bg-slate-900/70 h-[64px]"
+        style={{ backgroundImage: 'none', zIndex: 11 }}
+      >
+        <Toolbar disableGutters>
+          <TeddyLogo className="hidden mr-6 md:flex" />
+          <TeddyLogo className="flex md:hidden" />
+          <Box className="flex-grow hidden gap-6 md:flex">
+            {pages.map((page) => (
+              <NavLink
+                to={page}
+                key={page}
+                className={({ isActive }) =>
+                  `my-2 block text-base font-bold capitalize hover:text-white transition ${
+                    isActive ? 'text-white' : 'text-zinc-400'
+                  }`
+                }
+              >
+                {page}
+              </NavLink>
+            ))}
+          </Box>
+          <Flex align="center" style={{ gap: '8px', marginLeft: 'auto' }}>
+            <ConnectWallet />
+            {!s && walletState === WalletState.CONNECTED && (
+              <OperationsHistory />
+            )}
+            <BurgerMenu />
+          </Flex>
+        </Toolbar>
+      </AppBar>
+      {/* <header
+        className={cn(
+          {
+            scrolled,
+            scrolledFromTop: moreThan('s') && !scrolledTop,
+          },
+          className,
+        )}
+      >
+        <CardanoMaintenance />
+        <HeaderWrapper>
+          <Flex align="center" style={{ gap: '8px' }}>
+            <Flex.Item marginRight={2} align="center">
+              <AppLogo isNoWording />
+            </Flex.Item>
+            {moreThan('l') && <Navigation />}
+            <IsErgo>
+              <Analytics />
+            </IsErgo>
+            {!s && (
+              <IsCardano>
+                <GetTestTokensButton />
+              </IsCardano>
+            )}
+          </Flex>
+          <Flex align="center" style={{ gap: '8px', marginLeft: 'auto' }}>
+            <NetworkDropdown />
+            <ConnectWallet />
+            {!s && walletState === WalletState.CONNECTED && (
+              <OperationsHistory />
+            )}
+            <BurgerMenu />
+          </Flex>
+        </HeaderWrapper>
+      </header> */}
+    </>
   );
 };
 

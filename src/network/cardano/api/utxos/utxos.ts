@@ -1,5 +1,5 @@
-import { Value } from '@ergolabs/cardano-dex-sdk';
-import { TxOut } from '@ergolabs/cardano-dex-sdk/build/main/cardano/entities/txOut';
+import { Value } from '@teddyswap/cardano-dex-sdk';
+import { TxOut } from '@teddyswap/cardano-dex-sdk/build/main/cardano/entities/txOut';
 import {
   first,
   mapTo,

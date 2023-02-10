@@ -1,4 +1,6 @@
 import { ContextModalProvider } from '@ergolabs/ui-kit';
+import { CssBaseline } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import React, { Suspense, useEffect } from 'react';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { BrowserRouter } from 'react-router-dom';
@@ -18,22 +20,46 @@ import { LanguageProvider } from './i18n/i18n';
 const Application = () => {
   return (
     <BrowserRouter>
-      <AppLoadingProvider>
-        <SettingsProvider>
-          <GoogleReCaptchaProvider
-            reCaptchaKey={applicationConfig.reCaptchaKey}
-          >
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <AppLoadingProvider>
+          <SettingsProvider>
             <LanguageProvider>
               <ContextModalProvider>
                 <ApplicationRoutes />
               </ContextModalProvider>
             </LanguageProvider>
-          </GoogleReCaptchaProvider>
-        </SettingsProvider>
-      </AppLoadingProvider>
+          </SettingsProvider>
+        </AppLoadingProvider>
+      </ThemeProvider>
     </BrowserRouter>
   );
 };
+
+const theme = createTheme({
+  typography: {
+    fontFamily: ['Montserrat', 'sans-serif'].join(','),
+  },
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: 'rgb(3 105 161 / 1)',
+      contrastText: '#fff',
+    },
+    secondary: {
+      main: 'rgb(3 105 161 / 1)',
+      contrastText: '#fff',
+    },
+    text: {
+      primary: '#FFF',
+      secondary: '#FFF',
+    },
+    background: {
+      default: 'rgb(24 24 27 / 1)',
+      paper: 'rgb(15 23 42 / 0.7)',
+    },
+  },
+});
 
 const initializers: Observable<boolean>[] = [
   sentryInitializer(),

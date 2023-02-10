@@ -4,8 +4,8 @@ import {
   AmmPool as CardanoBaseAmmPool,
   AssetAmount,
   AssetClass,
-} from '@ergolabs/cardano-dex-sdk';
-import { mkSubject } from '@ergolabs/cardano-dex-sdk/build/main/cardano/entities/assetClass';
+} from '@teddyswap/cardano-dex-sdk';
+import { mkSubject } from '@teddyswap/cardano-dex-sdk/build/main/cardano/entities/assetClass';
 import { cache } from 'decorator-cache-getter';
 
 import { AmmPool } from '../../../../common/models/AmmPool';
