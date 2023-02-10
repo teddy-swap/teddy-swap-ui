@@ -5,6 +5,7 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "npx tailwindcss -i ./src/assets/tailwind/app.css -o ./public/dist/app.css -m && react-app-rewired build",
+    "deploy": "npx tailwindcss -i ./src/assets/tailwind/app.css -o ./public/dist/app.css -m && yarn build && gh-pages -d build",
     "test": "react-app-rewired test",
     "prei18n:extract": "touch src/i18n/locales/en-US.po",
     "i18n:extract": "lingui extract --locale en-US",
@@ -116,6 +117,7 @@
     "eslint-plugin-react": "7.26.0",
     "eslint-plugin-react-app": "^6.2.2",
     "eslint-plugin-simple-import-sort": "7.0.0",
+    "gh-pages": "^5.0.0",
     "node-sass": "^7.0.1",
     "prettier": "^2.3.2",
     "react-app-rewire-typings-for-css-module": "^4.0.3",
