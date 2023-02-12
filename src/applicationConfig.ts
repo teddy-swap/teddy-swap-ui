@@ -66,10 +66,12 @@ export const applicationConfig: ApplicationConfig = {
   requestRetryCount: 3,
   networksSettings: {
     cardano: {
-      metadataUrl: 'https://meta.spectrum.fi/cardano/metadata',
-      networkUrl: 'https://8081-parallel-guidance-uagipf.us1.demeter.run/v1/',
+      metadataUrl:
+        'https://3337-teddy-token-registry--zls06h.us1.demeter.run/metadata',
+      networkUrl:
+        'https://8081-parallel-guidance-uagipf.us1.demeter.run/cardano/v1/',
       explorerUrl: 'https://preview.cexplorer.io',
-      faucet: 'https://faucet.spectrum.fi/cardano/v1/',
+      faucet: '',
       lowBalanceGuide: '',
     },
     ergo: {
@@ -80,7 +82,7 @@ export const applicationConfig: ApplicationConfig = {
       analyticUrl: 'https://api.spectrum.fi/v1/',
       lowBalanceGuide:
         'https://docs.spectrum.fi/docs/user-guides/quick-start#3-get-assets',
-      ergopayUrl: 'https://ergopay-backend.fly.dev',
+      ergopayUrl: '',
     },
   },
   social: {
