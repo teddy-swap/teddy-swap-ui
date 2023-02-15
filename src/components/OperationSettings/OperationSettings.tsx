@@ -153,9 +153,10 @@ export const OperationSettings: FC<OperationSettingsProps> = ({
           </Flex.Item>
           <Flex.Item marginBottom={1}>
             <Typography.Body strong>
-              <Trans>Nitro</Trans>
+              <Trans>Honey</Trans>
             </Typography.Body>
             <InfoTooltip
+              icon={`🍯`}
               content={
                 <>
                   <Trans>Max execution fee multiplier</Trans>

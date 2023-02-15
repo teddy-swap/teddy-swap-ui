@@ -9,6 +9,7 @@ import React, { ReactNode } from 'react';
 interface InfoTooltipProps {
   content: ReactNode | ReactNode[] | string;
   children?: ReactNode | ReactNode[] | string;
+  icon?: ReactNode | ReactNode[] | string;
   secondary?: boolean;
   className?: string;
   width?: number;
@@ -31,6 +32,7 @@ interface InfoTooltipProps {
 const InfoTooltip: React.FC<InfoTooltipProps> = ({
   className,
   content,
+  icon,
   placement,
   width,
   size,
@@ -49,7 +51,7 @@ const InfoTooltip: React.FC<InfoTooltipProps> = ({
       >
         <Button
           type="ghost"
-          icon={<QuestionCircleOutlined />}
+          icon={icon ?? <QuestionCircleOutlined />}
           size="small"
           style={{
             border: 0,
