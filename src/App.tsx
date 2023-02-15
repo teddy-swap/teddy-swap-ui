@@ -43,12 +43,12 @@ const theme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: 'rgb(3 105 161 / 1)',
-      contrastText: '#fff',
+      main: '#0369A1',
+      contrastText: '#FFF',
     },
     secondary: {
-      main: 'rgb(3 105 161 / 1)',
-      contrastText: '#fff',
+      main: '#0369A1',
+      contrastText: '#FFF',
     },
     text: {
       primary: '#FFF',

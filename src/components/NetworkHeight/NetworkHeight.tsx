@@ -2,6 +2,7 @@ import './NetworkHeight.less';
 
 import { Flex, Tooltip, Typography } from '@ergolabs/ui-kit';
 import { t } from '@lingui/macro';
+import { useTheme } from '@mui/material';
 import React from 'react';
 // @ts-ignore
 import FlipNumbers from 'react-flip-numbers';
@@ -27,7 +28,7 @@ const NetworkHeight = (): JSX.Element => {
         <Typography.Link
           onClick={() => exploreLastBlock(networkContext?.height)}
           strong
-          className="network-height"
+          className={`network-height !text-white`}
           type="success"
           target="_blank"
         >

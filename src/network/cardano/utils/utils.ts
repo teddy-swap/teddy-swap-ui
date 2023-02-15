@@ -20,7 +20,7 @@ export const exploreAddress = (address: Address): unknown =>
 export const exploreLastBlock = (): unknown =>
   networkContext$.pipe(first()).subscribe((ctx) => {
     window.open(
-      `${applicationConfig.networksSettings.cardano.explorerUrl}/block/${ctx.blockHash}`,
+      `${applicationConfig.networksSettings.cardano.explorerUrl}/block/${ctx.height}`,
       '_blank',
     );
   });

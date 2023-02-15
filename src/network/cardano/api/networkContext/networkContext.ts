@@ -17,7 +17,8 @@ export const networkContext$: Observable<{
 }> = appTick$.pipe(
   switchMap(() => from(cardanoNetwork.getNetworkContext())),
   map((ctx) => ({
-    height: Number(ctx.blockNo),
+    // Delay displayed by 2 blocks for the explorers to catch up
+    height: Number(ctx.blockNo - 2n),
     lastBlockId: Number(ctx.blockNo),
     blockHash: (ctx as any).blockHash,
   })),

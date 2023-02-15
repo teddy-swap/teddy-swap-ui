@@ -70,7 +70,7 @@ export const applicationConfig: ApplicationConfig = {
         'https://3337-teddy-token-registry--zls06h.us1.demeter.run/metadata',
       networkUrl:
         'https://8081-parallel-guidance-uagipf.us1.demeter.run/cardano/v1/',
-      explorerUrl: 'https://preview.cexplorer.io',
+      explorerUrl: 'https://preview.cardanoscan.io',
       faucet: '',
       lowBalanceGuide: '',
     },
