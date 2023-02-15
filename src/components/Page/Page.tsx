@@ -69,6 +69,11 @@ const Widget = styled(_Widget)`
     }
   }
 
+<<<<<<< HEAD
+=======
+  backdrop-filter: var(--spectrum-box-bg-filter);
+  background: var(--spectrum-page-footer-bg);
+>>>>>>> e5fa7cebcf4eeaef70e37c42dd1e66a0f6cfac7d
   border-radius: 16px 0 0 16px;
   margin: 16px 0;
   transition: width 0.6s;
