@@ -10,6 +10,7 @@ import {
   Outlet,
 } from 'react-router-dom';
 
+import { Layout } from '../../components/common/Layout/Layout';
 import { RouteConfigExtended } from '../../components/RouterTitle/RouteConfigExtended';
 import {
   initializeNetwork,
@@ -49,11 +50,14 @@ const init = (routesConfig: RouteConfigExtended[]): void => {
 };
 
 const NetworkDomManagerOutlet: FC = () => {
-  const { network } = useParams<{ network: string }>();
+  // Hardcore Cardano Network
+  const network = 'cardano';
   const networkExists = isNetworkExists(network?.toLowerCase());
 
   return networkExists ? (
-    <Outlet />
+    <Layout className="bg-gradient-to-t min-h-screen p-4 from-sky-900/50 to-cyan-800">
+      <Outlet />
+    </Layout>
   ) : (
     <Navigate to={`/${selectedNetwork.name}`} />
   );

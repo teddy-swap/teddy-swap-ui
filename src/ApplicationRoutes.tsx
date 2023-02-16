@@ -20,29 +20,54 @@ export const routesConfig: RouteConfigExtended[] = [
     element: <NetworkDomManager.Outlet />,
     children: [
       {
-        path: `:network`,
-        element: (
-          <Layout className="bg-gradient-to-t min-h-screen p-4 from-sky-900/50 to-cyan-800">
-            <Outlet />
-          </Layout>
-        ),
+        path: '',
+        element: <Navigate to="swap" />,
+      },
+      {
+        title: 'Swap',
+        path: 'swap',
+        element: <Swap />,
+      },
+      {
+        path: 'liquidity',
         children: [
           {
+            title: 'Liquidity',
             path: '',
-            element: <Navigate to="swap" />,
+            element: <Liquidity />,
           },
           {
-            title: 'Swap',
-            path: 'swap',
-            element: <Swap />,
+            title: 'Add Liquidity',
+            path: 'add',
+            element: <AddLiquidityOrCreatePool />,
           },
           {
-            path: 'liquidity',
+            title: 'Create Pool',
+            path: 'create',
+            element: <AddLiquidityOrCreatePool />,
+          },
+          {
+            path: ':poolId',
             children: [
               {
-                title: 'Liquidity',
-                path: '',
-                element: <Liquidity />,
+                title: 'Remove Liquidity',
+                path: 'remove',
+                element: <RemoveLiquidity />,
+              },
+              {
+                title: 'Lock Liquidity',
+                path: 'lock',
+                element: <LockLiquidity />,
+              },
+              {
+                title: 'Relock Liquidity',
+                path: 'relock',
+                element: <RelockLiquidity />,
+              },
+              {
+                title: 'Withdrawal Liquidity',
+                path: 'withdrawal',
+                element: <WithdrawalLiquidity />,
               },
               {
                 title: 'Add Liquidity',
@@ -55,52 +80,17 @@ export const routesConfig: RouteConfigExtended[] = [
                 element: <AddLiquidityOrCreatePool />,
               },
               {
-                path: ':poolId',
-                children: [
-                  {
-                    title: 'Remove Liquidity',
-                    path: 'remove',
-                    element: <RemoveLiquidity />,
-                  },
-                  {
-                    title: 'Lock Liquidity',
-                    path: 'lock',
-                    element: <LockLiquidity />,
-                  },
-                  {
-                    title: 'Relock Liquidity',
-                    path: 'relock',
-                    element: <RelockLiquidity />,
-                  },
-                  {
-                    title: 'Withdrawal Liquidity',
-                    path: 'withdrawal',
-                    element: <WithdrawalLiquidity />,
-                  },
-                  {
-                    title: 'Add Liquidity',
-                    path: 'add',
-                    element: <AddLiquidityOrCreatePool />,
-                  },
-                  {
-                    title: 'Create Pool',
-                    path: 'create',
-                    element: <AddLiquidityOrCreatePool />,
-                  },
-                  {
-                    title: 'Pool Overview',
-                    path: '',
-                    element: <PoolOverview />,
-                  },
-                ],
+                title: 'Pool Overview',
+                path: '',
+                element: <PoolOverview />,
               },
             ],
           },
-          {
-            path: '*',
-            element: <Navigate to="swap" />,
-          },
         ],
+      },
+      {
+        path: '*',
+        element: <Navigate to="swap" />,
       },
     ],
   },

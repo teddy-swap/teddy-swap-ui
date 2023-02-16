@@ -121,7 +121,7 @@ const _Page: React.FC<PageProps> = ({
     <main className="z-10 flex justify-center w-full pt-10">
       <Paper
         elevation={10}
-        className="z-10 max-w-md p-6 space-y-4 !rounded-xl"
+        className="z-10 p-6 space-y-4 !rounded-xl"
         sx={{
           background: theme.palette.background.default,
         }}

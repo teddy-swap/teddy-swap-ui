@@ -60,10 +60,9 @@ export const PoolOverview: React.FC = () => {
   const handleRelockLiquidity = () => navigate(`relock`);
 
   const handleWithdrawalLiquidity = () => navigate(`withdrawal`);
-
   return (
     <Page title={t`Pool overview`} maxWidth={620} withBackButton backTo="/pool">
-      {position && poolConfidenceAnalytic ? (
+      {position ? (
         <Flex col>
           <Flex.Item marginBottom={5}>
             <PageHeader
@@ -133,15 +132,6 @@ export const PoolOverview: React.FC = () => {
               />
             )}
           </Flex.Item>
-          {poolConfidenceAnalytic.lockedPercent >= MIN_RELEVANT_LOCKS_PCT && (
-            <Flex.Item marginBottom={4}>
-              <PageSection glass title={t`Locked liquidity`} boxed={false}>
-                <LockLiquidityChart
-                  poolConfidenceAnalytic={poolConfidenceAnalytic}
-                />
-              </PageSection>
-            </Flex.Item>
-          )}
           <Flex.Item marginBottom={4}>
             <PageSection glass title={t`Current price`} boxed={false}>
               <Flex>
