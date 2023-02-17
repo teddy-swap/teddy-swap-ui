@@ -4,6 +4,7 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Chip,
   Skeleton,
   Table,
   TableBody,
@@ -181,7 +182,7 @@ export const PoolsOrPositionsTableView: FC<
                       sx={{ minWidth: '100px' }}
                     >
                       <Flex>
-                        <DataTag content={`${ammPool.poolFee}%`} />
+                        <Chip label={`${ammPool.poolFee}%`} />
                       </Flex>
                     </TableCell>
                     <TableCell
