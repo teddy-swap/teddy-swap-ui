@@ -129,12 +129,12 @@ export const applicationConfig: ApplicationConfig = {
       name: '321ergoTestNFT321',
     }),
     mkSubject({
-      name: 'C3t_MELDt_nft',
-      policyId: '1d27e0100eb24fb797501b2692f160e7ba372f93b3527080774150b3',
+      name: 'MINt_Teddy_Nft',
+      policyId: '2a44bc0bc17069c66abbd4aa99903252fb19a7ceeaf1b93b2f5a6bd1',
     }),
     mkSubject({
-      name: 'C3t_ADAt_nft',
-      policyId: 'be2fc42476b6c8e60d5a3cf2b1c53158f88945929ebe3d3d88ad33e6',
+      name: 'WMTt_Teddy_Nft',
+      policyId: '778ec702e97a472d3989421a38a364d6ac15005f73455504a201ba51',
     }),
   ],
   operationsRestrictions: [

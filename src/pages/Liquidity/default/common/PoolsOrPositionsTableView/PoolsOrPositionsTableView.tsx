@@ -112,6 +112,7 @@ export const PoolsOrPositionsTableView: FC<
                 </TableRow>
               </TableBody>
             </Table>
+            {children}
           </AccordionSummary>
           <AccordionDetails>
             <MatTypography className="text-white">

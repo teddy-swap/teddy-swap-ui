@@ -1,5 +1,6 @@
 import { Button, Flex, Typography } from '@ergolabs/ui-kit';
 import { Trans } from '@lingui/macro';
+import { Button as MatButton } from '@mui/material';
 import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -53,15 +54,26 @@ export const PoolOrPositionDetails: FC<
       </Flex.Item>
       <Flex.Item display="flex">
         <Flex.Item marginRight={2}>
-          <ConnectWalletButton analytics={{ location: 'pool-list' }}>
-            <Button onClick={navigateToSwap}>
+          <ConnectWalletButton
+            analytics={{ location: 'pool-list' }}
+            className={'!font-bold !rounded-md h-[30px] !mt-[8px]'}
+          >
+            <MatButton
+              variant="outlined"
+              onClick={navigateToSwap}
+              className={'!font-bold !rounded-md h-[30px] !mt-[8px]'}
+            >
               <Trans>Swap</Trans>
-            </Button>
+            </MatButton>
           </ConnectWalletButton>
         </Flex.Item>
-        <Button type="primary" onClick={overviewPool}>
+        <MatButton
+          variant="contained"
+          onClick={overviewPool}
+          className={'!font-bold !rounded-md h-[30px] !mt-[8px]'}
+        >
           <Trans>Pool Overview</Trans>
-        </Button>
+        </MatButton>
       </Flex.Item>
     </Flex>
   );

@@ -38,7 +38,7 @@ const warningMessages: Messages<SettingsModel> = {
 
 const errorMessages: Messages<SettingsModel> = {
   nitro: {
-    minNitro: t`Minimal Nitro value is` + ` ${MIN_NITRO}`,
+    minNitro: t`Minimal Honey value is` + ` ${MIN_NITRO}`,
   },
   slippage: {
     minSlippage: t`Minimal Slippage is` + ` ${MIN_SLIPPAGE}`,

@@ -108,7 +108,7 @@ export const Liquidity = (): JSX.Element => {
       maxWidth={944}
       padding={4}
       title={<Trans>Liquidity</Trans>}
-      titleChildren={<LiquidityTitleExtra />}
+      titleChildren={<></>}
     >
       {s && (
         <LiquidityMobileLayout
