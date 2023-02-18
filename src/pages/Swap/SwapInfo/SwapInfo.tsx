@@ -1,6 +1,6 @@
 import { Flex, useDevice } from '@ergolabs/ui-kit';
 import { t } from '@lingui/macro';
-import { Paper } from '@mui/material';
+import { Paper, useTheme } from '@mui/material';
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 
@@ -37,11 +37,18 @@ const _SwapInfo: FC<SwapInfoProps> = ({
   const handleOpenedChange = () => setOpened((prev) => !prev);
 
   const [SwapInfoContent] = useObservable(swapInfoContent$);
+  const theme = useTheme();
 
   return (
     <>
       {!!value.pool && (
-        <Paper className="p-3 !rounded-md" elevation={4}>
+        <Paper
+          className="p-3 !rounded-md"
+          elevation={4}
+          sx={{
+            background: theme.palette.secondary.dark,
+          }}
+        >
           <Flex col>
             {moreThan('m') ? (
               <>

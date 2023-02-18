@@ -1,8 +1,15 @@
-import { Button, DownOutlined, Form, Modal, useDevice } from '@ergolabs/ui-kit';
-import { Chip, Skeleton } from '@mui/material';
-import React from 'react';
+import { Form, Modal } from '@ergolabs/ui-kit';
+import {
+  Chip,
+  Dialog,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Skeleton,
+  useTheme,
+} from '@mui/material';
+import React, { useState } from 'react';
 import { Observable } from 'rxjs';
-import styled from 'styled-components';
 
 import { panalytics } from '../../../../common/analytics';
 import { PAnalytics } from '../../../../common/analytics/@types/types';
@@ -33,6 +40,9 @@ const AssetSelect: React.FC<TokenSelectProps> = ({
   analytics,
   loading,
 }) => {
+  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
+  const theme = useTheme();
+
   const handleSelectChange = (newValue: AssetInfo): void => {
     if (value?.id !== newValue?.id && onChange) {
       onChange(newValue);
@@ -43,6 +53,8 @@ const AssetSelect: React.FC<TokenSelectProps> = ({
         tokenName: newValue.ticker,
       });
     }
+
+    setIsDialogOpen(false);
   };
 
   const openTokenModal = () => {
@@ -60,7 +72,6 @@ const AssetSelect: React.FC<TokenSelectProps> = ({
       />
     ));
   };
-
   return (
     <>
       {loading ? (
@@ -70,6 +81,7 @@ const AssetSelect: React.FC<TokenSelectProps> = ({
           sx={{
             padding: '18px 0px',
             fontWeight: 'bold',
+            background: theme.palette.secondary.dark,
           }}
           label={
             value !== undefined ? (
@@ -78,10 +90,42 @@ const AssetSelect: React.FC<TokenSelectProps> = ({
               'Select Token'
             )
           }
-          onClick={openTokenModal}
+          onClick={() => setIsDialogOpen(true)}
           disabled={disabled}
         />
       )}
+
+      <Dialog
+        open={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+        fullWidth={true}
+      >
+        <DialogTitle
+          sx={{
+            color: theme.palette.text.primary,
+            background: theme.palette.secondary.dark,
+            fontWeight: 'bold',
+          }}
+        >
+          {'Select Token'}
+        </DialogTitle>
+        <DialogContent
+          sx={{
+            color: theme.palette.text.primary,
+            background: theme.palette.secondary.dark,
+            padding: 0,
+          }}
+        >
+          <AssetListModal
+            assetsToImport$={assetsToImport$}
+            assets$={assets$}
+            importedAssets$={importedAssets$}
+            close={close}
+            value={value}
+            onSelectChanged={handleSelectChange}
+          />
+        </DialogContent>
+      </Dialog>
     </>
   );
 };

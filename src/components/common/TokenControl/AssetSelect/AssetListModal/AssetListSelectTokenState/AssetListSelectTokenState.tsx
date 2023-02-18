@@ -1,12 +1,12 @@
 import {
   Flex,
-  Input,
   LoadingDataState,
   SearchDataState,
-  SearchOutlined,
   useSearch,
 } from '@ergolabs/ui-kit';
 import { t, Trans } from '@lingui/macro';
+import SearchIcon from '@mui/icons-material/Search';
+import { InputAdornment, TextField } from '@mui/material';
 import React, { FC } from 'react';
 import { Observable, of } from 'rxjs';
 
@@ -87,12 +87,20 @@ export const AssetListSelectTokenState: FC<AssetListSelectTokenStateProps> = ({
   return (
     <Flex col>
       <Flex.Item marginBottom={2}>
-        <Input
+        <TextField
+          variant="outlined"
+          className="w-full !rounded-md"
           autoFocus
           placeholder={t`Search`}
-          size="large"
-          prefix={<SearchOutlined />}
           onChange={handleSearch}
+          InputProps={{
+            className: '!py-2 !text-[16px] !rounded-md',
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            ),
+          }}
         />
       </Flex.Item>
       <List
@@ -101,7 +109,7 @@ export const AssetListSelectTokenState: FC<AssetListSelectTokenStateProps> = ({
         fadeInDelay={50}
         gap={1}
         maxHeight={332}
-        itemHeight={52}
+        itemHeight={76}
       >
         {({ item, height, group }) =>
           group === 'toImport' ? (
