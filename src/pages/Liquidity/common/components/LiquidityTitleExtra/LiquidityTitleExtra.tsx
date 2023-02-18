@@ -22,7 +22,7 @@ export const LiquidityTitleExtra: FC = () => {
         <Button
           variant="contained"
           onClick={navigateToAddLiquidity}
-          className={'!font-bold !rounded-md h-[30px] !mt-[8px]'}
+          className={'!font-bold !rounded-md h-[30px] !mt-[8px] !normal-case'}
         >
           <Trans>Add Liquidity</Trans>
         </Button>

@@ -1,5 +1,6 @@
-import { Box, Flex, useDevice } from '@ergolabs/ui-kit';
+import { Flex, useDevice } from '@ergolabs/ui-kit';
 import { t } from '@lingui/macro';
+import { Paper } from '@mui/material';
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 
@@ -29,7 +30,7 @@ const _SwapInfo: FC<SwapInfoProps> = ({
   const [opened, setOpened] = useState<boolean>(false);
   const [selectedNetwork] = useSelectedNetwork();
 
-  const openedHeight = selectedNetwork.name === 'ergo' ? 166 : 202;
+  const openedHeight = selectedNetwork.name === 'ergo' ? 166 : 240;
 
   const { slippage } = useSettings();
 
@@ -40,7 +41,7 @@ const _SwapInfo: FC<SwapInfoProps> = ({
   return (
     <>
       {!!value.pool && (
-        <Box secondary padding={[2, 3]} borderRadius="l" glass>
+        <Paper className="p-3 !rounded-md" elevation={4}>
           <Flex col>
             {moreThan('m') ? (
               <>
@@ -75,7 +76,7 @@ const _SwapInfo: FC<SwapInfoProps> = ({
             )}
             <div
               className={className}
-              style={{ height: opened ? openedHeight : 22 }}
+              style={{ height: opened ? openedHeight : 80 }}
             >
               {SwapInfoContent && (
                 <SwapInfoContent value={value} opened={opened} />
@@ -83,7 +84,7 @@ const _SwapInfo: FC<SwapInfoProps> = ({
             </div>
             <MoreInfoButton onClick={handleOpenedChange} opened={opened} />
           </Flex>
-        </Box>
+        </Paper>
       )}
     </>
   );

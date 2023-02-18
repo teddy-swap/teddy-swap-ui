@@ -58,6 +58,7 @@ export const OperationHistoryModal: FC<OperationHistoryModalProps> = ({
             align="center"
           >
             <SearchInput
+              label={'Search'}
               size="large"
               onChange={(e) => setTerm(e.target.value)}
               prefix={<SearchOutlined />}

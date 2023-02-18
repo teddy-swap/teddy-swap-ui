@@ -1,12 +1,5 @@
-import {
-  Button,
-  DownOutlined,
-  Flex,
-  Form,
-  Modal,
-  useDevice,
-} from '@ergolabs/ui-kit';
-import { Trans } from '@lingui/macro';
+import { Button, DownOutlined, Form, Modal, useDevice } from '@ergolabs/ui-kit';
+import { Chip, Skeleton } from '@mui/material';
 import React from 'react';
 import { Observable } from 'rxjs';
 import styled from 'styled-components';
@@ -29,18 +22,6 @@ interface TokenSelectProps {
   readonly loading?: boolean;
 }
 
-const StyledDownOutlined = styled(DownOutlined)`
-  font-size: 1rem;
-`;
-
-const StyledButton = styled(Button)`
-  padding: ${({ size }) =>
-    size === 'large'
-      ? '0 calc(var(--spectrum-base-gutter) * 3)'
-      : '0 calc(var(--spectrum-base-gutter) * 2)'};
-  width: 100%;
-`;
-
 const AssetSelect: React.FC<TokenSelectProps> = ({
   value,
   onChange,
@@ -52,7 +33,6 @@ const AssetSelect: React.FC<TokenSelectProps> = ({
   analytics,
   loading,
 }) => {
-  const { valBySize } = useDevice();
   const handleSelectChange = (newValue: AssetInfo): void => {
     if (value?.id !== newValue?.id && onChange) {
       onChange(newValue);
@@ -84,39 +64,23 @@ const AssetSelect: React.FC<TokenSelectProps> = ({
   return (
     <>
       {loading ? (
-        <Button
-          type="default"
-          loading
-          size={valBySize('middle', 'large')}
-          style={{
-            padding:
-              valBySize('middle', 'large') === 'large'
-                ? '0 calc(var(--spectrum-base-gutter) * 3)'
-                : '0 calc(var(--spectrum-base-gutter) * 2)',
-          }}
-        >
-          Loading...
-        </Button>
+        <Skeleton width={80} height={36} />
       ) : (
-        <StyledButton
-          type={value ? 'ghost' : 'primary'}
-          size={valBySize('middle', 'large')}
+        <Chip
+          sx={{
+            padding: '18px 0px',
+            fontWeight: 'bold',
+          }}
+          label={
+            value !== undefined ? (
+              <AssetTitle gap={2} asset={value} />
+            ) : (
+              'Select Token'
+            )
+          }
           onClick={openTokenModal}
           disabled={disabled}
-        >
-          <Flex align="center">
-            <Flex.Item flex={1} align="flex-start" display="flex">
-              {value ? (
-                <AssetTitle gap={2} asset={value} />
-              ) : (
-                <Trans>Select a token</Trans>
-              )}
-            </Flex.Item>
-            <Flex.Item marginLeft={2}>
-              <StyledDownOutlined />
-            </Flex.Item>
-          </Flex>
-        </StyledButton>
+        />
       )}
     </>
   );

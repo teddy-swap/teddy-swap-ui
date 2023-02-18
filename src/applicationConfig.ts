@@ -136,6 +136,10 @@ export const applicationConfig: ApplicationConfig = {
       name: 'WMTt_Teddy_Nft',
       policyId: '778ec702e97a472d3989421a38a364d6ac15005f73455504a201ba51',
     }),
+    mkSubject({
+      name: 'LQt_iUSDt_Teddy_Nft',
+      policyId: 'ba9a6218dd9ace0eef478e8f337412880be28376384ab58b89d6b9d3',
+    }),
   ],
   operationsRestrictions: [
     {

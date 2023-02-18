@@ -3,16 +3,13 @@ import {
   Dropdown,
   FileTextOutlined,
   GithubOutlined,
-  GlobalOutlined,
   InfoCircleOutlined,
   LeftOutlined,
   Menu,
-  Modal,
   QuestionCircleOutlined,
-  ReloadOutlined,
-  RightOutlined,
 } from '@ergolabs/ui-kit';
 import { t, Trans } from '@lingui/macro';
+import MenuIcon from '@mui/icons-material/Menu';
 import { Button as MatButton } from '@mui/material';
 import { stringify } from 'qs';
 import React, { useState } from 'react';
@@ -27,9 +24,6 @@ import {
 import { useApplicationSettings } from '../../../../../context';
 import { useSelectedNetwork } from '../../../../../gateway/common/network';
 import { useQuery } from '../../../../../hooks/useQuery';
-import SettingsIcon from '../../../../SettingsIcon/SettingsIcon';
-import { ThemeSwitch } from '../../../../ThemeSwitch/ThemeSwitch';
-import { ManualRefundModal } from './ManualRefundModal/ManualRefundModal';
 
 const StyledMenu = styled(Menu)`
   padding: calc(var(--spectrum-base-gutter) * 2);
@@ -117,7 +111,6 @@ const BurgerMenu = (): JSX.Element => {
               >
                 {item.title}
               </a>
-              {item.additional && item.additional}
             </OtherMenuItem>
           ),
       )}
@@ -179,7 +172,7 @@ const BurgerMenu = (): JSX.Element => {
         className="!text-white !px-0 !border !border-gray-300 !border-slate-600 hover:!bg-white/10 !rounded-md !min-w-[42px] !min-h-[42px]"
         classes={{ startIcon: '!m-0' }}
         sx={{ border: '1px solid' }}
-        startIcon={<SettingsIcon className="!w-5 h-5" />}
+        startIcon={<MenuIcon className="!w-5 h-5" />}
       />
     </Dropdown>
   );

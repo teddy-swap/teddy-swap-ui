@@ -1,5 +1,6 @@
 import { AssetInfo } from '@ergolabs/ergo-sdk/build/main/entities/assetInfo';
 import { EventConfig, Input, InputProps } from '@ergolabs/ui-kit';
+import { TextField } from '@mui/material';
 import React, { FC, useEffect, useState } from 'react';
 import NumberFormat from 'react-number-format';
 import styled from 'styled-components';
@@ -8,12 +9,26 @@ import { Currency } from '../../../../common/models/Currency';
 
 const _InnerInput: FC<InputProps> = ({ onChange, ...rest }) => {
   return (
-    <Input
-      {...rest}
+    <TextField
+      InputLabelProps={{
+        shrink: true,
+      }}
+      sx={{
+        '& input': {
+          fontSize: 24,
+          fontWeight: 'bold',
+          padding: '35px 20px',
+        },
+      }}
+      label={rest.label}
+      variant="outlined"
+      placeholder={rest.placeholder}
+      value={rest.value}
+      className={`${rest.className} !w-full`}
       onChange={(e) => {
         if (onChange) {
           e.target.value = e.target.value.replaceAll(',', '.');
-          onChange(e);
+          onChange(e as React.ChangeEvent<HTMLInputElement>);
         }
       }}
     />
@@ -32,6 +47,7 @@ export interface TokenAmountInputProps {
   readonly?: boolean;
   asset?: AssetInfo;
   className?: string;
+  label: string;
 }
 
 const _TokenAmountInput: React.FC<TokenAmountInputProps> = ({
@@ -41,6 +57,7 @@ const _TokenAmountInput: React.FC<TokenAmountInputProps> = ({
   readonly,
   asset,
   className,
+  label,
 }) => {
   const [userInput, setUserInput] = useState<string | undefined>(undefined);
 
@@ -92,6 +109,7 @@ const _TokenAmountInput: React.FC<TokenAmountInputProps> = ({
       decimalSeparator="."
       size="large"
       placeholder="0.0"
+      label={label}
       customInput={_InnerInput}
       disabled={disabled}
     />

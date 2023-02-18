@@ -400,6 +400,7 @@ export const AddLiquidity: FC<AddLiquidityProps> = ({
             <Flex col>
               <Flex.Item marginBottom={2}>
                 <AssetControlFormItem
+                  label={'Token X'}
                   amountName="x"
                   tokenName="xAsset"
                   readonly="asset"
@@ -407,6 +408,7 @@ export const AddLiquidity: FC<AddLiquidityProps> = ({
               </Flex.Item>
               <Flex.Item>
                 <AssetControlFormItem
+                  label={'Token Y'}
                   amountName="y"
                   tokenName="yAsset"
                   readonly="asset"

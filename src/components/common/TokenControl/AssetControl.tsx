@@ -69,6 +69,7 @@ export interface AssetControlFormItemProps {
   readonly bordered?: boolean;
   readonly analytics?: PAnalytics;
   readonly loading?: boolean;
+  readonly label: string;
 }
 
 export const AssetControlFormItem: FC<AssetControlFormItemProps> = ({
@@ -83,6 +84,7 @@ export const AssetControlFormItem: FC<AssetControlFormItemProps> = ({
   handleMaxButtonClick,
   analytics,
   loading,
+  label,
 }) => {
   const { valBySize } = useDevice();
   const { form } = useFormContext();
@@ -121,28 +123,29 @@ export const AssetControlFormItem: FC<AssetControlFormItemProps> = ({
   };
 
   return (
-    <Box padding={valBySize(3, 4)} secondary borderRadius="l" glass>
-      <Flex col>
-        <Flex.Item align="center">
-          <Flex.Item marginRight={2} flex={1}>
+    <div className="mt-6">
+      <div className="flex flex-col justify-center content-center">
+        <div className="flex justify-center content-center relative">
+          <div className="flex w-full">
             {amountName && (
               <Form.Item name={amountName}>
-                {({ value, onChange }) => (
+                {({ value, onChange }: { value: any; onChange: any }) => (
                   <AssetAmountInput
                     readonly={isAmountReadOnly() || loading}
                     value={value}
                     asset={selectedAsset}
                     onChange={onChange}
                     disabled={disabled}
+                    label={label}
                   />
                 )}
               </Form.Item>
             )}
-          </Flex.Item>
-          <Flex.Item marginLeft={2}>
+          </div>
+          <div className="absolute right-2 top-[calc(50%-36px/2)]">
             {tokenName && (
               <Form.Item name={tokenName}>
-                {({ value, onChange }) => (
+                {({ value, onChange }: { value: any; onChange: any }) => (
                   <AssetSelect
                     loading={loading}
                     assets$={assets$}
@@ -157,8 +160,8 @@ export const AssetControlFormItem: FC<AssetControlFormItemProps> = ({
                 )}
               </Form.Item>
             )}
-          </Flex.Item>
-        </Flex.Item>
+          </div>
+        </div>
 
         <Form.Listener name={amountName}>
           {({ value }) => (
@@ -197,7 +200,7 @@ export const AssetControlFormItem: FC<AssetControlFormItemProps> = ({
             </Animation.Expand>
           )}
         </Form.Listener>
-      </Flex>
-    </Box>
+      </div>
+    </div>
   );
 };

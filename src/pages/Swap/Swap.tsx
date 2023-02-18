@@ -36,7 +36,6 @@ import {
 import { ActionForm } from '../../components/common/ActionForm/ActionForm';
 import { AssetControlFormItem } from '../../components/common/TokenControl/AssetControl';
 import { Page } from '../../components/Page/Page';
-import SwapIcon from '../../components/SwapIcon/SwapIcon';
 import { ammPools$, getAmmPoolsByAssetPair } from '../../gateway/api/ammPools';
 import { useAssetsBalance } from '../../gateway/api/assetBalance';
 import {
@@ -57,7 +56,6 @@ import { PoolSelector } from './PoolSelector/PoolSelector';
 import { SwapFormModel } from './SwapFormModel';
 import { SwapGraph } from './SwapGraph/SwapGraph';
 import { SwapInfo } from './SwapInfo/SwapInfo';
-import { SwitchButton } from './SwitchButton/SwitchButton';
 
 const getToAssets = (fromAsset?: string) =>
   fromAsset ? getDefaultAssetsFor(fromAsset) : defaultTokenAssets$;
@@ -398,7 +396,7 @@ export const Swap = (): JSX.Element => {
       action={submitSwap}
     >
       <Page
-        maxWidth={500}
+        width={400}
         widgetBaseHeight={pool ? 432 : 272}
         leftWidget={
           selectedNetwork.name === 'ergo' && (
@@ -419,9 +417,10 @@ export const Swap = (): JSX.Element => {
           classes={{ title: '!font-bold !text-xl' }}
           className="!p-0 !text-white"
         />
-        <Flex col>
-          <Flex.Item marginBottom={1} marginTop={2}>
+        <div className="flex flex-col">
+          <div className="mt-2 mb-1">
             <AssetControlFormItem
+              label={'From'}
               loading={allAmmPoolsLoading}
               bordered
               maxButton
@@ -437,14 +436,10 @@ export const Swap = (): JSX.Element => {
                 tokenAssignment: 'from',
               }}
             />
-          </Flex.Item>
-          <SwitchButton
-            onClick={switchAssets}
-            icon={<SwapIcon className="rotate-90 w-5 h-5 ml-[5px]" />}
-            size="middle"
-          />
-          <Flex.Item>
+          </div>
+          <div className="mt-1 mb-2">
             <AssetControlFormItem
+              label={'To'}
               loading={allAmmPoolsLoading}
               bordered
               assets$={toAssets$}
@@ -458,31 +453,33 @@ export const Swap = (): JSX.Element => {
                 tokenAssignment: 'to',
               }}
             />
-          </Flex.Item>
-          <Form.Item name="pool">
-            {({ value, onChange }) => (
+          </div>
+          <div className="my-2">
+            {({ value, onChange }: { value: any; onChange: any }) => (
               <Flex.Item marginTop={!!value ? 4 : 0}>
                 <PoolSelector value={value} onChange={onChange} />
               </Flex.Item>
             )}
-          </Form.Item>
-          <Flex.Item marginTop={4}>
+          </div>
+          <div className="my-2">
             <ActionForm.Button analytics={{ location: 'swap' }}>
               <Trans>Swap</Trans>
             </ActionForm.Button>
-          </Flex.Item>
+          </div>
           <Form.Listener>
             {({ value }) => (
-              <Flex.Item marginTop={!!value.pool ? 4 : 0}>
-                <SwapInfo
-                  value={value}
-                  isReversed={reversedRatio}
-                  setReversed={setReversedRatio}
-                />
-              </Flex.Item>
+              <>
+                <div className="my-4">
+                  <SwapInfo
+                    value={value}
+                    isReversed={reversedRatio}
+                    setReversed={setReversedRatio}
+                  />
+                </div>
+              </>
             )}
           </Form.Listener>
-        </Flex>
+        </div>
       </Page>
     </ActionForm>
   );

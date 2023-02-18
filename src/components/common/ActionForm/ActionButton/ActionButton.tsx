@@ -2,6 +2,7 @@ import './ActionButton.less';
 
 import { Button, ButtonProps } from '@ergolabs/ui-kit';
 import { t } from '@lingui/macro';
+import { Button as MatButton } from '@mui/material';
 import { DateTime } from 'luxon';
 import React, { FC, ReactNode, useContext } from 'react';
 import { interval, map } from 'rxjs';
@@ -171,13 +172,18 @@ export const ActionButton: FC<ActionButtonProps> = (props) => {
 
   return (
     <ConnectWalletButton
-      className="action-form__connect-btn !py-3 !rounded-xl !text-[20px] !normal-case"
+      className="action-form__connect-btn !py-2 !rounded-xl !text-[20px] !normal-case w-full"
       size="extra-large"
       analytics={props.analytics}
     >
-      <Button htmlType="submit" {...other} size="extra-large" block>
+      <MatButton
+        type="submit"
+        variant="contained"
+        disabled={other.disabled}
+        className="!font-bold !py-2 !rounded-xl !text-[20px] !normal-case w-full"
+      >
         {children}
-      </Button>
+      </MatButton>
     </ConnectWalletButton>
   );
 };

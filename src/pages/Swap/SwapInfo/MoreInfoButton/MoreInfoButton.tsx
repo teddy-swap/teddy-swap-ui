@@ -1,5 +1,7 @@
-import { DownOutlined, Flex, Typography, UpOutlined } from '@ergolabs/ui-kit';
-import { t } from '@lingui/macro';
+import { Flex, Typography } from '@ergolabs/ui-kit';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { IconButton } from '@mui/material';
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
@@ -21,14 +23,17 @@ const _MoreInfoButton: FC<MoreInfoButton> = ({
     className={className}
     onClick={onClick}
   >
-    <Flex.Item marginRight={1}>
-      <Typography.Body size="small" secondary hint>
-        {opened ? t`Less` : t`More`}
-      </Typography.Body>
-    </Flex.Item>
     <Flex.Item>
       <Typography.Body size="small" secondary hint>
-        {opened ? <UpOutlined width={10} /> : <DownOutlined width={10} />}
+        {opened ? (
+          <IconButton>
+            <KeyboardArrowUpIcon />
+          </IconButton>
+        ) : (
+          <IconButton>
+            <KeyboardArrowDownIcon />
+          </IconButton>
+        )}
       </Typography.Body>
     </Flex.Item>
   </Flex>

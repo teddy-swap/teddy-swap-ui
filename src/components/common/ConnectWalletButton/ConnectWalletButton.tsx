@@ -1,8 +1,4 @@
-import {
-  ButtonProps,
-  ConnectWalletButton as SpectrumConnectWalletButton,
-  Modal,
-} from '@ergolabs/ui-kit';
+import { ButtonProps, Modal } from '@ergolabs/ui-kit';
 import { Trans } from '@lingui/macro';
 import { Button } from '@mui/material';
 import cn from 'classnames';
@@ -11,10 +7,7 @@ import React, { FC, ReactNode } from 'react';
 import { panalytics } from '../../../common/analytics';
 import { PAnalytics } from '../../../common/analytics/@types/types';
 import { useObservable } from '../../../common/hooks/useObservable';
-import {
-  isWalletSetuped$,
-  selectedWalletState$,
-} from '../../../gateway/api/wallets';
+import { isWalletSetuped$ } from '../../../gateway/api/wallets';
 import { ChooseWalletModal } from './ChooseWalletModal/ChooseWalletModal';
 
 export interface ConnectWalletButtonProps {

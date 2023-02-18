@@ -2,6 +2,7 @@ import { Divider, Flex } from '@ergolabs/ui-kit';
 import { t, Trans } from '@lingui/macro';
 import React, { FC, useEffect } from 'react';
 
+import { UI_FEE_BIGINT } from '../../../../common/constants/erg';
 import { useSubject } from '../../../../common/hooks/useObservable';
 import { Truncate } from '../../../../components/Truncate/Truncate';
 import { SwapFormModel } from '../../../../pages/Swap/SwapFormModel';
@@ -74,6 +75,31 @@ export const SwapInfoContent: FC<SwapInfoContentProps> = ({ value }) => {
       </Flex.Item>
       <Flex.Item marginBottom={2}>
         <Divider />
+      </Flex.Item>
+      <Flex.Item marginBottom={1}>
+        <SwapInfoItem
+          tooltip={
+            <>
+              <Trans>
+                0.01% or a minium 1.2 ADA goes to the TeddySwap Protocol
+                Treasury
+              </Trans>
+              <br />
+              <a
+                href="https://docs.cardano.org/plutus/collateral-mechanism"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Trans>Read More</Trans>
+              </a>
+            </>
+          }
+          title={t`Protocol Fee`}
+          value={`${(
+            Number((UI_FEE_BIGINT * 100n) / 1000000n) / 100
+          ).toString()} ADA`}
+          secondary
+        />
       </Flex.Item>
       <Flex.Item marginBottom={1}>
         <SwapInfoItem

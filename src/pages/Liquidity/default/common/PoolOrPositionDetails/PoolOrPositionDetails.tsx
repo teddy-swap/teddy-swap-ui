@@ -24,7 +24,7 @@ export const PoolOrPositionDetails: FC<
   return (
     <>
       <div className="flex">
-        <div className="flex flex-col w-[200px]">
+        <div className="flex flex-col w-[250px]">
           <ConnectWalletButton
             analytics={{ location: 'pool-list' }}
             className={'!font-bold !rounded-md h-[30px] !mt-[8px]'}
@@ -32,7 +32,9 @@ export const PoolOrPositionDetails: FC<
             <MatButton
               variant="outlined"
               onClick={navigateToSwap}
-              className={'!font-bold !rounded-md h-[30px] !mt-[8px]'}
+              className={
+                '!font-bold !rounded-md h-[30px] !mt-[8px] !normal-case'
+              }
             >
               <Trans>Swap</Trans>
             </MatButton>
@@ -40,7 +42,7 @@ export const PoolOrPositionDetails: FC<
           <MatButton
             variant="contained"
             onClick={overviewPool}
-            className={'!font-bold !rounded-md h-[30px] !mt-[4px]'}
+            className={'!font-bold !rounded-md h-[30px] !mt-[4px] !normal-case'}
           >
             <Trans>Pool Overview</Trans>
           </MatButton>
