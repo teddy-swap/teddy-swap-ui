@@ -1,5 +1,6 @@
 import { Box, Flex, LoadingOutlined, Typography } from '@ergolabs/ui-kit';
 import { Trans } from '@lingui/macro';
+import { Paper, useTheme } from '@mui/material';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -18,6 +19,7 @@ const BalanceLoading = styled(LoadingOutlined)`
 export const WalletTotalBalance: React.FC<WalletTotalBalanceProps> = ({
   balance,
 }) => {
+  const theme = useTheme();
   return (
     <Flex col>
       <Flex.Item marginBottom={2}>
@@ -25,7 +27,11 @@ export const WalletTotalBalance: React.FC<WalletTotalBalanceProps> = ({
           <Trans>Total balance</Trans>
         </Typography.Body>
       </Flex.Item>
-      <Box padding={[3, 4]} borderRadius="l" secondary>
+      <Paper
+        className="!p-2 !px-4"
+        elevation={3}
+        sx={{ background: theme.palette.background.default }}
+      >
         {balance?.toCurrencyString() ? (
           <Flex row align="center">
             <Flex.Item marginRight={2}>
@@ -47,7 +53,7 @@ export const WalletTotalBalance: React.FC<WalletTotalBalanceProps> = ({
         ) : (
           <BalanceLoading />
         )}
-      </Box>
+      </Paper>
     </Flex>
   );
 };

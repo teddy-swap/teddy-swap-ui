@@ -119,7 +119,7 @@ export const OperationSettings: FC<OperationSettingsProps> = ({
   const theme = useTheme();
 
   const Setting: JSX.Element = (
-    <Paper className="p-4" sx={{ background: theme.palette.secondary.dark }}>
+    <Paper className="p-2" sx={{ background: theme.palette.secondary.dark }}>
       <Form
         form={form}
         onSubmit={() => {}}

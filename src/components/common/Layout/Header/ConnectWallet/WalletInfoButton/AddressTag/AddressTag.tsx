@@ -2,6 +2,8 @@ import React from 'react';
 import { FC } from 'react';
 import styled from 'styled-components';
 
+import { useObservable } from '../../../../../../../common/hooks/useObservable';
+import { networkAssetBalance$ } from '../../../../../../../gateway/api/networkAssetBalance';
 import { DataTag } from '../../../../../DataTag/DataTag';
 import { AddressContent } from './AddressContent/AddressContent';
 import { LoadingContent } from './LoadingContent/LoadingContent';
@@ -17,12 +19,19 @@ const _AddressOrPendingTag: FC<AddressOrPendingTagProps> = ({
   className,
   loading,
 }) => {
+  const [networkAssetBalance] = useObservable(networkAssetBalance$);
   return (
     <DataTag
       className={className}
       secondary
       content={
-        loading ? <LoadingContent /> : <AddressContent address={address} />
+        loading ||
+        networkAssetBalance?.amount == undefined ||
+        networkAssetBalance?.amount <= 0n ? (
+          <LoadingContent />
+        ) : (
+          <AddressContent address={address} />
+        )
       }
     />
   );

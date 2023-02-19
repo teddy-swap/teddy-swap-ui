@@ -2,12 +2,11 @@ import './NetworkHeight.less';
 
 import { Flex, Tooltip, Typography } from '@ergolabs/ui-kit';
 import { t } from '@lingui/macro';
-import { useTheme } from '@mui/material';
+import ViewComfyIcon from '@mui/icons-material/ViewComfy';
 import React from 'react';
 // @ts-ignore
 import FlipNumbers from 'react-flip-numbers';
 
-import { ReactComponent as BlockIcon } from '../../assets/icons/block-icon.svg';
 import { useObservable } from '../../common/hooks/useObservable';
 import { networkContext$ } from '../../gateway/api/networkContext';
 import { useSelectedNetwork } from '../../gateway/common/network';
@@ -28,13 +27,13 @@ const NetworkHeight = (): JSX.Element => {
         <Typography.Link
           onClick={() => exploreLastBlock(networkContext?.height)}
           strong
-          className={`network-height !text-white`}
+          className={`network-height !text-white animate-pulse`}
           type="success"
           target="_blank"
         >
           <Tooltip title={tooltip} placement="left">
             <Flex justify="space-between" align="center">
-              <BlockIcon />
+              <ViewComfyIcon />
               <Flex.Item marginLeft={1}>
                 <FlipNumbers
                   numbers={formatToInt(networkContext.height)}

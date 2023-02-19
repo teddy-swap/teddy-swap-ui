@@ -1,5 +1,6 @@
-import { Box, Button, Flex, Modal, Tabs, useDevice } from '@ergolabs/ui-kit';
+import { Box, Flex, Modal, Tabs, useDevice } from '@ergolabs/ui-kit';
 import { Trans } from '@lingui/macro';
+import { Button } from '@mui/material';
 import React, { CSSProperties } from 'react';
 
 import { panalytics } from '../../common/analytics';
@@ -45,11 +46,6 @@ export const WalletModal: React.FC<{ close: (result?: any) => void }> = ({
           <Flex.Item marginBottom={4} marginTop={2}>
             <WalletTotalBalance balance={networkAssetBalance} />
           </Flex.Item>
-          {isLowBalance(Number(networkAssetBalance), network.name) && (
-            <Flex.Item marginBottom={4}>
-              <LowBalanceWarning network={network} />
-            </Flex.Item>
-          )}
           <Flex.Item marginBottom={6}>
             <WalletActiveAddress />
           </Flex.Item>
@@ -75,11 +71,11 @@ export const WalletModal: React.FC<{ close: (result?: any) => void }> = ({
             </IsCardano>
           </Flex.Item>
           <Button
-            type="default"
-            size="large"
             onClick={handleDisconnectWalletClick}
+            variant="contained"
+            className="!rounded-md !bold !normal-case"
           >
-            <Trans>Disconnect wallet</Trans>
+            <Trans>Disconnect Wallet</Trans>
           </Button>
         </Flex>
       </Modal.Content>

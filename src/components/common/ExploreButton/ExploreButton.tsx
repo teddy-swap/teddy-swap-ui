@@ -1,9 +1,8 @@
 import { Address, TxId } from '@ergolabs/ergo-sdk';
-import { Button, Tooltip } from '@ergolabs/ui-kit';
-import { t } from '@lingui/macro';
-import React, { ReactNode } from 'react';
+import LinkIcon from '@mui/icons-material/Link';
+import { IconButton } from '@mui/material';
+import React from 'react';
 
-import { ReactComponent as ExploreIcon } from '../../../assets/icons/icon-explore.svg';
 import {
   exploreAddress,
   exploreTx,
@@ -24,17 +23,15 @@ const ExploreButton: React.FC<ExploreButtonProps> = ({ to }) => {
   };
 
   return (
-    <Tooltip title={t`View on explorer.`} trigger="hover">
-      <Button
-        size="small"
-        onClick={(e) => {
-          e.stopPropagation();
-          handleExplore(to);
-        }}
-        style={{ lineHeight: '24px' }}
-        icon={<ExploreIcon />}
-      />
-    </Tooltip>
+    <IconButton
+      aria-label="delete"
+      onClick={(e) => {
+        e.stopPropagation();
+        handleExplore(to);
+      }}
+    >
+      <LinkIcon />
+    </IconButton>
   );
 };
 

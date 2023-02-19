@@ -1,9 +1,9 @@
 import { Button, message, Tooltip } from '@ergolabs/ui-kit';
 import { t } from '@lingui/macro';
-import React, { ReactNode } from 'react';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import { Alert, IconButton, Snackbar } from '@mui/material';
+import React, { ReactNode, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-
-import { ReactComponent as CopyIcon } from '../../../assets/icons/icon-copy.svg';
 
 interface CopyButtonProps {
   text: string;
@@ -11,22 +11,32 @@ interface CopyButtonProps {
 }
 
 const CopyButton: React.FC<CopyButtonProps> = ({ text }) => {
+  const [isSnackbarOpen, setIsSnackbarOpen] = useState<boolean>(false);
   return (
-    <CopyToClipboard
-      text={text}
-      onCopy={() => {
-        message.success(t`Address successfully copied`);
-      }}
-    >
-      <Tooltip title={t`Copy Address to clipboard.`} trigger="hover">
-        <Button
-          size="small"
-          onClick={(e) => e.stopPropagation()}
-          icon={<CopyIcon />}
-          style={{ lineHeight: '24px' }}
-        />
-      </Tooltip>
-    </CopyToClipboard>
+    <>
+      <Snackbar
+        open={isSnackbarOpen}
+        autoHideDuration={6000}
+        onClose={() => setIsSnackbarOpen(false)}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+      >
+        <Alert
+          onClose={() => setIsSnackbarOpen(false)}
+          severity="success"
+          sx={{ width: '100%' }}
+        >
+          Your wallet address has been copied to clipboard.
+        </Alert>
+      </Snackbar>
+      <CopyToClipboard text={text} onCopy={() => setIsSnackbarOpen(true)}>
+        <IconButton aria-label="delete" onClick={(e) => e.stopPropagation()}>
+          <ContentCopyIcon />
+        </IconButton>
+      </CopyToClipboard>
+    </>
   );
 };
 
