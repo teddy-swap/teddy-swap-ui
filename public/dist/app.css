@@ -997,6 +997,10 @@ video {
   font-size: 20px !important;
 }
 
+.\!text-\[16px\] {
+  font-size: 16px !important;
+}
+
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -1005,18 +1009,6 @@ video {
 .\!text-base {
   font-size: 1rem !important;
   line-height: 1.5rem !important;
-}
-
-.\!text-\[16px\] {
-  font-size: 16px !important;
-}
-
-.text-\[24px\] {
-  font-size: 24px;
-}
-
-.\!text-\[24px\] {
-  font-size: 24px !important;
 }
 
 .\!font-bold {
@@ -1073,12 +1065,6 @@ video {
 
 .outline {
   outline-style: solid;
-}
-
-.grayscale {
-  --tw-grayscale: grayscale(100%);
-  -webkit-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-          filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .filter {
