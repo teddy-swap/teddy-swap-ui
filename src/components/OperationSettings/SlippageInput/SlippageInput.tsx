@@ -1,12 +1,5 @@
-import {
-  Alert,
-  Animation,
-  Box,
-  Button,
-  Control,
-  Flex,
-  Input,
-} from '@ergolabs/ui-kit';
+import { Animation, Control, Flex } from '@ergolabs/ui-kit';
+import { Alert, Button, Paper, TextField, useTheme } from '@mui/material';
 import React, { ChangeEvent, FC } from 'react';
 import styled from 'styled-components';
 
@@ -41,17 +34,19 @@ const _SlippageInput: FC<NitroInputProps> = ({
     }
   };
 
+  const theme = useTheme();
+
   return (
     <Flex col>
       <Flex.Item marginBottom={message ? 2 : 0}>
-        <Box secondary borderRadius="l" glass>
+        <div className="p-2">
           <Flex justify="space-between">
             {SLIPPAGE_OPTIONS.sort().map((val, index) => (
               <Flex.Item key={index} marginRight={1} style={{ width: '100%' }}>
                 <Button
-                  block
-                  type={val === value ? 'primary' : 'text'}
-                  size="middle"
+                  className="!rounded-full"
+                  variant={val == value ? 'contained' : 'text'}
+                  sx={{ color: theme.palette.text.primary }}
                   onClick={() => handleClickSlippage(val)}
                 >
                   {val} %
@@ -59,27 +54,25 @@ const _SlippageInput: FC<NitroInputProps> = ({
               </Flex.Item>
             ))}
             <Flex.Item>
-              <Input
+              <TextField
                 inputMode="decimal"
                 className={className}
                 style={{ width: '128px' }}
                 value={value}
                 placeholder="1"
-                state={state}
                 type="number"
-                min={MIN_SLIPPAGE}
-                max={MAX_SLIPPAGE}
-                size="middle"
-                suffix="%"
-                isActive={isCustomSlippage}
                 onChange={handleInputChange}
+                InputProps={{
+                  endAdornment: <>%</>,
+                  className: '!rounded-md',
+                }}
               />
             </Flex.Item>
           </Flex>
-        </Box>
+        </div>
       </Flex.Item>
       <Animation.Expand expanded={!!message}>
-        <Alert showIcon type={state} message={message} />
+        <Alert severity="warning">{message}</Alert>
       </Animation.Expand>
     </Flex>
   );

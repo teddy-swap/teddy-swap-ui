@@ -56,7 +56,7 @@ const theme = createTheme({
     },
     background: {
       default: 'rgb(24 24 27 / 1)',
-      paper: 'rgb(15 23 42 / 0.7)',
+      paper: 'rgb(15 23 42 / 0.5)',
     },
   },
 });

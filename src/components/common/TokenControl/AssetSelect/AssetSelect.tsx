@@ -87,7 +87,7 @@ const AssetSelect: React.FC<TokenSelectProps> = ({
             value !== undefined ? (
               <AssetTitle gap={2} asset={value} />
             ) : (
-              'Select Token'
+              'SELECT TOKEN'
             )
           }
           onClick={() => setIsDialogOpen(true)}

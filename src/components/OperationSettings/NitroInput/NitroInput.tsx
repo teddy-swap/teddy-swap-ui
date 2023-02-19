@@ -2,13 +2,12 @@ import {
   Alert,
   Animation,
   Box,
-  Button,
   Control,
   Flex,
-  Input,
   Typography,
 } from '@ergolabs/ui-kit';
 import { Trans } from '@lingui/macro';
+import { Button, Paper, TextField, useTheme } from '@mui/material';
 import React, { ChangeEvent, FC } from 'react';
 import styled from 'styled-components';
 
@@ -40,39 +39,45 @@ const _NitroInput: FC<NitroInputProps> = ({
 
   const handleNitroChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
-      onChange(e.target.valueAsNumber);
+      onChange(Number(e.target.value));
     }
   };
-
+  const theme = useTheme();
   return (
     <Flex col>
       <Flex.Item marginBottom={1}>
-        <Box secondary borderRadius="l" glass>
+        <div className="p-2">
           <Flex align="center">
             <Flex.Item marginRight={2}>
               <Button
-                type={isMinimumNitro ? 'primary' : 'ghost'}
-                size="middle"
+                sx={{
+                  color: theme.palette.text.primary,
+                }}
+                className="!normal-case"
+                variant={isMinimumNitro ? 'contained' : 'outlined'}
                 onClick={handleClickNitroAuto}
               >
                 <Trans>Minimum</Trans>
               </Button>
             </Flex.Item>
             <Flex.Item flex={1}>
-              <Input
+              <TextField
+                className="!rounded-md"
+                variant="outlined"
                 inputMode="decimal"
-                isActive={!isMinimumNitro}
-                type="number"
-                style={{ textAlign: 'right' }}
-                min={MIN_NITRO}
-                state={state}
                 value={value}
                 onChange={handleNitroChange}
-                size="middle"
+                InputProps={{
+                  className: '!text-right',
+                  endAdornment: <>ADA</>,
+                }}
+                inputProps={{
+                  className: '!text-right !pr-2',
+                }}
               />
             </Flex.Item>
           </Flex>
-        </Box>
+        </div>
       </Flex.Item>
       <Flex.Item marginBottom={message ? 2 : 0}>
         <Typography.Body className={className}>

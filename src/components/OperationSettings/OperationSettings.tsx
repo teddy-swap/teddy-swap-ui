@@ -11,7 +11,7 @@ import {
   useForm,
 } from '@ergolabs/ui-kit';
 import { t, Trans } from '@lingui/macro';
-import { IconButton } from '@mui/material';
+import { IconButton, Paper, useTheme } from '@mui/material';
 import React, { FC, useState } from 'react';
 import { filter, skip } from 'rxjs';
 
@@ -116,8 +116,10 @@ export const OperationSettings: FC<OperationSettingsProps> = ({
     [slippage, nitro],
   );
 
+  const theme = useTheme();
+
   const Setting: JSX.Element = (
-    <Box bordered={false} borderRadius="m" padding={4} width={360}>
+    <Paper className="p-4" sx={{ background: theme.palette.secondary.dark }}>
       <Form
         form={form}
         onSubmit={() => {}}
@@ -127,7 +129,7 @@ export const OperationSettings: FC<OperationSettingsProps> = ({
         <Flex col>
           <Flex.Item marginBottom={2}>
             <Typography.Title level={4}>
-              <Trans>Transaction Settings</Trans>
+              <Trans>Swap Settings</Trans>
             </Typography.Title>
           </Flex.Item>
           <Flex.Item marginBottom={1}>
@@ -187,7 +189,7 @@ export const OperationSettings: FC<OperationSettingsProps> = ({
           </Flex.Item>
         </Flex>
       </Form>
-    </Box>
+    </Paper>
   );
 
   return (
