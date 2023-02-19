@@ -9,7 +9,7 @@ export const Flint: CardanoWalletContract = makeCardanoWallet({
   extensionLink:
     'https://chrome.google.com/webstore/detail/flint-wallet/hnhobjmcibchnmglfbldbfabcgaknlkj?hl=en',
   walletSupportedFeatures: { createPool: false },
-  name: 'FlintWallet',
+  name: 'Flint',
   icon: <FlintLogo width={26} height={26} />,
   testnetSwitchGuideUrl:
     'https://docs.spectrum.fi/docs/user-guides/change-wallet-to-testnet/#flint-wallet',

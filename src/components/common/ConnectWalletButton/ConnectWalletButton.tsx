@@ -1,8 +1,14 @@
 import { ButtonProps, Modal } from '@ergolabs/ui-kit';
 import { Trans } from '@lingui/macro';
-import { Button } from '@mui/material';
+import {
+  Button,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  useTheme,
+} from '@mui/material';
 import cn from 'classnames';
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, useState } from 'react';
 
 import { panalytics } from '../../../common/analytics';
 import { PAnalytics } from '../../../common/analytics/@types/types';
@@ -23,6 +29,8 @@ export const ConnectWalletButton: FC<ConnectWalletButtonProps> = ({
   children,
   analytics,
 }) => {
+  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
+  const theme = useTheme();
   const [isWalletConnected] = useObservable(isWalletSetuped$);
   const openChooseWalletModal = (): void => {
     Modal.open(({ close }) => <ChooseWalletModal close={close} />);
@@ -34,25 +42,40 @@ export const ConnectWalletButton: FC<ConnectWalletButtonProps> = ({
 
   return (
     <>
+      <Dialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
+        <DialogTitle
+          sx={{
+            color: theme.palette.text.primary,
+            background: theme.palette.secondary.dark,
+            fontWeight: 'bold',
+          }}
+        >
+          <div className="flex">Select a wallet</div>
+        </DialogTitle>
+        <DialogContent
+          sx={{
+            color: theme.palette.text.primary,
+            background: theme.palette.secondary.dark,
+            padding: 0,
+          }}
+        >
+          <ChooseWalletModal
+            close={() => {
+              setIsDialogOpen(false);
+            }}
+          />
+        </DialogContent>
+      </Dialog>
       {!isWalletConnected && (
         <Button
           variant="contained"
-          onClick={openChooseWalletModal}
+          onClick={() => setIsDialogOpen(true)}
           className={cn(className, '!font-bold')}
         >
           <Trans>Connect wallet</Trans>
         </Button>
       )}
       {isWalletConnected && <>{children}</>}
-      {/* <SpectrumConnectWalletButton
-        size={size}
-        onClick={openChooseWalletModal}
-        className={cn(className, 'connect-wallet-btn')}
-        isWalletConnected={isWalletConnected}
-        caption={<Trans>Connect wallet</Trans>}
-      >
-        {children}
-      </SpectrumConnectWalletButton> */}
     </>
   );
 };

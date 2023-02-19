@@ -1,5 +1,6 @@
 import { Box, Typography } from '@ergolabs/ui-kit';
 import { Trans } from '@lingui/macro';
+import { Alert, AlertTitle } from '@mui/material';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -30,28 +31,20 @@ const ProtocolDisclaimer = styled(Box)`
 
 export const ProtocolDisclaimerAlert: React.FC = () => {
   return (
-    <ProtocolDisclaimer padding={[2, 4]} borderRadius="l">
+    <Alert severity="info">
       <Typography.Body size="small">
         <Trans>
           By connecting a wallet, you agree to the{' '}
-          <a
-            href="https://spectrum.fi/cookie-policy"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="https://teddyswap.org" target="_blank" rel="noreferrer">
             Cookie policy
           </a>{' '}
           and acknowledge that you have read and understand the{' '}
-          <a
-            href="https://spectrum.fi/protocol-disclaimer"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="https://teddyswap.org" target="_blank" rel="noreferrer">
             Protocol disclaimer
           </a>
           .
         </Trans>
       </Typography.Body>
-    </ProtocolDisclaimer>
+    </Alert>
   );
 };

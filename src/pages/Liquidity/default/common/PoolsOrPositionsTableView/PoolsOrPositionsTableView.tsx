@@ -182,7 +182,7 @@ export const PoolsOrPositionsTableView: FC<
                       sx={{ minWidth: '100px' }}
                     >
                       <Flex>
-                        <Chip label={`${ammPool.poolFee}%`} />
+                        <Chip label={`${poolMapper(ammPool).poolFee}%`} />
                       </Flex>
                     </TableCell>
                     <TableCell

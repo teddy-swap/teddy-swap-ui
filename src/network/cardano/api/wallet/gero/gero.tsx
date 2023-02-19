@@ -9,7 +9,7 @@ export const Gero: CardanoWalletContract = makeCardanoWallet({
   extensionLink:
     'https://chrome.google.com/webstore/detail/gerowallet-preview/iifeegfcfhlhhnilhfoeihllenamcfgc',
   walletSupportedFeatures: { createPool: false },
-  name: 'GeroWallet Preview',
+  name: 'Gero Preview',
   testnetSwitchGuideUrl: '',
   icon: <GeroWalletLogo />,
   previewIcon: <GeroWalletLogo width={21} height={21} />,

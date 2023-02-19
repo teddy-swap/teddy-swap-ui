@@ -7,13 +7,10 @@ import { panalytics } from '../../common/analytics';
 import { useObservable } from '../../common/hooks/useObservable';
 import { networkAssetBalance$ } from '../../gateway/api/networkAssetBalance';
 import { disconnectWallet, selectedWallet$ } from '../../gateway/api/wallets';
-import { useSelectedNetwork } from '../../gateway/common/network';
 import { patchSettings } from '../../network/ergo/settings/settings';
-import { isLowBalance } from '../../utils/walletMath';
 import { IsCardano } from '../IsCardano/IsCardano';
 import { IsErgo } from '../IsErgo/IsErgo';
 import { AddressesTab } from './AddressesTab/AddressesTab';
-import { LowBalanceWarning } from './LowBalanceWarning/LowBalanceWarning';
 import { TokensTab } from './TokensTab/TokensTab';
 import { WalletActiveAddress } from './WalletActiveAddress/WalletActiveAddress';
 import { WalletTotalBalance } from './WalletTotalBalance/WalletTotalBalance';
@@ -24,7 +21,6 @@ export const WalletModal: React.FC<{ close: (result?: any) => void }> = ({
   const { valBySize } = useDevice();
   const [networkAssetBalance] = useObservable(networkAssetBalance$);
   const [selectedWallet] = useObservable(selectedWallet$);
-  const [network] = useSelectedNetwork();
 
   const handleDisconnectWalletClick = () => {
     panalytics.disconnectWallet(selectedWallet?.name);

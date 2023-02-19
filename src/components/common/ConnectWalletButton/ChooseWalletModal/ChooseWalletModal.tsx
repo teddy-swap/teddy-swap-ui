@@ -1,14 +1,7 @@
-import {
-  Button,
-  Flex,
-  Modal,
-  ModalRef,
-  Tabs,
-  useDevice,
-} from '@ergolabs/ui-kit';
+import { Flex, Modal, ModalRef, Tabs, useDevice } from '@ergolabs/ui-kit';
 import { Trans } from '@lingui/macro';
-import React, { ReactNode, useState } from 'react';
-import styled from 'styled-components';
+import { Alert, Button, Snackbar, useTheme } from '@mui/material';
+import React, { useState } from 'react';
 
 import { panalytics } from '../../../../common/analytics';
 import { useObservable } from '../../../../common/hooks/useObservable';
@@ -17,7 +10,6 @@ import {
   selectedWallet$,
   wallets$,
 } from '../../../../gateway/api/wallets';
-import { useSelectedNetwork } from '../../../../gateway/common/network';
 import { Wallet } from '../../../../network/common/Wallet';
 import { ErgoPayTabPaneContent } from '../../../../network/ergo/widgets/ErgoPayModal/ErgoPayTabPaneContent/ErgoPayTabPaneContent';
 import { IsCardano } from '../../../IsCardano/IsCardano';
@@ -29,39 +21,19 @@ interface WalletItemProps {
   close: (result?: boolean) => void;
 }
 
-const WalletButton = styled(Button)`
-  align-items: center;
-  display: flex;
-  height: 4rem;
-  width: 100%;
-
-  &:disabled,
-  &:disabled:hover {
-    border-color: var(--spectrum-default-border-color) !important;
-    filter: grayscale(1);
-
-    span {
-      color: var(--spectrum-default-border-color) !important;
-    }
-  }
-`;
-
 const WalletView: React.FC<WalletItemProps> = ({ wallet, close }) => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [, setWarning] = useState<ReactNode | undefined>(undefined);
 
-  const handleClick = () => {
+  const q = () => {
     setLoading(true);
     connectWallet(wallet).subscribe(
       (isConnected) => {
         setLoading(false);
         if (typeof isConnected === 'boolean' && isConnected) {
           panalytics.connectWallet(wallet.name);
-
           close(true);
-        } else if (isConnected) {
-          panalytics.connectWalletError(wallet.name);
-          setWarning(isConnected);
+        } else if (typeof isConnected === 'boolean' && !isConnected) {
+          setIsSnackbarOpen(true);
         }
       },
       () => {
@@ -72,14 +44,45 @@ const WalletView: React.FC<WalletItemProps> = ({ wallet, close }) => {
     );
   };
 
+  const [isSnackbarOpen, setIsSnackbarOpen] = useState<boolean>(false);
+  const theme = useTheme();
+
   return (
     <>
-      <WalletButton size="large" onClick={handleClick} loading={loading}>
-        <Flex.Item flex={1} display="flex" align="center">
-          {wallet.name}
-        </Flex.Item>
-        {wallet.icon}
-      </WalletButton>
+      <Snackbar
+        open={isSnackbarOpen}
+        autoHideDuration={6000}
+        onClose={() => setIsSnackbarOpen(false)}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+      >
+        <Alert
+          onClose={() => setIsSnackbarOpen(false)}
+          severity="error"
+          sx={{ width: '100%' }}
+        >
+          Make sure you are connected to the correct Cardano Network!
+        </Alert>
+      </Snackbar>
+      <Button
+        variant="contained"
+        endIcon={wallet.icon}
+        sx={{
+          background: theme.palette.background.default,
+          '& span': {
+            position: 'absolute',
+            right: '20px',
+          },
+        }}
+        className="w-full !normal-case !justify-start !text-[16px] relative"
+        size="large"
+        onClick={q}
+        disabled={loading}
+      >
+        {!loading ? wallet.name : 'Connecting, please wait...'}
+      </Button>
     </>
   );
 };

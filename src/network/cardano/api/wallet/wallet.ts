@@ -13,7 +13,7 @@ const CARDANO_SELECTED_WALLET_TOKEN = 'cardano-selected-wallet';
 
 export const cardanoWalletManager = makeWalletManager<CardanoWalletContract>(
   CARDANO_SELECTED_WALLET_TOKEN,
-  [Flint, Nami, Eternl, Gero],
+  [Flint, Nami, Eternl],
   (w: CardanoWalletContract) => w.connectWallet(),
 );
 

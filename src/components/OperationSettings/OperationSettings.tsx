@@ -119,7 +119,12 @@ export const OperationSettings: FC<OperationSettingsProps> = ({
   const theme = useTheme();
 
   const Setting: JSX.Element = (
-    <Paper className="p-2" sx={{ background: theme.palette.secondary.dark }}>
+    <Paper
+      className="p-2"
+      sx={{ background: theme.palette.secondary.dark }}
+      elevation={3}
+      variant="outlined"
+    >
       <Form
         form={form}
         onSubmit={() => {}}
@@ -194,6 +199,7 @@ export const OperationSettings: FC<OperationSettingsProps> = ({
 
   return (
     <Popover
+      style={{ border: 'none' }}
       content={Setting}
       trigger="click"
       placement="bottomRight"

@@ -21,3 +21,9 @@
 .ant-tabs {
     font-family: "Montserrat", sans-serif !important;
 }
+
+.ant-popover-inner {
+    border: none !important;
+    background-color: none !important;
+    border-radius: none !important;
+}

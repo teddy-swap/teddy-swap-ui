@@ -88,21 +88,6 @@ export const makeCardanoWallet = ({
     if (networkId === CardanoNetwork.TESTNET) {
       return true;
     }
-
-    notification.error({
-      key: 'wallet_network_error',
-      message: 'Wallet Network Error',
-      description: (
-        <>
-          Set network to "testnet" in your {name} wallet to use TeddySwap
-          interface{' '}
-          <a href={testnetSwitchGuideUrl} target="_blank" rel="noreferrer">
-            Read guide for {name}
-          </a>
-        </>
-      ),
-    });
-
     return false;
   };
 

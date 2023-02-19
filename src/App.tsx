@@ -2,17 +2,13 @@ import { ContextModalProvider } from '@ergolabs/ui-kit';
 import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import React, { Suspense, useEffect } from 'react';
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { BrowserRouter } from 'react-router-dom';
 import { BehaviorSubject, first, mapTo, Observable, tap, zip } from 'rxjs';
 
-import { applicationConfig } from './applicationConfig';
 import { ApplicationRoutes, routesConfig } from './ApplicationRoutes';
-import { panalytics } from './common/analytics';
 import { useObservable } from './common/hooks/useObservable';
 import { gaInitializer } from './common/initializers/gaInitializer';
 import { networkDomInitializer } from './common/initializers/networkDomInitializer';
-import { sentryInitializer } from './common/initializers/sentryInitializer';
 import { startAppTicks } from './common/streams/appTick';
 import { AppLoadingProvider, SettingsProvider } from './context';
 import { LanguageProvider } from './i18n/i18n';
@@ -48,6 +44,7 @@ const theme = createTheme({
     },
     secondary: {
       main: '#005662',
+      dark: '#1e394d',
       contrastText: '#FFF',
     },
     text: {
