@@ -2597,10 +2597,10 @@
     "@svgr/plugin-svgo" "^5.5.0"
     loader-utils "^2.0.0"
 
-"@teddyswap/cardano-dex-sdk@^0.0.71":
-  version "0.0.71"
-  resolved "https://registry.yarnpkg.com/@teddyswap/cardano-dex-sdk/-/cardano-dex-sdk-0.0.71.tgz#ba01587c4d7e24940213b90045da5ae761138fc6"
-  integrity sha512-PKRbe3aO+kVH7y/O6m5VjffQWNejnXX5VrhAzkTR8ggqClZjybXk5xR3qy2vcM+NrMFH4VnFF9mN7cOZ/dL75g==
+"@teddyswap/cardano-dex-sdk@^0.0.80":
+  version "0.0.80"
+  resolved "https://registry.yarnpkg.com/@teddyswap/cardano-dex-sdk/-/cardano-dex-sdk-0.0.80.tgz#2c3386509a40c2c9a7326a9d5868b37a39fb73e6"
+  integrity sha512-Jnvh/qPTy30MDC2VjGJghAzJg7hiqCNI6c9S/xFWU2ne0I2LGaaP/1nEK3MaNjOKjp0qU102dRFeaOfJwG5JvQ==
   dependencies:
     "@emurgo/cardano-serialization-lib-browser" "^11.0.5"
     axios "^0.21.1"
