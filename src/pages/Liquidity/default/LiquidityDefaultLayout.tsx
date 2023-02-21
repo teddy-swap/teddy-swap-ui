@@ -22,74 +22,72 @@ export const LiquidityDefaultLayout: FC<LiquidityLayoutProps> = ({
   isAmmPoolsLoading,
   term,
   handleSearchTerm,
-  filters,
-  setFilters,
   activeState,
   setActiveState,
   positions,
   isPositionsEmpty,
   isPositionsLoading,
-  positionsWithLocks,
-  showLockedPositions,
 }) => (
   <>
-    <div className="flex">
-      <MatTabs
-        className="w-full"
-        value={activeState}
-        onChange={(e, v) => {
-          setActiveState(v);
-        }}
-      >
-        <MatTab
-          label={LiquidityStateCaptions[LiquidityState.POOLS_OVERVIEW]}
-          value={LiquidityState.POOLS_OVERVIEW}
-        />
-        <MatTab
-          label={LiquidityStateCaptions[LiquidityState.YOUR_POSITIONS]}
-          value={LiquidityState.YOUR_POSITIONS}
-        />
-      </MatTabs>
-      <div className="grid justify-items-end w-full">
-        <LiquidityTitleExtra />
-        {/* <LiquidityFilter value={filters} onChange={setFilters} /> */}
+    <div className="lg:w-[944px] w-auto">
+      <div className="flex">
+        <MatTabs
+          className="w-full"
+          value={activeState}
+          onChange={(e, v) => {
+            setActiveState(v);
+          }}
+        >
+          <MatTab
+            label={LiquidityStateCaptions[LiquidityState.POOLS_OVERVIEW]}
+            value={LiquidityState.POOLS_OVERVIEW}
+          />
+          <MatTab
+            label={LiquidityStateCaptions[LiquidityState.YOUR_POSITIONS]}
+            value={LiquidityState.YOUR_POSITIONS}
+          />
+        </MatTabs>
+        <div className="grid justify-items-end w-full">
+          <LiquidityTitleExtra />
+          {/* <LiquidityFilter value={filters} onChange={setFilters} /> */}
+        </div>
       </div>
-    </div>
-    <div className="mt-4">
-      <TextField
-        className="w-full rounded-md"
-        label="Type token name or pool id"
-        variant="outlined"
-        autoFocus={false}
-        onChange={handleSearchTerm}
-        value={term}
-        sx={{
-          '& input': {
-            height: 55,
-          },
-        }}
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="start">
-              <SearchIcon />
-            </InputAdornment>
-          ),
-        }}
-      />
-    </div>
-    {activeState === LiquidityState.POOLS_OVERVIEW && (
-      <>
-        <PoolsOverview ammPools={ammPools} loading={isAmmPoolsLoading} />
-      </>
-    )}
-    {activeState === LiquidityState.YOUR_POSITIONS && (
-      <>
-        <YourPositions
-          positions={positions}
-          isPositionsEmpty={isPositionsEmpty}
-          isPositionsLoading={isPositionsLoading}
+      <div className="mt-4">
+        <TextField
+          className="w-full rounded-md"
+          label="Type token name or pool id"
+          variant="outlined"
+          autoFocus={false}
+          onChange={handleSearchTerm}
+          value={term}
+          sx={{
+            '& input': {
+              height: 55,
+            },
+          }}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            ),
+          }}
         />
-      </>
-    )}
+      </div>
+      {activeState === LiquidityState.POOLS_OVERVIEW && (
+        <>
+          <PoolsOverview ammPools={ammPools} loading={isAmmPoolsLoading} />
+        </>
+      )}
+      {activeState === LiquidityState.YOUR_POSITIONS && (
+        <>
+          <YourPositions
+            positions={positions}
+            isPositionsEmpty={isPositionsEmpty}
+            isPositionsLoading={isPositionsLoading}
+          />
+        </>
+      )}
+    </div>
   </>
 );

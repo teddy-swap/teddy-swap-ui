@@ -396,7 +396,8 @@ export const Swap = (): JSX.Element => {
       action={submitSwap}
     >
       <Page
-        width={400}
+        className="w-[448px] !p-0"
+        maxWidth={448}
         widgetBaseHeight={pool ? 432 : 272}
         leftWidget={
           selectedNetwork.name === 'ergo' && (
@@ -411,74 +412,76 @@ export const Swap = (): JSX.Element => {
         widgetOpened={leftWidgetOpened}
         onWidgetClose={() => setLeftWidgetOpened(false)}
       >
-        <CardHeader
-          action={OperationSettings && <OperationSettings />}
-          title="Swap"
-          classes={{ title: '!font-bold !text-xl' }}
-          className="!p-0 !text-white"
-        />
-        <div className="flex flex-col">
-          <div className="mt-2 mb-1">
-            <AssetControlFormItem
-              label={'From'}
-              loading={allAmmPoolsLoading}
-              bordered
-              maxButton
-              handleMaxButtonClick={handleMaxButtonClick}
-              assets$={defaultTokenAssets$}
-              assetsToImport$={tokenAssetsToImport$}
-              importedAssets$={importedTokenAssets$}
-              amountName="fromAmount"
-              tokenName="fromAsset"
-              analytics={{
-                operation: 'swap',
-                location: 'swap',
-                tokenAssignment: 'from',
-              }}
-            />
+        <div className="p-[24px]">
+          <CardHeader
+            action={OperationSettings && <OperationSettings />}
+            title="Swap"
+            classes={{ title: '!font-bold !text-xl' }}
+            className="!p-0 !text-white"
+          />
+          <div className="flex flex-col">
+            <div className="mt-2 mb-1">
+              <AssetControlFormItem
+                label={'From'}
+                loading={allAmmPoolsLoading}
+                bordered
+                maxButton
+                handleMaxButtonClick={handleMaxButtonClick}
+                assets$={defaultTokenAssets$}
+                assetsToImport$={tokenAssetsToImport$}
+                importedAssets$={importedTokenAssets$}
+                amountName="fromAmount"
+                tokenName="fromAsset"
+                analytics={{
+                  operation: 'swap',
+                  location: 'swap',
+                  tokenAssignment: 'from',
+                }}
+              />
+            </div>
+            <div className="mt-1 mb-2">
+              <AssetControlFormItem
+                label={'To'}
+                loading={allAmmPoolsLoading}
+                bordered
+                assets$={toAssets$}
+                assetsToImport$={toAssetsToImport$}
+                importedAssets$={toImportedAssets$}
+                amountName="toAmount"
+                tokenName="toAsset"
+                analytics={{
+                  operation: 'swap',
+                  location: 'swap',
+                  tokenAssignment: 'to',
+                }}
+              />
+            </div>
+            <div className="my-2">
+              {({ value, onChange }: { value: any; onChange: any }) => (
+                <Flex.Item marginTop={!!value ? 4 : 0}>
+                  <PoolSelector value={value} onChange={onChange} />
+                </Flex.Item>
+              )}
+            </div>
+            <div className="my-2">
+              <ActionForm.Button analytics={{ location: 'swap' }}>
+                <Trans>Swap</Trans>
+              </ActionForm.Button>
+            </div>
+            <Form.Listener>
+              {({ value }) => (
+                <>
+                  <div className="my-4">
+                    <SwapInfo
+                      value={value}
+                      isReversed={reversedRatio}
+                      setReversed={setReversedRatio}
+                    />
+                  </div>
+                </>
+              )}
+            </Form.Listener>
           </div>
-          <div className="mt-1 mb-2">
-            <AssetControlFormItem
-              label={'To'}
-              loading={allAmmPoolsLoading}
-              bordered
-              assets$={toAssets$}
-              assetsToImport$={toAssetsToImport$}
-              importedAssets$={toImportedAssets$}
-              amountName="toAmount"
-              tokenName="toAsset"
-              analytics={{
-                operation: 'swap',
-                location: 'swap',
-                tokenAssignment: 'to',
-              }}
-            />
-          </div>
-          <div className="my-2">
-            {({ value, onChange }: { value: any; onChange: any }) => (
-              <Flex.Item marginTop={!!value ? 4 : 0}>
-                <PoolSelector value={value} onChange={onChange} />
-              </Flex.Item>
-            )}
-          </div>
-          <div className="my-2">
-            <ActionForm.Button analytics={{ location: 'swap' }}>
-              <Trans>Swap</Trans>
-            </ActionForm.Button>
-          </div>
-          <Form.Listener>
-            {({ value }) => (
-              <>
-                <div className="my-4">
-                  <SwapInfo
-                    value={value}
-                    isReversed={reversedRatio}
-                    setReversed={setReversedRatio}
-                  />
-                </div>
-              </>
-            )}
-          </Form.Listener>
         </div>
       </Page>
     </ActionForm>

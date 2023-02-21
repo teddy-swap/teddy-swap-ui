@@ -105,28 +105,12 @@ export const Liquidity = (): JSX.Element => {
 
   return (
     <Page
+      className="justify-center"
       maxWidth={944}
       padding={4}
       title={<Trans>Liquidity</Trans>}
       titleChildren={<></>}
     >
-      {s && (
-        <LiquidityMobileLayout
-          activeState={activeState}
-          setActiveState={setActiveState}
-          filters={filters}
-          term={term}
-          handleSearchTerm={handleSearchChange}
-          setFilters={setFilters}
-          ammPools={filterAmmPools(ammPools) || []}
-          isAmmPoolsLoading={isAmmPoolsLoading}
-          positions={filterPositions(positions) || []}
-          isPositionsEmpty={!positions.length}
-          isPositionsLoading={isPositionLoading}
-          showLockedPositions={positionsWithLocks.length > 0}
-          positionsWithLocks={filterLockedPositions(positionsWithLocks)}
-        />
-      )}
       {moreThan('m') && (
         <LiquidityDefaultLayout
           activeState={activeState}

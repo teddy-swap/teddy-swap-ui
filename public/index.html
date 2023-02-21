@@ -6,8 +6,7 @@
   <link rel="icon" href="%PUBLIC_URL%/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
-  <meta name="description"
-    content="Provide liquidity, swap and exchange assets on the Cardano blockchain" />
+  <meta name="description" content="Provide liquidity, swap and exchange assets on the Cardano blockchain" />
   <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta property="og:image" content="%PUBLIC_URL%/og-image.png">
@@ -37,6 +36,23 @@
 <body>
   <noscript>You should enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+  <div class="absolute w-screen h-screen top-0 left-0 z-[1000000] bg-[#274e63] md:hidden">
+    <div class="grid content-center w-screen h-screen justify-center">
+      <div class="flex flex-col p-4">
+        <img class="" src="/images/logo.svg" />
+        <span class="font-bold text-center">Mobile is coming the next few days, please check back!</span>
+      </div>
+    </div>
+  </div>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGPCGFP94X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-KGPCGFP94X');
+  </script>
 </body>
 
 </html>

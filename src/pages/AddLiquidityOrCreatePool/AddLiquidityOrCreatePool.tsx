@@ -199,8 +199,8 @@ export const AddLiquidityOrCreatePool: FC = () => {
           <Flex col>
             <Flex.Item marginBottom={4} display="flex" col>
               <Section title={t`Select Pair`}>
-                <Flex justify="center" align="center">
-                  <Flex.Item marginRight={2} flex={1}>
+                <div className="flex w-full">
+                  <div>
                     <AssetSelectFormItem
                       name="x"
                       assets$={xAssets$}
@@ -213,8 +213,8 @@ export const AddLiquidityOrCreatePool: FC = () => {
                         tokenAssignment: 'x',
                       }}
                     />
-                  </Flex.Item>
-                  <Flex.Item flex={1}>
+                  </div>
+                  <div className="flex justify-end w-full">
                     <AssetSelectFormItem
                       name="y"
                       assets$={yAssets$}
@@ -227,8 +227,8 @@ export const AddLiquidityOrCreatePool: FC = () => {
                         tokenAssignment: 'y',
                       }}
                     />
-                  </Flex.Item>
-                </Flex>
+                  </div>
+                </div>
               </Section>
             </Flex.Item>
             <Form.Listener>

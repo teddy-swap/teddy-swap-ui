@@ -62,8 +62,7 @@ export const _Header: React.FC<HeaderProps> = ({
         style={{ backgroundImage: 'none', zIndex: 11 }}
       >
         <Toolbar disableGutters>
-          <TeddyLogo className="hidden mr-6 md:flex" />
-          <TeddyLogo className="flex md:hidden" />
+          <TeddyLogo className="mr-6 flex" />
           <Box className="flex-grow hidden gap-6 md:flex">
             {pages.map((page) => (
               <NavLink
@@ -90,48 +89,10 @@ export const _Header: React.FC<HeaderProps> = ({
           </Box>
           <Flex align="center" style={{ gap: '8px', marginLeft: 'auto' }}>
             <ConnectWallet />
-            {!s && walletState === WalletState.CONNECTED && (
-              <OperationsHistory />
-            )}
             <BurgerMenu />
           </Flex>
         </Toolbar>
       </AppBar>
-      {/* <header
-        className={cn(
-          {
-            scrolled,
-            scrolledFromTop: moreThan('s') && !scrolledTop,
-          },
-          className,
-        )}
-      >
-        <CardanoMaintenance />
-        <HeaderWrapper>
-          <Flex align="center" style={{ gap: '8px' }}>
-            <Flex.Item marginRight={2} align="center">
-              <AppLogo isNoWording />
-            </Flex.Item>
-            {moreThan('l') && <Navigation />}
-            <IsErgo>
-              <Analytics />
-            </IsErgo>
-            {!s && (
-              <IsCardano>
-                <GetTestTokensButton />
-              </IsCardano>
-            )}
-          </Flex>
-          <Flex align="center" style={{ gap: '8px', marginLeft: 'auto' }}>
-            <NetworkDropdown />
-            <ConnectWallet />
-            {!s && walletState === WalletState.CONNECTED && (
-              <OperationsHistory />
-            )}
-            <BurgerMenu />
-          </Flex>
-        </HeaderWrapper>
-      </header> */}
     </>
   );
 };

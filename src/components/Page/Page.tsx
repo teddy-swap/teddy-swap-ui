@@ -115,10 +115,10 @@ const _Page: React.FC<PageProps> = ({
   const { valBySize, s, m } = useDevice();
   const theme = useTheme();
   return (
-    <main className="z-10 flex justify-center w-full pt-10">
+    <div className={`z-10 flex justify-center w-full pt-10`}>
       <Paper
         elevation={10}
-        className="z-10 p-6 space-y-4 !rounded-xl"
+        className={`z-10 p-6 space-y-4 !rounded-xl w-full lg:w-auto ${className}`}
         sx={{
           background: theme.palette.background.default,
         }}
@@ -198,7 +198,7 @@ const _Page: React.FC<PageProps> = ({
           </Flex>
         </Flex>
       </Paper>
-    </main>
+    </div>
   );
 };
 

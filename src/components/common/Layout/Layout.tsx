@@ -19,7 +19,7 @@ const MainContainer = styled.main`
   padding: 80px 4px 148px 4px !important;
 
   ${device.m} {
-    padding: 80px 18px 80px 24px !important;
+    padding: 60px 18px 80px 24px !important;
   }
 
   ${device.l} {
@@ -83,7 +83,7 @@ const _Layout: FC<PropsWithChildren<{ className?: string }>> = ({
           <img
             src={'/images/bear-with-balloons.png'}
             alt="plane with bear"
-            className="fixed bottom-0 right-20 w-96"
+            className="fixed bottom-0 right-20 w-96 z-[-1]"
           />
           <Header scrolled={scrolled} scrolledTop={scrolledTop} />
           <MainContainer
@@ -95,7 +95,7 @@ const _Layout: FC<PropsWithChildren<{ className?: string }>> = ({
             {/* <SocialLinks /> */}
             <NetworkHeight />
           </footer>
-          <FooterNavigation ref={footerRef} />
+          {/* <FooterNavigation ref={footerRef} /> */}
         </>
       )}
     </div>

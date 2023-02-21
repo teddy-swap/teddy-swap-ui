@@ -35,26 +35,50 @@ export const PoolsOrPositionsTableView: FC<
   PropsWithChildren<PoolsOrPositionsTableViewProps<any>>
 > = ({ children, poolMapper, items, expandComponent }) => (
   <>
-    <TableContainer className="max-h-[440px] min-w-[944px]">
+    <TableContainer className="max-h-[440px] w-full">
       <Table stickyHeader aria-label="sticky table" className="pr-[25px]">
         <TableHead>
           <TableRow>
-            <TableCell key="pair" align="left" sx={{ minWidth: '230px' }}>
+            <TableCell
+              key="pair"
+              align="left"
+              className="w-[calc(100%/4)] lg:!w-[calc(100%/6)]"
+            >
               Pair
             </TableCell>
-            <TableCell key="tvl" align="left" sx={{ minWidth: '100px' }}>
+            <TableCell
+              key="tvl"
+              align="left"
+              className="w-[calc(100%/4)] lg:!w-[calc(100%/6)]"
+            >
               TVL
             </TableCell>
-            <TableCell key="volumeH24" align="left" sx={{ minWidth: '100px' }}>
+            <TableCell
+              className="!hidden lg:!table-cell w-[calc(100%/4)] lg:!w-[calc(100%/6)]"
+              key="volumeH24"
+              align="left"
+            >
               Volume 24H
             </TableCell>
-            <TableCell key="volumeD7" align="left" sx={{ minWidth: '100px' }}>
+            <TableCell
+              className="!hidden lg:!table-cell w-[calc(100%/4)] lg:!w-[calc(100%/6)]"
+              key="volumeD7"
+              align="left"
+            >
               Volume 7D
             </TableCell>
-            <TableCell key="fee" align="left" sx={{ minWidth: '100px' }}>
+            <TableCell
+              key="fee"
+              align="left"
+              className="w-[calc(100%/4)] lg:!w-[calc(100%/6)]"
+            >
               Fee
             </TableCell>
-            <TableCell key="apr" align="left" sx={{ minWidth: '100px' }}>
+            <TableCell
+              key="apr"
+              align="left"
+              className="w-[calc(100%/4)] lg:!w-[calc(100%/6)]"
+            >
               APR
             </TableCell>
           </TableRow>
@@ -62,7 +86,7 @@ export const PoolsOrPositionsTableView: FC<
       </Table>
     </TableContainer>
     {items.length <= 0 && (
-      <TableContainer className="max-h-[440px] min-w-[944px]">
+      <TableContainer className="max-h-[440px] w-full">
         <Accordion
           sx={{
             width: '100%',
@@ -84,30 +108,46 @@ export const PoolsOrPositionsTableView: FC<
             <Table>
               <TableBody>
                 <TableRow>
-                  <TableCell key="pair" align="left" sx={{ minWidth: '230px' }}>
-                    <Skeleton variant="rectangular" />
-                  </TableCell>
-                  <TableCell key="tvl" align="left" sx={{ minWidth: '100px' }}>
+                  <TableCell
+                    key="pair"
+                    align="left"
+                    className="w-[calc(100%/4)] lg:!w-[calc(100%/6)]"
+                  >
                     <Skeleton variant="rectangular" />
                   </TableCell>
                   <TableCell
+                    key="tvl"
+                    align="left"
+                    className="w-[calc(100%/4)] lg:!w-[calc(100%/6)]"
+                  >
+                    <Skeleton variant="rectangular" />
+                  </TableCell>
+                  <TableCell
+                    className="!hidden lg:!table-cell w-[calc(100%/4)] lg:!w-[calc(100%/6)]"
                     key="volumeH24"
                     align="left"
-                    sx={{ minWidth: '100px' }}
                   >
                     <Skeleton variant="rectangular" />
                   </TableCell>
                   <TableCell
+                    className="!hidden lg:!table-cell w-[calc(100%/4)] lg:!w-[calc(100%/6)]"
                     key="volumeD7"
                     align="left"
-                    sx={{ minWidth: '100px' }}
                   >
                     <Skeleton variant="rectangular" />
                   </TableCell>
-                  <TableCell key="fee" align="left" sx={{ minWidth: '100px' }}>
+                  <TableCell
+                    key="fee"
+                    align="left"
+                    className="w-[calc(100%/4)] lg:!w-[calc(100%/6)]"
+                  >
                     <Skeleton variant="rectangular" />
                   </TableCell>
-                  <TableCell key="apr" align="left" sx={{ minWidth: '100px' }}>
+                  <TableCell
+                    key="apr"
+                    align="left"
+                    className="w-[calc(100%/4)] lg:!w-[calc(100%/6)]"
+                  >
                     <Skeleton variant="rectangular" />
                   </TableCell>
                 </TableRow>
@@ -123,7 +163,7 @@ export const PoolsOrPositionsTableView: FC<
         </Accordion>
       </TableContainer>
     )}
-    <TableContainer className="max-h-[440px] min-w-[944px]">
+    <TableContainer className="max-h-[440px] w-full">
       {items.map((ammPool, idx) => {
         return (
           <Accordion
@@ -151,35 +191,34 @@ export const PoolsOrPositionsTableView: FC<
                     <TableCell
                       key="pair"
                       align="left"
-                      sx={{ minWidth: '230px' }}
+                      className="w-[calc(100%/4)] lg:!w-[calc(100%/6)]"
                     >
                       <PairColumn ammPool={poolMapper(ammPool)} />
                     </TableCell>
                     <TableCell
                       key="tvl"
-                      align="left"
-                      sx={{ minWidth: '100px' }}
+                      className="w-[calc(100%/4)] lg:!w-[calc(100%/6)]"
                     >
                       <TvlOrVolume24Column usd={poolMapper(ammPool).tvl} />
                     </TableCell>
                     <TableCell
+                      className="!hidden lg:!table-cell w-[calc(100%/4)] lg:!w-[calc(100%/6)]"
                       key="volumeH24"
                       align="left"
-                      sx={{ minWidth: '100px' }}
                     >
                       <TvlOrVolume24Column usd={poolMapper(ammPool).tvl} />
                     </TableCell>
                     <TableCell
+                      className="!hidden lg:!table-cell w-[calc(100%/4)] lg:!w-[calc(100%/6)]"
                       key="volumeD7"
                       align="left"
-                      sx={{ minWidth: '100px' }}
                     >
                       <TvlOrVolume24Column usd={poolMapper(ammPool).tvl} />
                     </TableCell>
                     <TableCell
                       key="fee"
                       align="left"
-                      sx={{ minWidth: '100px' }}
+                      className="w-[calc(100%/4)] lg:!w-[calc(100%/6)]"
                     >
                       <Flex>
                         <Chip label={`${poolMapper(ammPool).poolFee}%`} />
@@ -188,7 +227,7 @@ export const PoolsOrPositionsTableView: FC<
                     <TableCell
                       key="apr"
                       align="left"
-                      sx={{ minWidth: '100px' }}
+                      className="w-[calc(100%/4)] lg:!w-[calc(100%/6)]"
                     >
                       <AprColumn ammPool={poolMapper(ammPool)} />
                     </TableCell>

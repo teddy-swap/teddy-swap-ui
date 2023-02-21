@@ -167,13 +167,6 @@ export const OperationSettings: FC<OperationSettingsProps> = ({
               content={
                 <>
                   <Trans>Max execution fee multiplier</Trans>
-                  <br />
-                  <Typography.Link
-                    target="_blank"
-                    href="https://docs.spectrum.fi/docs/protocol-overview/fees#execution-fee-formula"
-                  >
-                    <Trans>Read more</Trans>
-                  </Typography.Link>
                 </>
               }
             />
