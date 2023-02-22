@@ -50,10 +50,6 @@ const AssetListModal: React.FC<TokenListModalProps> = ({
     if (onSelectChanged) {
       onSelectChanged(asset);
     }
-
-    if (close) {
-      close();
-    }
   };
 
   const handleAssetImport = (asset: AssetInfo) => {

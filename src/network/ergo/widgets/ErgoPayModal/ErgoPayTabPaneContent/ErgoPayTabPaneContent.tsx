@@ -39,7 +39,6 @@ export const ErgoPayTabPaneContent = ({ close }: Props) => {
       connectWallet(ErgopayWallet).subscribe(() => {
         panalytics.connectWallet(ErgopayWallet.name);
       });
-      close();
     }
   }, [loadingAddresses]);
 

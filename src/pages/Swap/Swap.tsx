@@ -432,11 +432,6 @@ export const Swap = (): JSX.Element => {
                 importedAssets$={importedTokenAssets$}
                 amountName="fromAmount"
                 tokenName="fromAsset"
-                analytics={{
-                  operation: 'swap',
-                  location: 'swap',
-                  tokenAssignment: 'from',
-                }}
               />
             </div>
             <div className="mt-1 mb-2">
@@ -449,11 +444,6 @@ export const Swap = (): JSX.Element => {
                 importedAssets$={toImportedAssets$}
                 amountName="toAmount"
                 tokenName="toAsset"
-                analytics={{
-                  operation: 'swap',
-                  location: 'swap',
-                  tokenAssignment: 'to',
-                }}
               />
             </div>
             <div className="my-2">

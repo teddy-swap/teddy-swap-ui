@@ -24,7 +24,6 @@ export const TokensTab: React.FC<{ close: () => void }> = ({ close }) => {
     if (!location.pathname.match('swap')) {
       navigate('swap');
     }
-    close();
   };
 
   return (

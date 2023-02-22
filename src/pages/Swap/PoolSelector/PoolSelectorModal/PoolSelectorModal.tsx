@@ -29,7 +29,6 @@ export const PoolSelectorModal: FC<PoolSelectorModalProps> = ({
   const handlePoolItemClick = (pool: AmmPool): void => {
     if (onChange) {
       onChange(pool);
-      close();
       panalytics.changePoolSwap(pool);
     }
   };

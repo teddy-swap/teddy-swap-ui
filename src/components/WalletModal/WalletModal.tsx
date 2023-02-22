@@ -26,7 +26,6 @@ export const WalletModal: React.FC<{ close: (result?: any) => void }> = ({
     panalytics.disconnectWallet(selectedWallet?.name);
     disconnectWallet();
     patchSettings({ ergopay: false });
-    close();
   };
 
   return (

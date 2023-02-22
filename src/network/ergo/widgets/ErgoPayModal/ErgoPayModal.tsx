@@ -37,7 +37,6 @@ export const ErgoPayModal: FC<ErgoPaySwapConfirmationModalProps> = ({
       window.location.replace(
         createErgoPayDeepLink(createUnsignedTxRequestLink(txId)),
       );
-      close();
     } else {
       setTxId(txId);
       setModalState(ErgoPayConfirmationModalState.TX_INFO);
