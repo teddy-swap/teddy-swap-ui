@@ -70,7 +70,7 @@ export const SwapConfirmationInfo: FC<SwapConfirmationInfoProps> = ({
           <BoxInfoItem
             title={
               <Typography.Body size="large">
-                <Trans>Nitro:</Trans>
+                <Trans>Honey:</Trans>
               </Typography.Body>
             }
             value={

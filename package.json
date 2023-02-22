@@ -4,8 +4,8 @@
   "private": false,
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "npx tailwindcss -i ./src/assets/tailwind/app.css -o ./public/dist/app.css -m && react-app-rewired build",
-    "deploy": "npx tailwindcss -i ./src/assets/tailwind/app.css -o ./public/dist/app.css -m && yarn build && gh-pages -d build",
+    "build": "NODE_ENV=production npx tailwindcss -i ./src/assets/tailwind/app.css -o ./public/dist/app.css -m && react-app-rewired build",
+    "deploy": "NODE_ENV=production npx tailwindcss -i ./src/assets/tailwind/app.css -o ./public/dist/app.css -m && yarn build && gh-pages -d build",
     "test": "react-app-rewired test",
     "prei18n:extract": "touch src/i18n/locales/en-US.po",
     "i18n:extract": "lingui extract --locale en-US",
