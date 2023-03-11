@@ -86,6 +86,15 @@ export const _Header: React.FC<HeaderProps> = ({
             >
               Faucet
             </a>
+            <a
+              href="https://leaderboard.teddyswap.org"
+              target="_blank"
+              key={'leaderboard'}
+              className="my-2 block text-base font-bold capitalize hover:text-white transition text-zinc-400"
+              rel="noreferrer"
+            >
+              Leaderboard
+            </a>
           </Box>
           <Flex align="center" style={{ gap: '8px', marginLeft: 'auto' }}>
             <ConnectWallet />
