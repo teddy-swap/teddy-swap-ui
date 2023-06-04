@@ -4,7 +4,6 @@ import cn from 'classnames';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-
 import { device } from '../../../../common/constants/size';
 import { useObservable } from '../../../../common/hooks/useObservable';
 import { selectedWalletState$ } from '../../../../gateway/api/wallets';
@@ -13,6 +12,7 @@ import { IsCardano } from '../../../IsCardano/IsCardano';
 import { IsErgo } from '../../../IsErgo/IsErgo';
 import { AppLogo } from '../../AppLogo/AppLogo';
 import TeddyLogo from '../../AppLogo/TeddyLogo';
+import LogoText from '../../LogoText/LogoText';
 import { CardanoMaintenance } from '../CardanoMaintenance/CardanoMaintenance';
 import { OperationsHistory } from '../OperationsHistory/OperationsHistory';
 import { Analytics } from './Analytics/Analytics';
@@ -45,7 +45,7 @@ const HeaderWrapper = styled.div`
   }
 `;
 
-const pages = ['swap', 'liquidity', 'orders'];
+const pages = ['swap', 'farm', 'liquidity', 'orders'];
 
 export const _Header: React.FC<HeaderProps> = ({
   className,
@@ -62,7 +62,10 @@ export const _Header: React.FC<HeaderProps> = ({
         style={{ backgroundImage: 'none', zIndex: 11 }}
       >
         <Toolbar disableGutters>
-          <TeddyLogo className="mr-6 flex" />
+          <div className="flex gap-x-2 items-center mr-6">
+            <TeddyLogo className="flex" />
+            <LogoText />
+          </div>
           <Box className="flex-grow hidden gap-6 md:flex">
             {pages.map((page) => (
               <NavLink
