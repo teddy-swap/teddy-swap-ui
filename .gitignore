@@ -28,5 +28,3 @@ yarn-error.log*
 
 .idea
 .tool-versions
-
-yarn.lock
