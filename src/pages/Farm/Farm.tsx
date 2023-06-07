@@ -7,11 +7,13 @@ import { AmmPool } from '../../common/models/AmmPool';
 import { AssetLock } from '../../common/models/AssetLock';
 import { Position } from '../../common/models/Position';
 import { Page } from '../../components/Page/Page';
+// import { PageHeader } from '../../components/Page/PageHeader/PageHeader';
+import PageHeaderSection from '../../components/common/PageHeader/PageHeader';
 import { displayedAmmPools$ } from '../../gateway/api/ammPools';
 import { positions$ } from '../../gateway/api/positions';
 // import { LiquidityTitleExtra } from './common/components/LiquidityTitleExtra/LiquidityTitleExtra';
 import { LiquidityState } from './common/types/LiquidityState';
-import { LiquidityDefaultLayout } from './default/LiquidityDefaultLayout';
+import { FarmDefaultLayout } from './default/FarmDefaultLayout';
 import { PoolsOrPositionsFilterValue } from './default/common/components/LiquidityFilter/LiquidityFilter';
 
 // import { LiquidityMobileLayout } from './mobile/LiquidityMobileLayout';
@@ -104,30 +106,35 @@ export const Farm = (): JSX.Element => {
   const positionsWithLocks = positions?.filter((p) => !!p.locks.length);
 
   return (
-    <Page
-      className="justify-center"
-      maxWidth={944}
-      padding={4}
-      title="Farm"
-      titleChildren={<></>}
-    >
-      {moreThan('m') && (
-        <LiquidityDefaultLayout
-          activeState={activeState}
-          setActiveState={setActiveState}
-          filters={filters}
-          term={term}
-          handleSearchTerm={handleSearchChange}
-          setFilters={setFilters}
-          ammPools={filterAmmPools(ammPools) || []}
-          isAmmPoolsLoading={isAmmPoolsLoading}
-          positions={filterPositions(positions) || []}
-          isPositionsEmpty={!positions.length}
-          isPositionsLoading={isPositionLoading}
-          showLockedPositions={positionsWithLocks.length > 0}
-          positionsWithLocks={filterLockedPositions(positionsWithLocks)}
-        />
-      )}
-    </Page>
+    <>
+    <div className="flex flex-col items-center">
+      <PageHeaderSection
+      />
+      <Page
+        className="justify-center"
+        maxWidth={944}
+        padding={4}
+        titleChildren={<></>}
+      >
+        {moreThan('m') && (
+          <FarmDefaultLayout
+            activeState={activeState}
+            setActiveState={setActiveState}
+            filters={filters}
+            term={term}
+            handleSearchTerm={handleSearchChange}
+            setFilters={setFilters}
+            ammPools={filterAmmPools(ammPools) || []}
+            isAmmPoolsLoading={isAmmPoolsLoading}
+            positions={filterPositions(positions) || []}
+            isPositionsEmpty={!positions.length}
+            isPositionsLoading={isPositionLoading}
+            showLockedPositions={positionsWithLocks.length > 0}
+            positionsWithLocks={filterLockedPositions(positionsWithLocks)}
+          />
+        )}
+      </Page>
+      </div>
+    </>
   );
 };
