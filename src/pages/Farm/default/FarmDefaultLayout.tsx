@@ -3,7 +3,7 @@ import { LiquidityLayoutProps } from '../common/types/LiquidityLayoutProps';
 import { LiquidityState } from '../common/types/LiquidityState';
 import { PoolsOverview } from './components/PoolsOverview/PoolsOverview';
 
-export const LiquidityDefaultLayout: FC<LiquidityLayoutProps> = ({
+export const FarmDefaultLayout: FC<LiquidityLayoutProps> = ({
   ammPools,
   isAmmPoolsLoading,
   activeState,

@@ -871,6 +871,10 @@ video {
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .justify-items-end {
   justify-items: end;
 }
@@ -1076,6 +1080,10 @@ video {
   font-weight: 700;
 }
 
+.font-semibold {
+  font-weight: 600;
+}
+
 .\!font-bold {
   font-weight: 700 !important;
 }
@@ -1219,4 +1227,12 @@ video {
   .lg\:\!w-\[calc\(100\%\/6\)\] {
     width: calc(100% / 6) !important;
   }
+}
+
+/* --------------------------------------Material Css------------------------------------------------------------ */
+
+.MuiSlider-markLabel .css-1pmkuve-MuiSlider-markLabel{
+  border: 2px solid white;
+  border-radius: 10px;
+  left: 12.5% !important;
 }
