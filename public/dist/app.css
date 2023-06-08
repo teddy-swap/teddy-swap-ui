@@ -693,6 +693,10 @@ video {
   margin-left: 1rem;
 }
 
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -913,6 +917,10 @@ video {
   border-width: 1px;
 }
 
+.border-2 {
+  border-width: 2px;
+}
+
 .\!border {
   border-width: 1px !important;
 }
@@ -940,6 +948,10 @@ video {
 .bg-\[\#274e63\] {
   --tw-bg-opacity: 1;
   background-color: rgb(39 78 99 / var(--tw-bg-opacity));
+}
+
+.bg-black{
+  background-color: black;
 }
 
 .bg-slate-900\/70 {
@@ -1032,6 +1044,11 @@ video {
 .pr-\[25px\] {
   padding-right: 25px;
 }
+
+.pl-4 {
+  padding-left: 1rem;
+}
+
 
 .text-center {
   text-align: center;

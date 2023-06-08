@@ -19,6 +19,7 @@ import { AmmPool } from '../../../../../common/models/AmmPool';
 import { Position } from '../../../../../common/models/Position';
 import { ExpandComponentProps } from '../../../../../components/TableView/common/Expand';
 import { DataTag } from '../../../../../components/common/DataTag/DataTag';
+import AprColumn from '../../../common/columns/PoolsOrPositionsColumns/columns/AprColumn/AprColumn';
 import { FarmColumn } from '../../../common/columns/PoolsOrPositionsColumns/columns/FarmColumn/FarmColumn';
 import { PoolOrPositionDetails } from '../PoolOrPositionDetails/PoolOrPositionDetails';
 
@@ -229,7 +230,21 @@ export const PoolsOrPositionsTableView: FC<
                       align="left"
                       className="w-[calc(100%/4)] lg:!w-[calc(100%/6)]"
                     >
-                      {/* <AprColumn ammPool={poolMapper(ammPool)} /> */}
+                      <AprColumn
+                        ammPool={poolMapper(ammPool)}
+                        assetX={{
+                          id: '',
+                          name: undefined,
+                          decimals: undefined,
+                          description: undefined,
+                        }}
+                        assetY={{
+                          id: '',
+                          name: undefined,
+                          decimals: undefined,
+                          description: undefined,
+                        }}
+                      />
                     </TableCell>
                   </TableRow>
                 </TableBody>

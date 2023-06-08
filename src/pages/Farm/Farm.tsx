@@ -107,33 +107,32 @@ export const Farm = (): JSX.Element => {
 
   return (
     <>
-    <div className="flex flex-col items-center">
-      <PageHeaderSection
-      />
-      <Page
-        className="justify-center"
-        maxWidth={944}
-        padding={4}
-        titleChildren={<></>}
-      >
-        {moreThan('m') && (
-          <FarmDefaultLayout
-            activeState={activeState}
-            setActiveState={setActiveState}
-            filters={filters}
-            term={term}
-            handleSearchTerm={handleSearchChange}
-            setFilters={setFilters}
-            ammPools={filterAmmPools(ammPools) || []}
-            isAmmPoolsLoading={isAmmPoolsLoading}
-            positions={filterPositions(positions) || []}
-            isPositionsEmpty={!positions.length}
-            isPositionsLoading={isPositionLoading}
-            showLockedPositions={positionsWithLocks.length > 0}
-            positionsWithLocks={filterLockedPositions(positionsWithLocks)}
-          />
-        )}
-      </Page>
+      <div className="flex flex-col items-center">
+        <PageHeaderSection />
+        <Page
+          className="justify-center"
+          maxWidth={944}
+          padding={4}
+          titleChildren={<></>}
+        >
+          {moreThan('m') && (
+            <FarmDefaultLayout
+              activeState={activeState}
+              setActiveState={setActiveState}
+              filters={filters}
+              term={term}
+              handleSearchTerm={handleSearchChange}
+              setFilters={setFilters}
+              ammPools={filterAmmPools(ammPools) || []}
+              isAmmPoolsLoading={isAmmPoolsLoading}
+              positions={filterPositions(positions) || []}
+              isPositionsEmpty={!positions.length}
+              isPositionsLoading={isPositionLoading}
+              showLockedPositions={positionsWithLocks.length > 0}
+              positionsWithLocks={filterLockedPositions(positionsWithLocks)}
+            />
+          )}
+        </Page>
       </div>
     </>
   );

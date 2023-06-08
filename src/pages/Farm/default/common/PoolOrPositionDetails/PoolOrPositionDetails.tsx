@@ -93,7 +93,7 @@ export const PoolOrPositionDetails: FC<
     <>
       <div className="flex justify-between items-center">
         <div className="flex flex-col w-[250px]">
-        <div className="flex items-center">
+          <div className="flex items-center">
             <div>
               <Teddy />
             </div>
@@ -143,11 +143,12 @@ export const PoolOrPositionDetails: FC<
         <div className="flex" style={{ columnGap: '25px', marginLeft: '25px' }}>
           <MatButton
             variant="contained"
-            onClick={handlePopOpen}
-            onDoubleClick={handlePopFailOpen}
+            // onClick={handlePopOpen}
+            onClick={handlePopFailOpen}
             className={
               '!font-bold !rounded-md h-[30px] !mt-[4px] !normal-case bg-[#217DBF]'
             }
+            style={{ width: '103px' }}
           >
             Harvest
           </MatButton>
@@ -185,7 +186,12 @@ export const PoolOrPositionDetails: FC<
             // variant="contained"
             onClick={handleWithOpen}
             className={'!font-bold !rounded-md h-[30px] !mt-[4px] !normal-case'}
-            style={{ backgroundColor: 'black', color: 'white' }}
+            style={{
+              backgroundColor: '#333333',
+              color: 'white',
+              padding: '16px',
+              width: '103px',
+            }}
           >
             Withdraw
           </MatButton>
