@@ -73,7 +73,7 @@ const StackModal = ({Label}:any) => {
           paddingBottom: '15px',
         }}
       >
-        <span className=".\!justify-start mr-4">
+        <span className=".\!justify-start mr-6">
           <img
             src={ArrowBack}
             alt="warning"
