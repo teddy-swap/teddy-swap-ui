@@ -21,7 +21,9 @@ import { ConnectWallet } from './ConnectWallet/ConnectWallet';
 import { GetTestTokensButton } from './GetTestTokensButton/GetTestTokensButton';
 import { Navigation } from './Navigation/Navigation';
 import { NetworkDropdown } from './NetworkDropdown/NetworkDropdown';
-
+import UserDetails from './UserDetails/UserDetails';
+import TimeIcon from './TimeIcon/TimeIcon';
+import SettingIcon from './SettingIcon/SettingIcon';
 export interface HeaderProps {
   className?: string;
   scrolled?: boolean;
@@ -100,8 +102,11 @@ export const _Header: React.FC<HeaderProps> = ({
             </a>
           </Box>
           <Flex align="center" style={{ gap: '8px', marginLeft: 'auto' }}>
-            <ConnectWallet />
-            <BurgerMenu />
+            {/* <ConnectWallet /> */}
+            {/* <BurgerMenu /> */}
+            <UserDetails/>
+            <TimeIcon/>
+            <SettingIcon/>
           </Flex>
         </Toolbar>
       </AppBar>

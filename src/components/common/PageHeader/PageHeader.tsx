@@ -8,6 +8,7 @@ import {
   TextField,
 } from '@mui/material';
 import React from 'react';
+import { ReactComponent as ClockIcon } from './Clock.svg';
 
 export default function PageHeaderSection(
   props: PageHeaderProps,
@@ -19,9 +20,16 @@ export default function PageHeaderSection(
     >
       <div className="flex" style={{ justifyContent: 'space-between' }}>
         <div className="text-[24px] font-semibold">Farm</div>
-        <div className="flex flex-col">
-          <span style={{fontSize:"15px",color:"#DBDBDB"}}>Total Daily Emission</span>
-          <span className="!text-[16px]">15,904,363.86 TEDY</span>
+        <div className="flex">
+          <div>
+            <ClockIcon />
+          </div>
+          <div className="flex flex-col ml-4">
+            <span style={{ fontSize: '15px', color: '#DBDBDB' }}>
+              Total Daily Emission
+            </span>
+            <span className="!text-[16px]">15,904,363.86 TEDY</span>
+          </div>
         </div>
       </div>
       <div className="mt-4 flex">
