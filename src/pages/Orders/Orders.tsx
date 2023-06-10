@@ -15,6 +15,7 @@ import { positions$ } from '../../gateway/api/positions';
 import { LiquidityState } from './common/types/LiquidityState';
 import { OrdersDefaultLayout } from './default/OrdersDefaultLayout';
 import { PoolsOrPositionsFilterValue } from './default/common/components/LiquidityFilter/LiquidityFilter';
+import OrdersHeaderSection from './default/common/components/OrdersHeaderSection/OrdersHeaderSection';
 
 // import { LiquidityMobileLayout } from './mobile/LiquidityMobileLayout';
 
