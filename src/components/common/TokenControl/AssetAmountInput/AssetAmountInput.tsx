@@ -20,7 +20,7 @@ const _InnerInput: FC<InputProps> = ({ onChange, ...rest }) => {
           padding: '35px 20px',
         },
       }}
-      label={rest.label}
+      // label={rest.label}
       variant="outlined"
       placeholder={rest.placeholder}
       value={rest.value}
@@ -109,7 +109,7 @@ const _TokenAmountInput: React.FC<TokenAmountInputProps> = ({
       decimalSeparator="."
       size="large"
       placeholder="0.0"
-      label={label}
+      // label={label}
       customInput={_InnerInput}
       disabled={disabled}
     />

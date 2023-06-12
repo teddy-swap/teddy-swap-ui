@@ -23,7 +23,6 @@ import {
 } from './AssetAmountInput/AssetAmountInput';
 import { AssetBalance } from './AssetBalance/AssetBalance';
 import { AssetSelect } from './AssetSelect/AssetSelect';
-
 export interface TokenControlValue {
   amount?: TokenAmountInputValue;
   asset?: AssetInfo;
@@ -125,6 +124,7 @@ export const AssetControlFormItem: FC<AssetControlFormItemProps> = ({
   return (
     <div className="mt-6">
       <div className="flex flex-col justify-center content-center">
+          <label>{label}</label>
         <div className="flex justify-center content-center relative">
           <div className="flex w-full">
             {amountName && (
@@ -162,8 +162,7 @@ export const AssetControlFormItem: FC<AssetControlFormItemProps> = ({
             )}
           </div>
         </div>
-
-        <Form.Listener name={amountName}>
+         <Form.Listener name={amountName}>
           {({ value }) => (
             <Animation.Expand
               expanded={
