@@ -4,7 +4,6 @@ import cn from 'classnames';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-
 import { device } from '../../../../common/constants/size';
 import { useObservable } from '../../../../common/hooks/useObservable';
 import { selectedWalletState$ } from '../../../../gateway/api/wallets';
@@ -13,6 +12,7 @@ import { IsCardano } from '../../../IsCardano/IsCardano';
 import { IsErgo } from '../../../IsErgo/IsErgo';
 import { AppLogo } from '../../AppLogo/AppLogo';
 import TeddyLogo from '../../AppLogo/TeddyLogo';
+import LogoText from '../../LogoText/LogoText';
 import { CardanoMaintenance } from '../CardanoMaintenance/CardanoMaintenance';
 import { OperationsHistory } from '../OperationsHistory/OperationsHistory';
 import { Analytics } from './Analytics/Analytics';
@@ -21,7 +21,9 @@ import { ConnectWallet } from './ConnectWallet/ConnectWallet';
 import { GetTestTokensButton } from './GetTestTokensButton/GetTestTokensButton';
 import { Navigation } from './Navigation/Navigation';
 import { NetworkDropdown } from './NetworkDropdown/NetworkDropdown';
-
+import UserDetails from './UserDetails/UserDetails';
+import TimeIcon from './TimeIcon/TimeIcon';
+import SettingIcon from './SettingIcon/SettingIcon';
 export interface HeaderProps {
   className?: string;
   scrolled?: boolean;
@@ -45,7 +47,7 @@ const HeaderWrapper = styled.div`
   }
 `;
 
-const pages = ['swap', 'liquidity', 'orders'];
+const pages = ['swap', 'farm', 'liquidity', 'orders'];
 
 export const _Header: React.FC<HeaderProps> = ({
   className,
@@ -62,8 +64,11 @@ export const _Header: React.FC<HeaderProps> = ({
         style={{ backgroundImage: 'none', zIndex: 11 }}
       >
         <Toolbar disableGutters>
-          <TeddyLogo className="mr-6 flex" />
-          <Box className="flex-grow hidden gap-6 md:flex">
+          <div className="flex gap-x-2 items-center mr-6">
+            <TeddyLogo className="flex" />
+            <LogoText />
+          </div>
+          <Box className="flex-grow hidden gap-6 md:flex lg:hidden">
             {pages.map((page) => (
               <NavLink
                 to={page}
@@ -96,9 +101,12 @@ export const _Header: React.FC<HeaderProps> = ({
               Leaderboard
             </a>
           </Box>
-          <Flex align="center" style={{ gap: '8px', marginLeft: 'auto' }}>
-            <ConnectWallet />
-            <BurgerMenu />
+          <Flex align="center" className="lg:hidden" style={{ gap: '8px', marginLeft: 'auto' }}>
+            {/* <ConnectWallet /> */}
+            {/* <BurgerMenu /> */}
+            <UserDetails/>
+            <TimeIcon/>
+            <SettingIcon/>
           </Flex>
         </Toolbar>
       </AppBar>
