@@ -693,10 +693,6 @@ video {
   margin-left: 1rem;
 }
 
-.ml-2 {
-  margin-left: 0.5rem;
-}
-
 .block {
   display: block;
 }
@@ -809,10 +805,6 @@ video {
   width: 250px;
 }
 
-.w-\[991px\]{
-  width:991px
-}
-
 .w-\[calc\(100\%\/4\)\] {
   width: calc(100% / 4);
 }
@@ -879,10 +871,6 @@ video {
   justify-content: center;
 }
 
-.justify-between {
-  justify-content: space-between;
-}
-
 .justify-items-end {
   justify-items: end;
 }
@@ -921,10 +909,6 @@ video {
   border-width: 1px;
 }
 
-.border-2 {
-  border-width: 2px;
-}
-
 .\!border {
   border-width: 1px !important;
 }
@@ -952,10 +936,6 @@ video {
 .bg-\[\#274e63\] {
   --tw-bg-opacity: 1;
   background-color: rgb(39 78 99 / var(--tw-bg-opacity));
-}
-
-.bg-black{
-  background-color: black;
 }
 
 .bg-slate-900\/70 {
@@ -1041,11 +1021,6 @@ video {
   padding-top: 2.5rem;
 }
 
-.py-10{
-  padding-top:2.5rem ;
-  padding-bottom:2.5rem ;
-}
-
 .\!pr-2 {
   padding-right: 0.5rem !important;
 }
@@ -1053,11 +1028,6 @@ video {
 .pr-\[25px\] {
   padding-right: 25px;
 }
-
-.pl-4 {
-  padding-left: 1rem;
-}
-
 
 .text-center {
   text-align: center;
@@ -1104,10 +1074,6 @@ video {
 
 .font-bold {
   font-weight: 700;
-}
-
-.font-semibold {
-  font-weight: 600;
 }
 
 .\!font-bold {
@@ -1253,58 +1219,4 @@ video {
   .lg\:\!w-\[calc\(100\%\/6\)\] {
     width: calc(100% / 6) !important;
   }
-
-}
-
-@media (min-width: 1770px){
-  .container{
-    width:1700px
-  }
-}
-
-
-@media (max-width: 1024px){
-  .max-lg{
-    width:917px
-  }
-  .max-lg\:w-\[250px\]{
-    width:250px
-  }
-}
-
-@media (max-width: 1300px){
-  .lg\:hidden{
-   visibility: hidden;
-  }
-}
-
-@media (min-width: 992px) {
-  .lg\:w-\[sx\]{
-width:66.67%
-  }
-}
-
-@media (min-width: 992px) {
-  .lg\:w-\[mx\]{
-width:33.33%
-  }
-}
-
-/* --------------------------------------Material Css------------------------------------------------------------ */
-
-.MuiSlider-markLabel .css-1pmkuve-MuiSlider-markLabel{
-  border: 2px solid white;
-  border-radius: 10px;
-  left: 12.5% !important;
-}
-
-.css-1wwpltm-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
-border-radius: 10px !important;
-width: 300px;
-height: 38px;
-}
-
-.css-1wwpltm-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
-  background-color: #3D505A;
-  border-color: #3D505A;
 }

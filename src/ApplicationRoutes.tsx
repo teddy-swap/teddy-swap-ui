@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
-import { Navigate, useRoutes } from 'react-router-dom';
+import { Navigate, Outlet, useRoutes } from 'react-router-dom';
+
 import { NetworkDomManager } from './common/services/NetworkDomManager';
+import { Layout } from './components/common/Layout/Layout';
 import { RouteConfigExtended } from './components/RouterTitle/RouteConfigExtended';
 import { RouterTitle } from './components/RouterTitle/RouterTitle';
 import { AddLiquidityOrCreatePool } from './pages/AddLiquidityOrCreatePool/AddLiquidityOrCreatePool';
-import { Farm } from './pages/Farm/Farm';
 import { Liquidity } from './pages/Liquidity/Liquidity';
 import { LockLiquidity } from './pages/LockLiquidity/LockLiquidity';
 import { Orders } from './pages/Orders/Orders';
@@ -40,66 +41,6 @@ export const routesConfig: RouteConfigExtended[] = [
             title: 'Liquidity',
             path: '',
             element: <Liquidity />,
-          },
-          {
-            title: 'Add Liquidity',
-            path: 'add',
-            element: <AddLiquidityOrCreatePool />,
-          },
-          {
-            title: 'Create Pool',
-            path: 'create',
-            element: <AddLiquidityOrCreatePool />,
-          },
-          {
-            path: ':poolId',
-            children: [
-              {
-                title: 'Remove Liquidity',
-                path: 'remove',
-                element: <RemoveLiquidity />,
-              },
-              {
-                title: 'Lock Liquidity',
-                path: 'lock',
-                element: <LockLiquidity />,
-              },
-              {
-                title: 'Relock Liquidity',
-                path: 'relock',
-                element: <RelockLiquidity />,
-              },
-              {
-                title: 'Withdrawal Liquidity',
-                path: 'withdrawal',
-                element: <WithdrawalLiquidity />,
-              },
-              {
-                title: 'Add Liquidity',
-                path: 'add',
-                element: <AddLiquidityOrCreatePool />,
-              },
-              {
-                title: 'Create Pool',
-                path: 'create',
-                element: <AddLiquidityOrCreatePool />,
-              },
-              {
-                title: 'Pool Overview',
-                path: '',
-                element: <PoolOverview />,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        path: 'farm',
-        children: [
-          {
-            title: 'Farm',
-            path: '',
-            element: <Farm />,
           },
           {
             title: 'Add Liquidity',

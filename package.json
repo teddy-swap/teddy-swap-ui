@@ -68,7 +68,6 @@
     "memoizee": "^0.4.15",
     "numeral": "^2.0.6",
     "posthog-js": "^1.23.0",
-    "prettier-plugin-import-sort": "^0.0.7",
     "qs": "^6.10.3",
     "rc-virtual-list": "^3.4.4",
     "react": "^18.2.0",
@@ -99,7 +98,6 @@
     "@lingui/cli": "^3.13.2",
     "@lingui/macro": "^3.13.2",
     "@lingui/react": "^3.13.2",
-    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/bs58": "^4.0.1",
     "@types/js-cookie": "^2.2.7",
     "@types/lingui__core": "^3.0.0",
@@ -153,9 +151,7 @@
           "**/*.stories.*"
         ],
         "rules": {
-          "import/no-anonymous-default-export": "off",
-          "sort-imports": "off",
-          "import/order": "off"
+          "import/no-anonymous-default-export": "off"
         }
       }
     ]
