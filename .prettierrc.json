@@ -3,13 +3,5 @@
   "singleQuote": true,
   "trailingComma": "all",
   "arrowParens": "always",
-  "endOfLine": "auto",
-  "importOrder": [
-    "^@core/(.*)$",
-    "^@server/(.*)$",
-    "^@ui/(.*)$",
-    "^[./]"
-  ],
-  "importOrderSeparation": false,
-  "plugins": ["prettier-plugin-import-sort"]
+  "endOfLine":"auto"
 }
