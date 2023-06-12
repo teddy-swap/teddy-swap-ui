@@ -809,6 +809,10 @@ video {
   width: 250px;
 }
 
+.w-\[991px\]{
+  width:991px
+}
+
 .w-\[calc\(100\%\/4\)\] {
   width: calc(100% / 4);
 }
@@ -1037,6 +1041,11 @@ video {
   padding-top: 2.5rem;
 }
 
+.py-10{
+  padding-top:2.5rem ;
+  padding-bottom:2.5rem ;
+}
+
 .\!pr-2 {
   padding-right: 0.5rem !important;
 }
@@ -1244,6 +1253,16 @@ video {
   .lg\:\!w-\[calc\(100\%\/6\)\] {
     width: calc(100% / 6) !important;
   }
+
+}
+
+@media (max-width: 1024px){
+  .max-lg{
+    width:917px
+  }
+  .max-lg\:w-\[250px\]{
+    width:250px
+  }
 }
 
 /* --------------------------------------Material Css------------------------------------------------------------ */
@@ -1252,4 +1271,15 @@ video {
   border: 2px solid white;
   border-radius: 10px;
   left: 12.5% !important;
+}
+
+.css-1wwpltm-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
+border-radius: 10px !important;
+width: 300px;
+height: 38px;
+}
+
+.css-1wwpltm-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
+  background-color: #3D505A;
+  border-color: #3D505A;
 }
