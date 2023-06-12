@@ -56,6 +56,9 @@ import { PoolSelector } from './PoolSelector/PoolSelector';
 import { SwapFormModel } from './SwapFormModel';
 import { SwapGraph } from './SwapGraph/SwapGraph';
 import { SwapInfo } from './SwapInfo/SwapInfo';
+import EqualizerIcon from '@mui/icons-material/Equalizer';
+import ImportExportIcon from '@mui/icons-material/ImportExport';
+import { Typography } from '@ergolabs/ui-kit';
 
 const getToAssets = (fromAsset?: string) =>
   fromAsset ? getDefaultAssetsFor(fromAsset) : defaultTokenAssets$;
@@ -395,26 +398,34 @@ export const Swap = (): JSX.Element => {
       isSwapLocked={isSwapLocked}
       action={submitSwap}
     >
-      <Page
-        className="w-[448px] !p-0"
-        maxWidth={448}
-        widgetBaseHeight={pool ? 432 : 272}
-        leftWidget={
-          selectedNetwork.name === 'ergo' && (
-            <SwapGraph
-              pool={pool}
-              isReversed={reversedRatio}
-              setReversed={setReversedRatio}
-              fromAsset={fromAsset}
-            />
-          )
-        }
-        widgetOpened={leftWidgetOpened}
-        onWidgetClose={() => setLeftWidgetOpened(false)}
-      >
+    {/* <div className="flex w-full justify-center"> */}
+
+      <div className="flex gap-6 container">
+      <div className="w-full lg:w-[mx]" style={{backgroundColor:"black",borderRadius:"10px"}}>
+  {/* <Page
+    className="!p-0"
+    widgetBaseHeight={pool ? 432 : 272}
+    leftWidget={
+      selectedNetwork.name === 'ergo' && (
+        <SwapGraph
+          pool={pool}
+          isReversed={reversedRatio}
+          setReversed={setReversedRatio}
+          fromAsset={fromAsset}
+        />
+      )
+    }
+    widgetOpened={leftWidgetOpened}
+    onWidgetClose={() => setLeftWidgetOpened(false)}
+  > */}
         <div className="p-[24px]">
           <CardHeader
-            action={OperationSettings && <OperationSettings />}
+           action={
+            <>
+              <EqualizerIcon />
+              {OperationSettings && <OperationSettings />}
+            </>
+          }
             title="Swap"
             classes={{ title: '!font-bold !text-xl' }}
             className="!p-0 !text-white"
@@ -424,7 +435,7 @@ export const Swap = (): JSX.Element => {
               <AssetControlFormItem
                 label={'From'}
                 loading={allAmmPoolsLoading}
-                bordered
+                bordered 
                 maxButton
                 handleMaxButtonClick={handleMaxButtonClick}
                 assets$={defaultTokenAssets$}
@@ -434,9 +445,10 @@ export const Swap = (): JSX.Element => {
                 tokenName="fromAsset"
               />
             </div>
-            <div className="mt-1 mb-2">
+            <div className="mt-1 flex justify-center"><ImportExportIcon sx={{border:"1px solid #A4A4A4",borderRadius:"15px",padding:"2px"}}/></div>
+            <div className="mb-2">
               <AssetControlFormItem
-                label={'To'}
+                label={'To(estimated)'}
                 loading={allAmmPoolsLoading}
                 bordered
                 assets$={toAssets$}
@@ -446,6 +458,7 @@ export const Swap = (): JSX.Element => {
                 tokenName="toAsset"
               />
             </div>
+            
             <div className="my-2">
               {({ value, onChange }: { value: any; onChange: any }) => (
                 <Flex.Item marginTop={!!value ? 4 : 0}>
@@ -472,8 +485,26 @@ export const Swap = (): JSX.Element => {
               )}
             </Form.Listener>
           </div>
+          <div className="flex flex-col">
+
+          <div>
+          1 ADA = 0.31 iUSD
+          </div>
+         <Flex>
+          <span>dsv</span>
+          <span>gvubvuf</span>
+         </Flex>
+       
         </div>
-      </Page>
+        </div>
+      {/* </Page> */}
+        </div>
+        <div className="w-full lg:w-[sx]">
+          {null}
+        </div>
+      </div>
+    
+    {/* </div> */}
     </ActionForm>
   );
 };

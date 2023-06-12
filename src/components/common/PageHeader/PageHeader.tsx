@@ -15,8 +15,8 @@ export default function PageHeaderSection(
 ): React.ReactElement {
   return (
     <div
-      style={{ width: '991px', alignContent: 'center' }}
-      className="flex flex-col"
+      style={{ alignContent: 'center' }}
+      className="flex flex-col w-[991px] max-lg"
     >
       <div className="flex" style={{ justifyContent: 'space-between' }}>
         <div className="text-[24px] font-semibold">Farm</div>

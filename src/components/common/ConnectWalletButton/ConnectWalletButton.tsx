@@ -72,7 +72,7 @@ export const ConnectWalletButton: FC<ConnectWalletButtonProps> = ({
           onClick={() => setIsDialogOpen(true)}
           className={cn(className, '!font-bold')}
         >
-          <Trans>Connect wallet</Trans>
+          <Trans>Swap</Trans>
         </Button>
       )}
       {isWalletConnected && <>{children}</>}
