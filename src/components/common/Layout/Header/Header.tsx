@@ -68,7 +68,7 @@ export const _Header: React.FC<HeaderProps> = ({
             <TeddyLogo className="flex" />
             <LogoText />
           </div>
-          <Box className="flex-grow hidden gap-6 md:flex">
+          <Box className="flex-grow hidden gap-6 md:flex lg:hidden">
             {pages.map((page) => (
               <NavLink
                 to={page}
@@ -101,7 +101,7 @@ export const _Header: React.FC<HeaderProps> = ({
               Leaderboard
             </a>
           </Box>
-          <Flex align="center" style={{ gap: '8px', marginLeft: 'auto' }}>
+          <Flex align="center" className="lg:hidden" style={{ gap: '8px', marginLeft: 'auto' }}>
             {/* <ConnectWallet /> */}
             {/* <BurgerMenu /> */}
             <UserDetails/>
