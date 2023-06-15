@@ -398,11 +398,11 @@ export const Swap = (): JSX.Element => {
       isSwapLocked={isSwapLocked}
       action={submitSwap}
     >
-    {/* <div className="flex w-full justify-center"> */}
+      <div className="flex w-full justify-center">
 
-      <div className="flex gap-6 container">
-      <div className="w-full lg:w-[mx]" style={{backgroundColor:"black",borderRadius:"10px"}}>
-  {/* <Page
+        <div className="flex gap-6 container">
+          <div className="w-full" style={{ backgroundColor: "black", borderRadius: "10px" }}>
+            {/* <Page
     className="!p-0"
     widgetBaseHeight={pool ? 432 : 272}
     leftWidget={
@@ -418,93 +418,90 @@ export const Swap = (): JSX.Element => {
     widgetOpened={leftWidgetOpened}
     onWidgetClose={() => setLeftWidgetOpened(false)}
   > */}
-        <div className="p-[24px]">
-          <CardHeader
-           action={
-            <>
-              <EqualizerIcon />
-              {OperationSettings && <OperationSettings />}
-            </>
-          }
-            title="Swap"
-            classes={{ title: '!font-bold !text-xl' }}
-            className="!p-0 !text-white"
-          />
-          <div className="flex flex-col">
-            <div className="mt-2 mb-1">
-              <AssetControlFormItem
-                label={'From'}
-                loading={allAmmPoolsLoading}
-                bordered 
-                maxButton
-                handleMaxButtonClick={handleMaxButtonClick}
-                assets$={defaultTokenAssets$}
-                assetsToImport$={tokenAssetsToImport$}
-                importedAssets$={importedTokenAssets$}
-                amountName="fromAmount"
-                tokenName="fromAsset"
+            <div className="p-[24px]">
+              <CardHeader
+                action={
+                  <>
+                    <EqualizerIcon />
+                    {OperationSettings && <OperationSettings />}
+                  </>
+                }
+                title="Swap"
+                classes={{ title: '!font-bold !text-xl' }}
+                className="!p-0 !text-white"
               />
-            </div>
-            <div className="mt-1 flex justify-center"><ImportExportIcon sx={{border:"1px solid #A4A4A4",borderRadius:"15px",padding:"2px"}}/></div>
-            <div className="mb-2">
-              <AssetControlFormItem
-                label={'To(estimated)'}
-                loading={allAmmPoolsLoading}
-                bordered
-                assets$={toAssets$}
-                assetsToImport$={toAssetsToImport$}
-                importedAssets$={toImportedAssets$}
-                amountName="toAmount"
-                tokenName="toAsset"
-              />
-            </div>
-            
-            <div className="my-2">
-              {({ value, onChange }: { value: any; onChange: any }) => (
-                <Flex.Item marginTop={!!value ? 4 : 0}>
-                  <PoolSelector value={value} onChange={onChange} />
-                </Flex.Item>
-              )}
-            </div>
-            <div className="my-2">
-              <ActionForm.Button analytics={{ location: 'swap' }}>
-                <Trans>Swap</Trans>
-              </ActionForm.Button>
-            </div>
-            <Form.Listener>
-              {({ value }) => (
-                <>
-                  <div className="my-4">
-                    <SwapInfo
-                      value={value}
-                      isReversed={reversedRatio}
-                      setReversed={setReversedRatio}
-                    />
-                  </div>
-                </>
-              )}
-            </Form.Listener>
-          </div>
-          <div className="flex flex-col">
+              <div className="flex flex-col">
+                <div className="mt-2 mb-1">
+                  <AssetControlFormItem
+                    label={'From'}
+                    loading={allAmmPoolsLoading}
+                    bordered
+                    maxButton
+                    handleMaxButtonClick={handleMaxButtonClick}
+                    assets$={defaultTokenAssets$}
+                    assetsToImport$={tokenAssetsToImport$}
+                    importedAssets$={importedTokenAssets$}
+                    amountName="fromAmount"
+                    tokenName="fromAsset"
+                  />
+                </div>
+                <div className="mt-1 flex justify-center"><ImportExportIcon sx={{ border: "1px solid #A4A4A4", borderRadius: "15px", padding: "2px" }} /></div>
+                <div className="mb-2">
+                  <AssetControlFormItem
+                    label={'To(estimated)'}
+                    loading={allAmmPoolsLoading}
+                    bordered
+                    assets$={toAssets$}
+                    assetsToImport$={toAssetsToImport$}
+                    importedAssets$={toImportedAssets$}
+                    amountName="toAmount"
+                    tokenName="toAsset"
+                  />
+                </div>
 
-          <div>
-          1 ADA = 0.31 iUSD
+                <div className="my-2">
+                  {({ value, onChange }: { value: any; onChange: any }) => (
+                    <Flex.Item marginTop={!!value ? 4 : 0}>
+                      <PoolSelector value={value} onChange={onChange} />
+                    </Flex.Item>
+                  )}
+                </div>
+                <div className="my-2">
+                  <ActionForm.Button analytics={{ location: 'swap' }}>
+                    <Trans>Swap</Trans>
+                  </ActionForm.Button>
+                </div>
+                <Form.Listener>
+                  {({ value }) => (
+                    <>
+                      <div className="my-4">
+                        <SwapInfo
+                          value={value}
+                          isReversed={reversedRatio}
+                          setReversed={setReversedRatio}
+                        />
+                      </div>
+                    </>
+                  )}
+                </Form.Listener>
+              </div>
+              <div className="flex flex-col">
+
+                <div>
+                  1 ADA = 0.31 iUSD
+                </div>
+                <Flex>
+                  <span>dsv</span>
+                  <span>gvubvuf</span>
+                </Flex>
+
+              </div>
+            </div>
+            {/* </Page> */}
           </div>
-         <Flex>
-          <span>dsv</span>
-          <span>gvubvuf</span>
-         </Flex>
-       
         </div>
-        </div>
-      {/* </Page> */}
-        </div>
-        <div className="w-full lg:w-[sx]">
-          {null}
-        </div>
+
       </div>
-    
-    {/* </div> */}
     </ActionForm>
   );
 };

@@ -1256,37 +1256,12 @@ video {
 
 }
 
-@media (min-width: 1770px){
-  .container{
-    width:1700px
-  }
-}
-
-
 @media (max-width: 1024px){
   .max-lg{
     width:917px
   }
   .max-lg\:w-\[250px\]{
     width:250px
-  }
-}
-
-@media (max-width: 1300px){
-  .lg\:hidden{
-   visibility: hidden;
-  }
-}
-
-@media (min-width: 992px) {
-  .lg\:w-\[sx\]{
-width:66.67%
-  }
-}
-
-@media (min-width: 992px) {
-  .lg\:w-\[mx\]{
-width:33.33%
   }
 }
 

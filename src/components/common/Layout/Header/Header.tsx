@@ -68,14 +68,13 @@ export const _Header: React.FC<HeaderProps> = ({
             <TeddyLogo className="flex" />
             <LogoText />
           </div>
-          <Box className="flex-grow hidden gap-6 md:flex lg:hidden">
+          <Box className="flex-grow hidden gap-6 md:flex">
             {pages.map((page) => (
               <NavLink
                 to={page}
                 key={page}
                 className={({ isActive }) =>
-                  `my-2 block text-base font-bold capitalize hover:text-white transition ${
-                    isActive ? 'text-white' : 'text-zinc-400'
+                  `my-2 block text-base font-bold capitalize hover:text-white transition ${isActive ? 'text-white' : 'text-zinc-400'
                   }`
                 }
               >
@@ -101,12 +100,12 @@ export const _Header: React.FC<HeaderProps> = ({
               Leaderboard
             </a>
           </Box>
-          <Flex align="center" className="lg:hidden" style={{ gap: '8px', marginLeft: 'auto' }}>
+          <Flex align="center" style={{ gap: '8px', marginLeft: 'auto' }}>
             {/* <ConnectWallet /> */}
             {/* <BurgerMenu /> */}
-            <UserDetails/>
-            <TimeIcon/>
-            <SettingIcon/>
+            <UserDetails />
+            <TimeIcon />
+            <SettingIcon />
           </Flex>
         </Toolbar>
       </AppBar>
