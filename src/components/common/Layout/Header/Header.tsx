@@ -62,15 +62,17 @@ export const _Header: React.FC<HeaderProps> = ({
         style={{ backgroundImage: 'none', zIndex: 11 }}
       >
         <Toolbar disableGutters>
-          <TeddyLogo className="mr-6 flex" />
+          <div className="flex gap-x-2 items-center mr-6">
+            <TeddyLogo className="flex" />
+            <LogoText />
+          </div>
           <Box className="flex-grow hidden gap-6 md:flex">
             {pages.map((page) => (
               <NavLink
                 to={page}
                 key={page}
                 className={({ isActive }) =>
-                  `my-2 block text-base font-bold capitalize hover:text-white transition ${
-                    isActive ? 'text-white' : 'text-zinc-400'
+                  `my-2 block text-base font-bold capitalize hover:text-white transition ${isActive ? 'text-white' : 'text-zinc-400'
                   }`
                 }
               >
@@ -97,6 +99,12 @@ export const _Header: React.FC<HeaderProps> = ({
             </a>
           </Box>
           <Flex align="center" style={{ gap: '8px', marginLeft: 'auto' }}>
+            {/* <ConnectWallet /> */}
+            {/* <BurgerMenu /> 
+            <UserDetails />
+            <TimeIcon />
+            <SettingIcon /> */}
+
             <ConnectWallet />
             <BurgerMenu />
           </Flex>

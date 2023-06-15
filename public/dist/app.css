@@ -1219,4 +1219,33 @@ video {
   .lg\:\!w-\[calc\(100\%\/6\)\] {
     width: calc(100% / 6) !important;
   }
+
+}
+
+@media (max-width: 1024px){
+  .max-lg{
+    width:917px
+  }
+  .max-lg\:w-\[250px\]{
+    width:250px
+  }
+}
+
+/* --------------------------------------Material Css------------------------------------------------------------ */
+
+.MuiSlider-markLabel .css-1pmkuve-MuiSlider-markLabel{
+  border: 2px solid white;
+  border-radius: 10px;
+  left: 12.5% !important;
+}
+
+.css-1wwpltm-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
+border-radius: 10px !important;
+width: 300px;
+height: 38px;
+}
+
+.css-1wwpltm-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
+  background-color: #3D505A;
+  border-color: #3D505A;
 }
