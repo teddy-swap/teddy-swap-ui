@@ -19,15 +19,21 @@
   "plugins": [
     "react-app",
     "@typescript-eslint",
-    "react-hooks"
+    "react-hooks",
+    "prettier",
+    "simple-import-sort"
   ],
   "extends": [
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended"
   ],
   "rules": {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "off",
     "no-console": ["warn", { "allow": ["warn", "error"] }],

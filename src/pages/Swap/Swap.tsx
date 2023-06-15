@@ -56,9 +56,6 @@ import { PoolSelector } from './PoolSelector/PoolSelector';
 import { SwapFormModel } from './SwapFormModel';
 import { SwapGraph } from './SwapGraph/SwapGraph';
 import { SwapInfo } from './SwapInfo/SwapInfo';
-import EqualizerIcon from '@mui/icons-material/Equalizer';
-import ImportExportIcon from '@mui/icons-material/ImportExport';
-import { Typography } from '@ergolabs/ui-kit';
 
 const getToAssets = (fromAsset?: string) =>
   fromAsset ? getDefaultAssetsFor(fromAsset) : defaultTokenAssets$;
@@ -398,37 +395,44 @@ export const Swap = (): JSX.Element => {
       isSwapLocked={isSwapLocked}
       action={submitSwap}
     >
-      <div className="flex w-full justify-center">
 
-        <div className="flex gap-6 container">
-          <div className="w-full" style={{ backgroundColor: "black", borderRadius: "10px" }}>
-            {/* <Page
-    className="!p-0"
-    widgetBaseHeight={pool ? 432 : 272}
-    leftWidget={
-      selectedNetwork.name === 'ergo' && (
-        <SwapGraph
-          pool={pool}
-          isReversed={reversedRatio}
-          setReversed={setReversedRatio}
-          fromAsset={fromAsset}
-        />
-      )
-    }
-    widgetOpened={leftWidgetOpened}
-    onWidgetClose={() => setLeftWidgetOpened(false)}
-  > */}
-            <div className="p-[24px]">
-              <CardHeader
-                action={
-                  <>
-                    <EqualizerIcon />
-                    {OperationSettings && <OperationSettings />}
-                  </>
-                }
-                title="Swap"
-                classes={{ title: '!font-bold !text-xl' }}
-                className="!p-0 !text-white"
+      <Page
+        className="w-[448px] !p-0"
+        maxWidth={448}
+        widgetBaseHeight={pool ? 432 : 272}
+        leftWidget={
+          selectedNetwork.name === 'ergo' && (
+            <SwapGraph
+              pool={pool}
+              isReversed={reversedRatio}
+              setReversed={setReversedRatio}
+              fromAsset={fromAsset}
+            />
+          )
+        }
+        widgetOpened={leftWidgetOpened}
+        onWidgetClose={() => setLeftWidgetOpened(false)}
+      >
+        <div className="p-[24px]">
+          <CardHeader
+            action={OperationSettings && <OperationSettings />}
+            title="Swap"
+            classes={{ title: '!font-bold !text-xl' }}
+            className="!p-0 !text-white"
+          />
+          <div className="flex flex-col">
+            <div className="mt-2 mb-1">
+              <AssetControlFormItem
+                label={'From'}
+                loading={allAmmPoolsLoading}
+                bordered
+                maxButton
+                handleMaxButtonClick={handleMaxButtonClick}
+                assets$={defaultTokenAssets$}
+                assetsToImport$={tokenAssetsToImport$}
+                importedAssets$={importedTokenAssets$}
+                amountName="fromAmount"
+                tokenName="fromAsset"
               />
               <div className="flex flex-col">
                 <div className="mt-2 mb-1">
@@ -497,11 +501,46 @@ export const Swap = (): JSX.Element => {
 
               </div>
             </div>
-            {/* </Page> */}
+            <div className="mt-1 mb-2">
+              <AssetControlFormItem
+                label={'To'}
+                loading={allAmmPoolsLoading}
+                bordered
+                assets$={toAssets$}
+                assetsToImport$={toAssetsToImport$}
+                importedAssets$={toImportedAssets$}
+                amountName="toAmount"
+                tokenName="toAsset"
+              />
+            </div>
+            <div className="my-2">
+              {({ value, onChange }: { value: any; onChange: any }) => (
+                <Flex.Item marginTop={!!value ? 4 : 0}>
+                  <PoolSelector value={value} onChange={onChange} />
+                </Flex.Item>
+              )}
+            </div>
+            <div className="my-2">
+              <ActionForm.Button analytics={{ location: 'swap' }}>
+                <Trans>Swap</Trans>
+              </ActionForm.Button>
+            </div>
+            <Form.Listener>
+              {({ value }) => (
+                <>
+                  <div className="my-4">
+                    <SwapInfo
+                      value={value}
+                      isReversed={reversedRatio}
+                      setReversed={setReversedRatio}
+                    />
+                  </div>
+                </>
+              )}
+            </Form.Listener>
           </div>
         </div>
-
-      </div>
+      </Page>
     </ActionForm>
   );
 };
