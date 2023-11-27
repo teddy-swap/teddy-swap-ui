@@ -112,7 +112,7 @@ export const applicationConfig: ApplicationConfig = {
       lbeAddress:
         'addr1q8aqtl375r0multvd2ekuvuqzxpltcqknq4t7jccht2ln7383r9tr2a445pm350p8lfmnu4tphdw9p3mjn4xq5nry28quf27d3',
       verifiedPoolListUrl:
-        'https://raw.githubusercontent.com/teddy-swap/verified-pools/main/mainnet.json',
+        'https://raw.githubusercontent.com/teddy-swap/verified-pools/main/unverified.json',
     },
     ergo: {
       defaultTokenListUrl: '',
