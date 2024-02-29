@@ -1,0 +1,85 @@
+.howtoParticipate-container {
+  max-width: 1300px;
+  margin: 100px auto;
+  width: 100%;
+  position: relative;
+  min-height: 90vh;
+
+  @media screen and (max-width: 1280px) {
+    min-height: auto;
+    margin: 150px auto 200px auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 95%;
+    margin: 100px auto 100px auto;
+  }
+
+  .heading-container {
+    font-size: 60px;
+    color: white;
+    text-align: center;
+    @media screen and (max-width: 768px) {
+      font-size: 45px;
+      color: white;
+    }
+  }
+
+  .radial-background {
+    background: radial-gradient(
+      50% 50%at 50% 50%,
+      rgba(0, 38, 83, 0.3),
+      rgba(21, 36, 60, 0)
+    );
+    position: absolute;
+    top: -800px;
+    right: 0;
+    rotate: -90deg;
+    width: 1071px;
+    height: 2200px;
+  }
+}
+
+.participate-container {
+  width: 100%;
+  margin-top: 200px;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 80px;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 30px !important;
+  }
+}
+
+.participatebox-container {
+  span {
+    font-size: 22px;
+    text-align: center;
+    font-weight: 500;
+    color: white;
+    max-width: 75%;
+
+    @media screen and (max-width: 768px) {
+      font-size: 20px;
+    }
+  }
+}
+
+.participation-circle {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: #181d2d !important;
+
+  @media screen and (max-width: 768px) {
+    width: 240px;
+    height: 240px;
+  }
+
+  div {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+  }
+}

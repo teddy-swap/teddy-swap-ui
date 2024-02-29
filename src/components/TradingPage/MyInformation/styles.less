@@ -1,0 +1,107 @@
+.myInfo-container {
+  max-width: 1400px;
+  margin: 100px auto;
+  width: 100%;
+  position: relative;
+
+  @media screen and (max-width: 768px) {
+    width: 95%;
+    margin: 100px auto 0 auto;
+  }
+
+  h1 {
+    text-align: left;
+    font-size: 60px;
+    font-weight: 500;
+
+    @media screen and (max-width: 768px) {
+      font-size: 32px !important;
+    }
+  }
+}
+
+.info-table {
+  width: 100%;
+  margin-top: 40px;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+
+  .info-table-header {
+    height: 70px;
+    background: #242734;
+    width: 100%;
+    padding: 0 35px;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    border-bottom: 1px solid #1e1f2b;
+
+    @media screen and (max-width: 768px) {
+      padding: 0 20px;
+      overflow-x: auto !important;
+      width: auto !important;
+    }
+
+    button {
+      border: 1px solid #1ed6ff !important;
+      background: var(--teddy-box-color-dark) !important;
+      border-radius: 12px;
+      width: 165px;
+      height: 48px;
+      margin-bottom: 18px;
+      margin-left: 58px;
+      font-size: 17px;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      &:hover {
+        background: var(--spectrum-box-bg-hover-glass) !important;
+      }
+    }
+
+    span {
+      font-size: 18px;
+      font-weight: 600;
+      color: white;
+      text-align: left;
+      min-width: 20%;
+
+      @media screen and (max-width: 768px) {
+        min-width: 160px;
+        max-width: fit-content;
+        margin: 0 10px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .info-table-row {
+    height: 100px;
+    background: #212533;
+    width: 100%;
+    padding: 0 35px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+
+    @media screen and (max-width: 768px) {
+      padding: 0 20px;
+      overflow-x: auto !important;
+      width: auto !important;
+    }
+
+    span {
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+      text-align: left;
+      min-width: 20%;
+
+      @media screen and (max-width: 768px) {
+        min-width: 160px;
+        max-width: fit-content;
+        margin: 0 10px;
+        font-size: 28px;
+      }
+    }
+  }
+}

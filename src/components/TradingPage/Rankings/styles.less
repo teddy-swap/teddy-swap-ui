@@ -1,0 +1,225 @@
+.rankings-container {
+  max-width: 1400px;
+  margin: 100px auto;
+  width: 100%;
+  position: relative;
+  margin-top: 300px;
+
+  @media screen and (max-width: 768px) {
+    width: 95%;
+    margin: 150px auto 0 auto;
+  }
+
+  @media screen and (max-width: 1280px) {
+    margin: 150px auto 0 auto;
+  }
+
+  .competetion-btn {
+    border: 1px solid #1ed6ff !important;
+    background: var(--teddy-box-color-dark) !important;
+    border-radius: 12px;
+    width: 240px;
+    height: 60px;
+    font-size: 20px;
+    margin: 50px auto;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      background: var(--spectrum-box-bg-hover-glass) !important;
+    }
+  }
+
+  h1 {
+    text-align: left;
+    font-size: 60px;
+    font-weight: 500;
+
+    @media screen and (max-width: 768px) {
+      font-size: 35px !important;
+    }
+  }
+
+  .radial-background {
+    background: radial-gradient(
+      50% 50%at 50% 50%,
+      #00347130,
+      rgba(21, 36, 60, 0)
+    );
+    width: 970px;
+    height: 2110px;
+    top: -600px;
+    right: 350px;
+    position: absolute;
+    rotate: -90deg;
+    @media screen and (max-width: 768px) {
+      z-index: 0;
+    }
+  }
+
+  .rankings-description {
+    font-size: 22px;
+    font-weight: 500;
+    color: white;
+    margin-top: 30px;
+
+    @media screen and (max-width: 768px) {
+      font-size: 19px;
+      margin-top: 20px;
+    }
+  }
+}
+
+.rankings-table {
+  width: 100%;
+  margin-top: 40px;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  @media screen and (max-width: 768px) {
+    z-index: 100;
+  }
+
+  .rankings-table-header {
+    height: 90px;
+    background: #242734;
+    width: 100%;
+    padding: 0 50px;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    border-bottom: 1px solid #1e1f2b;
+
+    @media screen and (max-width: 768px) {
+      padding: 0 20px;
+      overflow-x: auto !important;
+      width: auto !important;
+    }
+
+    span:nth-child(1) {
+      min-width: 12%;
+      @media screen and (max-width: 768px) {
+        min-width: 75px;
+      }
+    }
+    span:nth-child(2) {
+      min-width: 22%;
+      @media screen and (max-width: 768px) {
+        min-width: 220px;
+      }
+    }
+    span:nth-child(3) {
+      min-width: 22%;
+      @media screen and (max-width: 768px) {
+        min-width: 220px;
+      }
+    }
+    span:nth-child(4) {
+      min-width: 12%;
+      @media screen and (max-width: 768px) {
+        min-width: 100px;
+      }
+    }
+    span:nth-child(5) {
+      min-width: 12%;
+      @media screen and (max-width: 768px) {
+        min-width: 100px;
+      }
+    }
+    span:nth-child(6) {
+      text-align: center !important;
+      min-width: 20%;
+      @media screen and (max-width: 768px) {
+        min-width: 200px;
+      }
+    }
+
+    span {
+      font-size: 18px;
+      font-weight: 600;
+      color: white;
+      text-align: left;
+    }
+  }
+
+  .rankings-table-body {
+    min-height: 600px;
+    width: 100%;
+    padding: 40px 50px;
+    background: linear-gradient(145deg, #2e2f3a75, #181d2d);
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+
+    @media screen and (max-width: 768px) {
+      padding: 25px 20px;
+      overflow-x: auto !important;
+      width: auto !important;
+    }
+
+    .rankings-table-row {
+      padding: 18px 0px;
+
+      span:nth-child(1) {
+        min-width: 12%;
+        @media screen and (max-width: 768px) {
+          min-width: 75px;
+        }
+      }
+      span:nth-child(2) {
+        min-width: 22%;
+        @media screen and (max-width: 768px) {
+          min-width: 220px;
+        }
+      }
+      span:nth-child(3) {
+        min-width: 22%;
+        @media screen and (max-width: 768px) {
+          min-width: 220px;
+        }
+      }
+      span:nth-child(4) {
+        min-width: 12%;
+        @media screen and (max-width: 768px) {
+          min-width: 100px;
+        }
+      }
+      span:nth-child(5) {
+        min-width: 12%;
+        @media screen and (max-width: 768px) {
+          min-width: 100px;
+        }
+      }
+      span:nth-child(6) {
+        text-align: center !important;
+        min-width: 20%;
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        justify-content: center;
+
+        @media screen and (max-width: 768px) {
+          min-width: 200px;
+        }
+
+        button {
+          padding: 15px 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      span {
+        font-size: 16px;
+        font-weight: 600;
+        color: white;
+        text-align: left;
+        // min-width: 20%;
+      }
+
+      .total-rewards {
+        color: #26ffff;
+        font-weight: 700;
+      }
+    }
+  }
+}

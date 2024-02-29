@@ -1,0 +1,72 @@
+.quote-container {
+  max-width: 1350px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  margin-top: 150px;
+
+  @media screen and (max-width: 768px) {
+    width: 95%;
+    margin: 100px auto 0 auto;
+  }
+
+  h1 {
+    font-size: 70px !important;
+    text-align: center;
+    font-weight: 500 !important;
+    line-height: 81px !important;
+
+    @media screen and (max-width: 768px) {
+      font-size: 45px !important;
+      line-height: 51px !important;
+    }
+  }
+
+  .quote-text {
+    font-size: 22px;
+    line-height: 33px;
+    text-align: center;
+    max-width: 65%;
+    margin: 40px auto;
+
+    @media screen and (max-width: 768px) {
+      font-size: 20px;
+      line-height: 31px;
+      max-width: 100%;
+    }
+  }
+
+  .btnIcon-container {
+    margin-top: 30px;
+    gap: 30px;
+    max-width: 40%;
+    width: 100%;
+    margin: auto !important;
+
+    @media screen and (max-width: 768px) {
+      max-width: 100%;
+      gap: 20px;
+    }
+  }
+
+  .btnIcon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #1ed6ff !important;
+    background: var(--teddy-box-color-dark) !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      background: var(--spectrum-box-bg-hover-glass) !important;
+    }
+
+    @media screen and (max-width: 768px) {
+      height: 50px;
+      width: 50px;
+    }
+  }
+}

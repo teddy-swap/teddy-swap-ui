@@ -1,0 +1,32 @@
+.singleTimerBlock {
+  background: var(--teddy-box-color-dark);
+  border-radius: 16px;
+  width: 75px;
+  height: 75px;
+
+  @media screen and (max-width: 768px) {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+  }
+
+  span {
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+
+    @media screen and (max-width: 768px) {
+      font-size: 22px;
+      border-radius: 12px;
+    }
+  }
+}
+
+.timer-container {
+  gap: 8px !important;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 10px;
+    justify-content: center !important;
+  }
+}
