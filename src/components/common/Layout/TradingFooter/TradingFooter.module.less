@@ -1,0 +1,96 @@
+.tradingFooter {
+  max-width: 1700px;
+  margin: 0 auto;
+  margin-top: 250px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  place-content: center;
+  place-items: center;
+
+  @media screen and (max-width: 768px) {
+    margin: 150px auto 0px auto;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px;
+    width: 95%;
+    place-items: start;
+  }
+
+  .logoContainer {
+    align-self: flex-start;
+
+    img {
+      width: 245px;
+      height: 42px;
+      object-fit: cover;
+      margin-bottom: 18px;
+    }
+
+    .logoText {
+      font-size: 16px;
+      line-height: 27px;
+      max-width: 80%;
+      text-align: left;
+      color: #eafffc;
+    }
+  }
+
+  .iconsContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    align-self: flex-start;
+
+    margin-bottom: 15px;
+  }
+
+  .footerNavigationContainer {
+    align-self: flex-start;
+
+    .navHeading {
+      font-size: 22px;
+      line-height: 26px;
+      font-weight: 600;
+    }
+
+    .linksContainer {
+      margin-top: 15px !important;
+    }
+
+    .navLinks {
+      font-size: 16px;
+      line-height: 27px;
+      font-weight: 500;
+      color: #c2cad1;
+    }
+  }
+}
+
+.footerIconButton {
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+
+  a {
+    text-decoration: none;
+
+    img {
+      width: 24px;
+      height: 24px;
+      object-fit: cover;
+    }
+  }
+}
+
+.iconsText {
+  font-size: 16px !important;
+  line-height: 27px !important;
+  max-width: 80% !important;
+  text-align: left;
+  color: #eafffc !important;
+}
