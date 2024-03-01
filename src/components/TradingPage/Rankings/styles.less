@@ -53,6 +53,7 @@
     right: 350px;
     position: absolute;
     rotate: -90deg;
+    z-index: 0;
     @media screen and (max-width: 768px) {
       z-index: 0;
     }
@@ -76,8 +77,10 @@
   margin-top: 40px;
   border-top-right-radius: 12px;
   border-top-left-radius: 12px;
+
   @media screen and (max-width: 768px) {
     z-index: 100;
+    overflow-x: auto !important;
   }
 
   .rankings-table-header {
@@ -88,9 +91,13 @@
     border-top-right-radius: 12px;
     border-top-left-radius: 12px;
     border-bottom: 1px solid #1e1f2b;
+    cursor: pointer;
+    pointer-events: all;
+    z-index: 5000;
 
     @media screen and (max-width: 768px) {
       padding: 0 20px;
+      height: 90px;
       overflow-x: auto !important;
       width: auto !important;
     }
