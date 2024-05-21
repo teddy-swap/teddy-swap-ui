@@ -1,0 +1,61 @@
+@import "../../../assets/styles/variables/general.less";
+
+.singleItem {
+    display: flex;
+    gap: 8px;
+    // align-items: center;
+    color: var(--teddy-primary-text);
+
+    .image {
+        // width: 100%;
+        // max-width: 36px;
+        height: auto;
+    }
+
+    .rightSection {
+      
+        .mixTitleBox;
+        font-size: 14px;
+
+        .subTitle {
+           .mixSubTitleBox;
+           font-size: 12px;
+        }
+    }
+}
+
+.batchersCard {
+   background: var(--teddy-box-color);
+   border-radius: 18px;
+   color: #fff;
+
+   .bottomSection {
+    padding: 0px 20px 20px 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+
+    .itemsList {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+     @media only screen and (min-width: 480px) {
+         grid-template-columns: 1fr 1fr;
+       }
+   }
+
+   .btnList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    .btnPrimary {
+        .mixBtn;
+        font-size: 14px;
+        height: 36px;
+    }
+   }
+}
